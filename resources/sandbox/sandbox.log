@@ -1,0 +1,45 @@
+[2025-10-08T21:11:15.507Z] Starting Amplify sandbox: npx ampx sandbox --stream-function-logs
+[2025-10-08T21:11:17.482Z]   Amplify Sandbox
+[2025-10-08T21:11:17.483Z]   Identifier: 	feather
+[2025-10-08T21:11:17.483Z]   Stack: 	amplify-physicsaid-feather-sandbox-3f9639d634
+[2025-10-08T21:11:17.483Z]   Region: 	us-east-1
+[2025-10-08T21:11:17.483Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-08T21:11:17.782Z] 4:11:17 PM Synthesizing backend...
+[2025-10-08T21:11:18.540Z] 4:11:18 PM ✔ Backend synthesized in 0.76 seconds
+[2025-10-08T21:11:18.540Z] 4:11:18 PM Running type checks...
+[2025-10-08T21:11:20.850Z] 4:11:20 PM ✔ Type checks completed in 2.31 seconds
+[2025-10-08T21:11:20.852Z] 4:11:20 PM Building and publishing assets...
+[2025-10-08T21:11:23.106Z] 4:11:23 PM ✔ Built and published assets
+[2025-10-08T21:11:27.182Z] amplify-physicsaid-feather-sandbox-3f9639d634 |   0 | 4:11:24 PM | CREATE_IN_PROGRESS | AWS::CloudFormation::Stack | amplify-physicsaid-feather-sandbox-3f9639d634 User Initiated
+[2025-10-08T21:11:29.319Z] amplify-physicsaid-feather-sandbox-3f9639d634 |   0 | 4:11:27 PM | CREATE_IN_PROGRESS | AWS::CDK::Metadata | auth/CDKMetadata/Default (CDKMetadata)
+[2025-10-08T21:11:29.319Z] amplify-physicsaid-feather-sandbox-3f9639d634 |   0 | 4:11:27 PM | CREATE_IN_PROGRESS | AWS::CloudFormation::Stack | auth.NestedStack/auth.NestedStackResource (auth179371D7)
+[2025-10-08T21:11:29.319Z] amplify-physicsaid-feather-sandbox-3f9639d634 |   0 | 4:11:28 PM | CREATE_IN_PROGRESS | AWS::CDK::Metadata | auth/CDKMetadata/Default (CDKMetadata) Resource creation Initiated
+[2025-10-08T21:11:29.319Z] amplify-physicsaid-feather-sandbox-3f9639d634 |   1 | 4:11:28 PM | CREATE_COMPLETE | AWS::CDK::Metadata | auth/CDKMetadata/Default (CDKMetadata)
+[2025-10-08T21:11:29.319Z] amplify-physicsaid-feather-sandbox-3f9639d634 |   1 | 4:11:28 PM | CREATE_IN_PROGRESS | AWS::CloudFormation::Stack | auth.NestedStack/auth.NestedStackResource (auth179371D7) Resource creation Initiated
+[2025-10-08T21:11:31.455Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   1 | 4:11:30 PM | CREATE_IN_PROGRESS | AWS::Cognito::UserPool | auth/amplifyAuth/UserPool (amplifyAuthUserPool4BA7F805)
+[2025-10-08T21:11:31.455Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   1 | 4:11:30 PM | CREATE_IN_PROGRESS | AWS::CDK::Metadata | auth/CDKMetadata/Default (CDKMetadata)
+[2025-10-08T21:11:33.590Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   1 | 4:11:31 PM | CREATE_IN_PROGRESS | AWS::CDK::Metadata | auth/CDKMetadata/Default (CDKMetadata) Resource creation Initiated
+[2025-10-08T21:11:33.590Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   0 | 4:11:31 PM | CREATE_COMPLETE | AWS::CDK::Metadata | auth/CDKMetadata/Default (CDKMetadata)
+[2025-10-08T21:11:33.590Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   0 | 4:11:32 PM | CREATE_IN_PROGRESS | AWS::Cognito::UserPool | auth/amplifyAuth/UserPool (amplifyAuthUserPool4BA7F805) Resource creation Initiated
+[2025-10-08T21:11:35.727Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   1 | 4:11:33 PM | CREATE_COMPLETE | AWS::Cognito::UserPool | auth/amplifyAuth/UserPool (amplifyAuthUserPool4BA7F805)
+[2025-10-08T21:11:35.728Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   1 | 4:11:34 PM | CREATE_IN_PROGRESS | AWS::Cognito::UserPoolClient | auth/amplifyAuth/UserPoolAppClient (amplifyAuthUserPoolAppClient2626C6F8)
+[2025-10-08T21:11:35.728Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   1 | 4:11:35 PM | CREATE_IN_PROGRESS | AWS::Cognito::UserPoolClient | auth/amplifyAuth/UserPoolAppClient (amplifyAuthUserPoolAppClient2626C6F8) Resource creation Initiated
+[2025-10-08T21:11:42.161Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   2 | 4:11:41 PM | CREATE_COMPLETE | AWS::Cognito::UserPoolClient | auth/amplifyAuth/UserPoolAppClient (amplifyAuthUserPoolAppClient2626C6F8)
+[2025-10-08T21:11:42.161Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   2 | 4:11:41 PM | CREATE_IN_PROGRESS | AWS::Cognito::IdentityPool | auth/amplifyAuth/IdentityPool (amplifyAuthIdentityPool3FDE84CC)
+[2025-10-08T21:11:44.334Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   2 | 4:11:42 PM | CREATE_IN_PROGRESS | AWS::Cognito::IdentityPool | auth/amplifyAuth/IdentityPool (amplifyAuthIdentityPool3FDE84CC) Resource creation Initiated
+[2025-10-08T21:11:44.334Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   3 | 4:11:43 PM | CREATE_COMPLETE | AWS::Cognito::IdentityPool | auth/amplifyAuth/IdentityPool (amplifyAuthIdentityPool3FDE84CC)
+[2025-10-08T21:11:44.334Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   3 | 4:11:43 PM | CREATE_IN_PROGRESS | AWS::IAM::Role | auth/amplifyAuth/unauthenticatedUserRole (amplifyAuthunauthenticatedUserRole2B524D9E)
+[2025-10-08T21:11:44.334Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   3 | 4:11:43 PM | CREATE_IN_PROGRESS | AWS::IAM::Role | auth/amplifyAuth/authenticatedUserRole (amplifyAuthauthenticatedUserRoleD8DA3689)
+[2025-10-08T21:11:46.514Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   3 | 4:11:44 PM | CREATE_IN_PROGRESS | AWS::IAM::Role | auth/amplifyAuth/authenticatedUserRole (amplifyAuthauthenticatedUserRoleD8DA3689) Resource creation Initiated
+[2025-10-08T21:11:46.515Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   3 | 4:11:44 PM | CREATE_IN_PROGRESS | AWS::IAM::Role | auth/amplifyAuth/unauthenticatedUserRole (amplifyAuthunauthenticatedUserRole2B524D9E) Resource creation Initiated
+[2025-10-08T21:12:01.779Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   4 | 4:12:01 PM | CREATE_COMPLETE | AWS::IAM::Role | auth/amplifyAuth/unauthenticatedUserRole (amplifyAuthunauthenticatedUserRole2B524D9E)
+[2025-10-08T21:12:01.780Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   5 | 4:12:01 PM | CREATE_COMPLETE | AWS::IAM::Role | auth/amplifyAuth/authenticatedUserRole (amplifyAuthauthenticatedUserRoleD8DA3689)
+[2025-10-08T21:12:03.947Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   5 | 4:12:02 PM | CREATE_IN_PROGRESS | AWS::Cognito::IdentityPoolRoleAttachment | auth/amplifyAuth/IdentityPoolRoleAttachment (amplifyAuthIdentityPoolRoleAttachment045F17C8)
+[2025-10-08T21:12:03.947Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   5 | 4:12:03 PM | CREATE_IN_PROGRESS | AWS::Cognito::IdentityPoolRoleAttachment | auth/amplifyAuth/IdentityPoolRoleAttachment (amplifyAuthIdentityPoolRoleAttachment045F17C8) Resource creation Initiated
+[2025-10-08T21:12:06.135Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   6 | 4:12:05 PM | CREATE_COMPLETE | AWS::Cognito::IdentityPoolRoleAttachment | auth/amplifyAuth/IdentityPoolRoleAttachment (amplifyAuthIdentityPoolRoleAttachment045F17C8)
+[2025-10-08T21:12:08.316Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   7 | 4:12:06 PM | CREATE_COMPLETE | AWS::CloudFormation::Stack | amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR
+[2025-10-08T21:12:16.618Z] amplify-physicsaid-feather-sandbox-3f9639d634 |   8 | 4:12:15 PM | CREATE_COMPLETE | AWS::CloudFormation::Stack | auth.NestedStack/auth.NestedStackResource (auth179371D7)
+[2025-10-08T21:12:16.619Z] amplify-physicsaid-feather-sandbox-3f9639d634 |   9 | 4:12:16 PM | CREATE_COMPLETE | AWS::CloudFormation::Stack | amplify-physicsaid-feather-sandbox-3f9639d634
+[2025-10-08T21:12:21.043Z] 4:12:21 PM ✔ Deployment completed in 57.937 seconds
+[2025-10-08T21:12:21.046Z] 4:12:21 PM [Sandbox] Watching for file changes...
+[2025-10-08T21:12:21.426Z] 4:12:21 PM File written: amplify_outputs.json
