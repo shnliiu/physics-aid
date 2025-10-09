@@ -25,6 +25,8 @@ import MenuBookIcon from "@mui/icons-material/MenuBook";
 import QuizIcon from "@mui/icons-material/Quiz";
 import CalculateIcon from "@mui/icons-material/Calculate";
 import StyleIcon from "@mui/icons-material/Style";
+import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+import ReactMarkdown from "react-markdown";
 import { chapters, practiceProblems, flashcards } from "@/data/physicsContent";
 
 export default function PhysicsStudyHub() {
@@ -34,12 +36,56 @@ export default function PhysicsStudyHub() {
   const [showSolution, setShowSolution] = React.useState<number | null>(null);
   const [currentFlashcard, setCurrentFlashcard] = React.useState(0);
   const [showAnswer, setShowAnswer] = React.useState(false);
+  const [tutorInput, setTutorInput] = React.useState("");
+  const [messages, setMessages] = React.useState<Array<{role: 'user' | 'assistant', content: string}>>([]);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   React.useEffect(() => {
     console.log("Physics Study Hub loaded successfully!");
     console.log("Search query:", searchQuery);
     console.log("Active tab:", activeTab);
   }, [searchQuery, activeTab]);
+
+  const handleSendMessage = async () => {
+    if (tutorInput.trim() && !isLoading) {
+      const userMessage = tutorInput.trim();
+      setTutorInput("");
+
+      // Add user message to conversation
+      setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
+      setIsLoading(true);
+
+      try {
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            prompt: userMessage
+          })
+        });
+
+        const data = await response.json();
+
+        if (data.success && data.claude_response) {
+          setMessages(prev => [...prev, { role: 'assistant', content: data.claude_response }]);
+        } else {
+          setMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, I encountered an error. Please try again.' }]);
+        }
+      } catch (error) {
+        console.error('Error calling Claude API:', error);
+        setMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, I could not connect to the teacher assistant. Please try again later.' }]);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage();
+    }
+  };
 
   // Get all formulas from all chapters
   const allFormulas = chapters.flatMap(ch => ch.keyFormulas);
@@ -85,6 +131,7 @@ export default function PhysicsStudyHub() {
           Heat & Thermodynamics Study Resources
         </Typography>
         <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap", justifyContent: "center" }}>
+          <Chip label="OpenStax Volume 1" size="small" color="primary" variant="outlined" />
           <Chip label="OpenStax Volume 2" size="small" color="primary" variant="outlined" />
           <Chip label="100% Free" size="small" color="success" variant="outlined" />
           <Chip label="Community Driven" size="small" color="secondary" variant="outlined" />
@@ -115,6 +162,7 @@ export default function PhysicsStudyHub() {
           <Tab icon={<QuizIcon />} label="Practice Problems" />
           <Tab icon={<CalculateIcon />} label="Formulas" />
           <Tab icon={<StyleIcon />} label="Flashcards" />
+          <Tab icon={<SupportAgentIcon />} label="Teacher's Assistant" />
         </Tabs>
       </Box>
 
@@ -394,6 +442,122 @@ export default function PhysicsStudyHub() {
             <Typography variant="body2">
               💡 Tip: Use flashcards for quick review before exams. Try to answer before flipping!
             </Typography>
+          </Paper>
+        </Box>
+      )}
+
+      {activeTab === 4 && (
+        <Box sx={{ maxWidth: 800, mx: "auto" }}>
+          <Card elevation={3}>
+            <CardContent>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 3 }}>
+                <SupportAgentIcon fontSize="large" color="primary" />
+                <Box>
+                  <Typography variant="h5" sx={{ fontWeight: 600 }}>
+                    AI Teacher's Assistant
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Ask me anything about heat and thermodynamics
+                  </Typography>
+                </Box>
+              </Box>
+              <Divider sx={{ mb: 3 }} />
+
+              <Paper
+                elevation={0}
+                sx={{
+                  p: 3,
+                  mb: 3,
+                  bgcolor: "grey.50",
+                  minHeight: 400,
+                  maxHeight: 600,
+                  overflowY: "auto",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 2
+                }}
+              >
+                {messages.length === 0 ? (
+                  <Typography variant="body1" color="text.secondary" sx={{ textAlign: "center", mt: 10 }}>
+                    Your conversation will appear here...
+                  </Typography>
+                ) : (
+                  messages.map((msg, idx) => (
+                    <Box
+                      key={idx}
+                      sx={{
+                        display: "flex",
+                        justifyContent: msg.role === 'user' ? 'flex-end' : 'flex-start'
+                      }}
+                    >
+                      <Paper
+                        elevation={1}
+                        sx={{
+                          p: 2,
+                          maxWidth: '75%',
+                          bgcolor: msg.role === 'user' ? 'primary.main' : 'background.paper',
+                          color: msg.role === 'user' ? 'primary.contrastText' : 'text.primary'
+                        }}
+                      >
+                        {msg.role === 'user' ? (
+                          <Typography variant="body2" sx={{ whiteSpace: 'pre-wrap' }}>
+                            {msg.content}
+                          </Typography>
+                        ) : (
+                          <Box sx={{ '& p': { m: 0, mb: 1 }, '& p:last-child': { mb: 0 } }}>
+                            <ReactMarkdown>{msg.content}</ReactMarkdown>
+                          </Box>
+                        )}
+                      </Paper>
+                    </Box>
+                  ))
+                )}
+                {isLoading && (
+                  <Box sx={{ display: "flex", justifyContent: 'flex-start' }}>
+                    <Paper elevation={1} sx={{ p: 2, bgcolor: 'background.paper' }}>
+                      <Typography variant="body2" color="text.secondary">
+                        Thinking...
+                      </Typography>
+                    </Paper>
+                  </Box>
+                )}
+              </Paper>
+
+              <Box sx={{ display: "flex", gap: 2 }}>
+                <TextField
+                  fullWidth
+                  placeholder="Ask a question about thermodynamics..."
+                  variant="outlined"
+                  multiline
+                  maxRows={4}
+                  value={tutorInput}
+                  onChange={(e) => setTutorInput(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  disabled={isLoading}
+                />
+                <Button
+                  variant="contained"
+                  size="large"
+                  sx={{ px: 4 }}
+                  onClick={handleSendMessage}
+                  disabled={isLoading || !tutorInput.trim()}
+                >
+                  {isLoading ? "Sending..." : "Send"}
+                </Button>
+              </Box>
+            </CardContent>
+          </Card>
+
+          <Paper elevation={0} sx={{ mt: 3, p: 3, bgcolor: "primary.light", color: "primary.contrastText" }}>
+            <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
+              💡 Example Questions:
+            </Typography>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+              <Typography variant="body2">• "Explain the first law of thermodynamics"</Typography>
+              <Typography variant="body2">• "What's the difference between heat and temperature?"</Typography>
+              <Typography variant="body2">• "Help me solve a calorimetry problem"</Typography>
+              <Typography variant="body2">• "How does entropy relate to disorder?"</Typography>
+            </Box>
           </Paper>
         </Box>
       )}
