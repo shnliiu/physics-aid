@@ -1,5 +1,7 @@
 import * as React from "react";
 import { Box, Typography, Paper, Button, Card, CardContent } from "@mui/material";
+import Link from "next/link";
+import SchoolIcon from "@mui/icons-material/School";
 
 export default function Home() {
   return (
@@ -7,10 +9,10 @@ export default function Home() {
       {/* Welcome Section */}
       <Box sx={{ mb: 4 }}>
         <Typography variant="h3" sx={{ fontWeight: 700, mb: 1 }}>
-          🎉 Welcome to Your New App!
+          Physics Aid
         </Typography>
         <Typography variant="h6" sx={{ color: 'text.secondary', mb: 3 }}>
-          You're all set up and ready to build amazing features with your new component-first template.
+          Your AI-powered tutor for Heat and Thermodynamics
         </Typography>
       </Box>
 
@@ -26,22 +28,22 @@ export default function Home() {
         }}
       >
         <Typography variant="h5" sx={{ fontWeight: 600, mb: 2 }}>
-          🚀 Quick Actions
+          Get Started
         </Typography>
         <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
-          <Button variant="contained" size="large">
-            Create Something
-          </Button>
-          <Button variant="outlined" size="large">
-            View Dashboard
-          </Button>
-          <Button variant="outlined" size="large">
-            Settings
+          <Button
+            variant="contained"
+            size="large"
+            component={Link}
+            href="/tutor"
+            startIcon={<SchoolIcon />}
+          >
+            Start Learning
           </Button>
         </Box>
       </Paper>
 
-      {/* Stats and Getting Started */}
+      {/* Features */}
       <Box sx={{ display: 'flex', gap: 3, flexWrap: 'wrap', mb: 4 }}>
         <Box sx={{ flex: '1 1 300px', minWidth: 0 }}>
           <Card
@@ -54,12 +56,13 @@ export default function Home() {
           >
             <CardContent>
               <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
-                📊 Your Stats
+                Topics Covered
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                <Typography variant="body1">Items: 0</Typography>
-                <Typography variant="body1">Views: 0</Typography>
-                <Typography variant="body1">Users: 1</Typography>
+                <Typography variant="body2">• Temperature and Heat</Typography>
+                <Typography variant="body2">• Thermodynamic Systems</Typography>
+                <Typography variant="body2">• Laws of Thermodynamics</Typography>
+                <Typography variant="body2">• Entropy and Energy</Typography>
               </Box>
             </CardContent>
           </Card>
@@ -76,37 +79,37 @@ export default function Home() {
           >
             <CardContent>
               <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
-                📝 Getting Started
+                How It Works
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                <Typography variant="body2">☐ Set up your profile</Typography>
-                <Typography variant="body2">☐ Create your first item</Typography>
-                <Typography variant="body2">☐ Explore advanced features</Typography>
-                <Typography variant="body2">☐ Invite team members</Typography>
+                <Typography variant="body2">1. Ask any physics question</Typography>
+                <Typography variant="body2">2. Get AI-powered explanations</Typography>
+                <Typography variant="body2">3. Learn from OpenStax textbooks</Typography>
+                <Typography variant="body2">4. Practice problem-solving</Typography>
               </Box>
             </CardContent>
           </Card>
         </Box>
       </Box>
 
-      {/* Pro Tip */}
+      {/* About */}
       <Paper
         elevation={0}
         sx={{
           p: 3,
           mt: 4,
           border: '1px solid',
-          borderColor: 'warning.light',
-          backgroundColor: 'warning.50',
+          borderColor: 'primary.light',
           borderRadius: 2
         }}
       >
         <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-          💡 Pro Tip
+          About Physics Aid
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Ask AI to add new features! Try saying "Add a contact form" or "Create a user dashboard" and 
-          watch the magic happen with our hidden component library.
+          Physics Aid uses AI technology trained on OpenStax University Physics textbooks to help students
+          master heat and thermodynamics concepts. Get instant answers, detailed explanations, and
+          personalized guidance for your physics studies.
         </Typography>
       </Paper>
     </Box>

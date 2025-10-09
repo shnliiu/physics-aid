@@ -72,6 +72,34 @@ const LeftSidebarMenu: React.FC<LeftSidebarProps> = ({ toggleActive }) => {
                 </Link>
               </Box>
 
+              {/* Physics Tutor Menu Item */}
+              <Box className="sidebar-single-menu" sx={{ mb: 1 }}>
+                <Link
+                  href="/tutor"
+                  className={`sidemenu-link ${pathname === "/tutor" ? "active" : ""}`}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    padding: "12px 16px",
+                    textDecoration: "none",
+                    color: pathname === "/tutor" ? "#605dff" : "inherit",
+                    backgroundColor: pathname === "/tutor" ? "rgba(96, 93, 255, 0.1)" : "transparent",
+                    borderRadius: "8px",
+                    transition: "all 0.3s ease"
+                  }}
+                >
+                  <i
+                    className="material-symbols-outlined"
+                    style={{ marginRight: "12px", fontSize: "20px" }}
+                  >
+                    school
+                  </i>
+                  <Typography component="span" sx={{ fontWeight: pathname === "/tutor" ? 600 : 400 }}>
+                    Physics Study Hub
+                  </Typography>
+                </Link>
+              </Box>
+
               {/* News Menu Item */}
               <Box className="sidebar-single-menu" sx={{ mb: 1 }}>
                 <Link
@@ -88,8 +116,8 @@ const LeftSidebarMenu: React.FC<LeftSidebarProps> = ({ toggleActive }) => {
                     transition: "all 0.3s ease"
                   }}
                 >
-                  <i 
-                    className="material-symbols-outlined" 
+                  <i
+                    className="material-symbols-outlined"
                     style={{ marginRight: "12px", fontSize: "20px" }}
                   >
                     newspaper

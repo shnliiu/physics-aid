@@ -7,11 +7,30 @@ specifies that any unauthenticated user can "create", "read", "update",
 and "delete" any "Todo" records.
 =========================================================================*/
 const schema = a.schema({
-  Todo: a
+  Conversation: a
     .model({
-      content: a.string(),
+      userId: a.string(),
+      messages: a.json(),
+      topic: a.string(),
     })
     .authorization((allow) => [allow.guest()]),
+
+  askPhysicsQuestion: a
+    .conversation({
+      aiModel: a.ai.model('Claude 3.5 Sonnet'),
+      systemPrompt: `You are an expert physics tutor specializing in thermodynamics and heat.
+You have access to the OpenStax University Physics textbooks (Volumes 1 and 2).
+
+Your role is to:
+- Help students understand concepts from heat and thermodynamics
+- Explain physics principles clearly with examples
+- Guide students through problem-solving
+- Reference specific chapters and concepts from the textbooks when relevant
+- Be patient and encouraging
+
+Always provide clear, accurate explanations based on physics principles.`,
+    })
+    .authorization((allow) => allow.owner()),
 });
 
 export type Schema = ClientSchema<typeof schema>;

@@ -1,143 +1,41 @@
-# 🚀 Chill Amplify Template
-## The Revolutionary Component-First Development Framework
+# 🎓 Physics Study Hub
 
-This isn't just another starter template. This is a **paradigm shift** in how AI and humans build web applications - eliminating the biggest bottlenecks in modern frontend development.
+A free, community-driven study platform for thermodynamics and heat physics, featuring OpenStax University Physics textbook content, practice problems, formula references, and interactive flashcards.
 
-## 🎯 The Revolutionary Strategy
+## 🌟 Features
 
-**The Problem We Solved:**
-Traditional development wastes 60-80% of time on repetitive UI decisions, layout struggles, and component inconsistencies. AI gets stuck asking "where should I put this button?" instead of solving business problems. Students spend weeks learning CSS positioning instead of building features.
+### 📚 Chapter Summaries
+- Comprehensive summaries of Heat & Thermodynamics chapters
+- Key concepts and learning objectives
+- Topic breakdowns for each chapter
+- Based on OpenStax University Physics Volume 2
 
-**Our Solution:**
-We strategically sourced a professional MUI-based Next.js template (avoiding unstable Tailwind versions) and transformed it into a **component-first development ecosystem**. Every UI element - buttons, forms, sliders, cards, layouts - already exists as battle-tested, consistent components.
+### 🧮 Formula Reference
+- 20+ essential thermodynamics formulas
+- Variable definitions and units
+- Use cases and descriptions
+- Organized by topic
 
-**The Result:**
-- 🤖 **AI codes 5-10x faster** - no UI decision paralysis
-- 🎯 **Zero frontend errors** - components are pre-tested and consistent  
-- 📐 **Perfect alignment every time** - no layout debugging
-- 🧠 **Focus on logic, not styling** - build features, not interfaces
-- 🎓 **Students ship on Day 1** - skip months of CSS learning
+### 💪 Practice Problems
+- 9+ physics problems with full solutions
+- Difficulty levels: Easy, Medium, Hard
+- Step-by-step solution explanations
+- Topics: Heat Transfer, Kinetic Theory, Thermodynamic Processes
 
-## ⚡ Current Template State
+### 🎴 Interactive Flashcards
+- Quick-review flashcards
+- Front/back flip interaction
+- Navigation through card deck
+- Perfect for exam preparation
 
-### What You Get Out of the Box:
-- ✅ **Clean Dashboard Layout** - Professional app-first interface
-- ✅ **Minimal Sidebar Navigation** - Just Home + easily expandable
-- ✅ **Professional TopNavbar** - Search, profile, notifications, dark mode
-- ✅ **Working Page Examples** - Home dashboard + News feed
-- ✅ **Fast Compilation** - Only essential pages, no bloat
-- ✅ **Hidden Component Arsenal** - 100+ MUI components ready to use
-
-### Architecture Highlights:
-```
-src/
-├── app/
-│   ├── layout.tsx          # Root layout with providers
-│   ├── page.tsx            # Clean dashboard homepage
-│   └── news/
-│       └── page.tsx        # Example news feed page
-├── components/
-│   └── Layout/
-│       ├── LeftSidebarMenu.tsx  # Minimal 100-line sidebar
-│       ├── TopNavbar/           # Full-featured navbar
-│       └── Footer.tsx           # Standard footer
-└── providers/
-    └── LayoutProvider.tsx  # Smart layout control
-```
-
-## 🤖 AI Instructions - How to Add Features
-
-### Adding a New Page (Like the News Page Example):
-
-1. **Create the page file:**
-```bash
-mkdir -p src/app/your-page-name
-# Then create src/app/your-page-name/page.tsx
-```
-
-2. **Use this template structure:**
-```typescript
-import * as React from "react";
-import { Box, Typography, Paper, Card, CardContent } from "@mui/material";
-
-export default function YourPageName() {
-  return (
-    <Box sx={{ p: 3 }}>
-      <Typography variant="h3" sx={{ fontWeight: 700, mb: 1 }}>
-        📋 Your Page Title
-      </Typography>
-      {/* Your content here - use MUI components */}
-    </Box>
-  );
-}
-```
-
-3. **Add to sidebar navigation:**
-Edit `src/components/Layout/LeftSidebarMenu.tsx` and add:
-```typescript
-<Box className="sidebar-single-menu" sx={{ mb: 1 }}>
-  <Link
-    href="/your-page-name"
-    className={`sidemenu-link ${pathname === "/your-page-name" ? "active" : ""}`}
-    style={{ /* copy existing styles */ }}
-  >
-    <i className="material-symbols-outlined" style={{ marginRight: "12px", fontSize: "20px" }}>
-      your_icon_name
-    </i>
-    <Typography component="span" sx={{ fontWeight: pathname === "/your-page-name" ? 600 : 400 }}>
-      Your Page Name
-    </Typography>
-  </Link>
-</Box>
-```
-
-### Understanding the Layout System:
-
-- **LayoutProvider** controls when to show/hide navigation
-- **Authentication pages** hide the navbar/sidebar automatically
-- **All other pages** get the full dashboard layout
-- **No need to add navbar/footer** to individual pages - it's automatic!
-
-### Available MUI Components:
-
-You have access to the **entire MUI component library**:
-- `Button`, `TextField`, `Select`, `Checkbox`, `Radio`, `Switch`
-- `Card`, `Paper`, `Box`, `Container`, `Grid`
-- `Table`, `List`, `Avatar`, `Chip`, `Badge`
-- `Dialog`, `Snackbar`, `Alert`, `Skeleton`
-- `Tabs`, `Stepper`, `Accordion`, `Drawer`
-- And 50+ more components!
-
-### Best Practices for AI:
-
-1. **Always use MUI components** - don't create custom UI from scratch
-2. **Follow the existing pattern** - look at News page for reference
-3. **Keep sidebar minimal** - only add essential navigation items
-4. **Use Box for layout** - it's the most flexible container
-5. **Typography for all text** - maintains consistent styling
-6. **sx prop for styling** - inline styles that work with theme
-
-### Common Tasks:
-
-**Add a form:**
-```typescript
-import { TextField, Button } from "@mui/material";
-// Use TextField for inputs, Button for actions
-```
-
-**Add a data table:**
-```typescript
-import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
-// Full table components available
-```
-
-**Add cards/stats:**
-```typescript
-import { Card, CardContent } from "@mui/material";
-// Wrap content in cards for clean sections
-```
+### 🔍 Search & Filter (Coming Soon)
+- Search across chapters, formulas, and concepts
+- Filter practice problems by difficulty
+- Quick topic lookup
 
 ## 🚀 Quick Start
+
+### Development
 
 ```bash
 # Install dependencies
@@ -150,38 +48,143 @@ npm run dev
 npm run build
 ```
 
-Visit `http://localhost:3000` to see your app!
+Visit `http://localhost:3000/tutor` to access the Physics Study Hub.
 
-## 🔐 Phase 2: Mock Authentication Strategy (Coming Soon)
+### Adding Content
 
-### The "Sandbox-First Uncommenting" Flow:
-1. **Day 1:** Mock auth works perfectly (no Amplify setup needed)
-2. **Day 3:** Student wants real auth
-3. **Teaching moment:** "First, learn about Amplify sandbox"
-4. **Student runs:** `npx ampx sandbox` (creates amplify_outputs.json)
-5. **Then:** AI can safely uncomment Amplify imports and real auth code
+All physics content is centralized in `/src/data/physicsContent.ts`:
 
-**Mock Authentication Features:**
-- Google SSO button (mock flow)
-- Username/password toggle
-- "Hey there, Johnny!" mock user
-- Progressive enhancement to real auth
-- Educational flow from mock → sandbox → real authentication
+```typescript
+// Add a new chapter
+export const chapters: Chapter[] = [
+  {
+    id: 5,
+    title: "Your New Chapter",
+    topics: ["Topic 1", "Topic 2"],
+    summary: "Chapter summary...",
+    keyFormulas: [...],
+    concepts: [...]
+  }
+];
 
-## 🏗️ Template Origin Story
+// Add a practice problem
+export const practiceProblems: PracticeProblem[] = [
+  {
+    id: 10,
+    topic: "Thermodynamics",
+    difficulty: "Medium",
+    question: "Your problem...",
+    solution: "Step-by-step solution...",
+    answer: "Final answer"
+  }
+];
 
-This revolutionary template started as a **$20 ThemeForest MUI Next.js template** that we strategically transformed. We deliberately avoided Tailwind (due to version instability) and chose MUI for its component stability and consistency. The original 500+ component pages were hidden in a "warehouse" folder, creating our **hidden component arsenal** that AI can discover without impacting compilation.
+// Add a flashcard
+export const flashcards: Flashcard[] = [
+  {
+    id: 6,
+    topic: "Heat Transfer",
+    front: "Question?",
+    back: "Answer."
+  }
+];
+```
 
-## 📊 Success Metrics
+## 📦 Deployment
 
-- ✅ **Lightning-fast compile times** - Only essential pages built
-- ✅ **6 visible pages max** - Home, News, Profile, Login, Signup (future)
-- ✅ **500+ hidden components** - AI-discoverable but student-invisible
-- ✅ **Zero decision paralysis** - Students see clean, minimal interface
-- ✅ **Professional results Day 1** - Pre-built patterns for everything
+This project is ready to deploy to free hosting platforms. See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.
 
-This template is being actively developed with a focus on **education-first** and **AI-optimized** development patterns.
+### Quick Deploy to Vercel
+
+1. Push to GitHub
+2. Connect repository to Vercel
+3. Deploy (automatic configuration)
+4. Share the URL with classmates
+
+**Cost: $0.00/month** - Perfect for classroom use!
+
+## 🎯 Project Goals
+
+- ✅ 100% free for students (no costs, no logins required)
+- ✅ Accurate physics content from trusted textbooks
+- ✅ Community-driven (anyone can contribute)
+- ✅ Mobile-friendly and accessible
+- ✅ Fast and reliable
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15.5.0
+- **UI Library**: Material-UI (MUI)
+- **Backend**: AWS Amplify Gen 2 (optional for future features)
+- **Hosting**: Vercel / Netlify (free tier)
+- **Authentication**: AWS Cognito (optional, not currently used)
+
+## 📂 Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx              # Root layout with MUI theme
+│   ├── page.tsx                # Homepage
+│   └── tutor/
+│       └── page.tsx            # Physics Study Hub (main feature)
+├── data/
+│   └── physicsContent.ts       # All physics content (chapters, problems, flashcards)
+├── components/
+│   └── Layout/                 # Navigation and layout components
+└── providers/
+    ├── LayoutProvider.tsx      # Layout control
+    └── AmplifyProvider.tsx     # Amplify configuration
+```
+
+## 🤝 Contributing
+
+Want to add more content? Edit `/src/data/physicsContent.ts` and submit a pull request!
+
+### Content Contribution Guidelines
+
+1. **Chapters**: Add summaries, formulas, and concepts from OpenStax textbooks
+2. **Practice Problems**: Include difficulty level, full solution, and final answer
+3. **Flashcards**: Keep questions concise, answers clear
+4. **Formulas**: Define all variables with units
+
+## 📖 Content Sources
+
+- OpenStax University Physics Volume 2 (Heat & Thermodynamics)
+- Open-licensed educational content
+- Community contributions
+
+## 🔮 Future Features
+
+- AI tutor powered by AWS Bedrock (optional, requires authentication)
+- Community Q&A forum
+- Formula sheet generator (printable PDFs)
+- Progress tracking and quiz scores
+- Custom study guides
+- Spaced repetition for flashcards
+
+## 📊 Current Statistics
+
+- **4 Chapters** with full summaries
+- **20+ Formulas** with variable definitions
+- **9 Practice Problems** with step-by-step solutions
+- **5 Flashcards** for quick review
+- **100% Free** - No costs, no ads, no login required
+
+## 📝 License
+
+This project uses open educational resources and is intended for educational purposes.
+
+## 🙏 Acknowledgments
+
+- OpenStax for free, high-quality physics textbooks
+- Material-UI for the component library
+- AWS Amplify for backend infrastructure (optional)
 
 ---
 
-**Built with ❤️ by Chinchilla AI** - Revolutionizing development education through intelligent tooling and component-first architecture.
+**Built for classmates, by classmates** 🎓
+
+Visit the deployed site: [Coming Soon - Deploy to get your URL!]
+
+For deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md)

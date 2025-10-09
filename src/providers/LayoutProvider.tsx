@@ -26,10 +26,15 @@ const LayoutProvider: React.FC<LayoutProviderProps> = ({ children }) => {
     "/authentication/sign-up/",
   ].includes(pathname);
 
+  const isFullPageApp = [
+    "/tutor",
+    "/tutor/",
+  ].includes(pathname);
+
   return (
     <>
-      <div className={`main-wrapper-content ${active ? "active" : ""}`}>
-        {!isAuthPage && (
+      <div className={isFullPageApp ? "" : `main-wrapper-content ${active ? "active" : ""}`}>
+        {!isAuthPage && !isFullPageApp && (
           <>
             <TopNavbar toggleActive={toggleActive} />
 
@@ -37,10 +42,10 @@ const LayoutProvider: React.FC<LayoutProviderProps> = ({ children }) => {
           </>
         )}
 
-        <div className="main-content">
+        <div className={isFullPageApp ? "" : "main-content"}>
           {children}
 
-          {!isAuthPage && <Footer />}
+          {!isAuthPage && !isFullPageApp && <Footer />}
         </div>
       </div>
 

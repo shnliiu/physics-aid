@@ -25,10 +25,11 @@ import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "@/theme";
 import LayoutProvider from "@/providers/LayoutProvider";
+import AmplifyProvider from "@/providers/AmplifyProvider";
 
 export const metadata = {
-  title: "Chill Components - AI-Powered Component Library",
-  description: "A comprehensive React component library built with Material-UI and AWS Amplify",
+  title: "Physics Aid - AI Physics Tutor",
+  description: "AI-powered physics tutor for heat and thermodynamics",
 };
 
 export default function RootLayout(props: { children: React.ReactNode }) {
@@ -46,7 +47,9 @@ export default function RootLayout(props: { children: React.ReactNode }) {
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
 
-            <LayoutProvider>{props.children}</LayoutProvider>
+            <AmplifyProvider>
+              <LayoutProvider>{props.children}</LayoutProvider>
+            </AmplifyProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
