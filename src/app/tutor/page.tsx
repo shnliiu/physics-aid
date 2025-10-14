@@ -36,7 +36,7 @@ import LightbulbIcon from "@mui/icons-material/Lightbulb";
 import WarningIcon from "@mui/icons-material/Warning";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import ReactMarkdown from "react-markdown";
-import { chapters, practiceProblems, flashcards } from "@/data/physicsContent";
+import { chapters, practiceProblems, flashcards, volume1Chapters, volume3Chapters } from "@/data/physicsContent";
 import { useRouter } from "next/navigation";
 
 // Volume/Chapter structure for sidebar
@@ -46,17 +46,17 @@ const volumeStructure = [
   {
     id: 'VOL1',
     title: 'Volume 1: Mechanics',
-    chapters: chapters.map(ch => ch.id) // ALL chapters - dynamically get all
+    chapters: volume1Chapters.map(ch => ch.id) // Volume 1 chapters (1-14)
   },
   {
     id: 'VOL2',
     title: 'Volume 2: Thermodynamics',
-    chapters: [1, 2, 3, 4] // First 4 chapters only
+    chapters: chapters.filter(ch => ch.id <= 4).map(ch => ch.id) // Volume 2 chapters (1-4 only)
   },
   {
     id: 'VOL3',
     title: 'Volume 3: Optics & Modern',
-    chapters: [1, 2, 3, 4] // First 4 chapters only
+    chapters: volume3Chapters.map(ch => ch.id) // Volume 3 chapters (1-4)
   }
 ];
 
@@ -65,6 +65,7 @@ export default function PhysicsStudyHub() {
   const [activeTab, setActiveTab] = React.useState(0);
   const [searchQuery, setSearchQuery] = React.useState("");
   const [selectedChapter, setSelectedChapter] = React.useState<number | null>(null);
+  const [selectedVolume, setSelectedVolume] = React.useState<'VOL1' | 'VOL2' | 'VOL3'>('VOL1'); // Track which volume is selected
   const [showSolution, setShowSolution] = React.useState<number | null>(null);
   const [currentFlashcard, setCurrentFlashcard] = React.useState(0);
   const [showAnswer, setShowAnswer] = React.useState(false);
@@ -616,7 +617,12 @@ export default function PhysicsStudyHub() {
   const allFormulas = chapters.flatMap(ch => ch.keyFormulas);
 
   // Filter content based on search query
-  const filteredChapters = chapters.filter(chapter =>
+  // Select the correct chapter array based on selected volume
+  const currentChapterArray = selectedVolume === 'VOL1' ? volume1Chapters :
+                              selectedVolume === 'VOL3' ? volume3Chapters :
+                              chapters.filter(ch => ch.id <= 4); // VOL2: Only chapters 1-4
+
+  const filteredChapters = currentChapterArray.filter(chapter =>
     searchQuery === "" ||
     chapter.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
     chapter.topics.some(topic => topic.toLowerCase().includes(searchQuery.toLowerCase())) ||
@@ -740,8 +746,7 @@ export default function PhysicsStudyHub() {
                   <Button
                     fullWidth
                     onClick={() => {
-                      const volumeTabMap = { 'VOL1': 0, 'VOL2': 1, 'VOL3': 2 };
-                      setActiveTab(volumeTabMap[volume.id]);
+                      setSelectedVolume(volume.id as 'VOL1' | 'VOL2' | 'VOL3');
                       setSelectedChapter(null);
                     }}
                     sx={{
@@ -769,20 +774,24 @@ export default function PhysicsStudyHub() {
                   <Fade in>
                     <Box sx={{ pl: 2 }}>
                       {volume.chapters.map((chapterNum) => {
-                        const chapter = chapters.find(c => c.id === chapterNum);
+                        // Select the correct chapter array based on volume
+                        const chapterArray = volume.id === 'VOL1' ? volume1Chapters :
+                                            volume.id === 'VOL3' ? volume3Chapters : chapters;
+                        const chapter = chapterArray.find(c => c.id === chapterNum);
                         if (!chapter) return null;
                         return (
                           <Button
                             key={chapterNum}
                             fullWidth
                             onClick={() => {
+                              setSelectedVolume(volume.id as 'VOL1' | 'VOL2' | 'VOL3');
                               setSelectedChapter(chapterNum);
                               setActiveTab(0);
                             }}
                             sx={{
                               justifyContent: "flex-start",
                               color: "#E0F2FF !important",
-                              background: selectedChapter === chapterNum
+                              background: selectedChapter === chapterNum && selectedVolume === volume.id
                                 ? "rgba(255, 255, 255, 0.3)"
                                 : "rgba(255, 255, 255, 0.05)",
                               border: "1px solid rgba(255, 255, 255, 0.1)",
@@ -804,10 +813,10 @@ export default function PhysicsStudyHub() {
                                   minWidth: 24,
                                   height: 24,
                                   borderRadius: "6px",
-                                  background: selectedChapter === chapterNum
+                                  background: selectedChapter === chapterNum && selectedVolume === volume.id
                                     ? "white"
                                     : "rgba(255, 255, 255, 0.2)",
-                                  color: selectedChapter === chapterNum ? "#667eea" : "white",
+                                  color: selectedChapter === chapterNum && selectedVolume === volume.id ? "#667eea" : "white",
                                   display: "flex",
                                   alignItems: "center",
                                   justifyContent: "center",
@@ -950,6 +959,10 @@ export default function PhysicsStudyHub() {
               onChange={(e, newValue) => {
                 setActiveTab(newValue);
                 setSelectedChapter(null); // Clear selected chapter when switching tabs
+                // Update selected volume when clicking volume tabs
+                if (newValue === 0) setSelectedVolume('VOL1');
+                if (newValue === 1) setSelectedVolume('VOL2');
+                if (newValue === 2) setSelectedVolume('VOL3');
               }}
               centered
               sx={{
@@ -986,23 +999,8 @@ export default function PhysicsStudyHub() {
       {activeTab === 0 && selectedChapter === null && (
         <Box>
           <Typography variant="h4" sx={{ color: "#E0F2FF !important", mb: 3, fontWeight: 700 }}>
-            Volume 1: Mechanics - All Chapters
+            {volumeStructure[0].title} - Chapters 1-{volume1Chapters.length}
           </Typography>
-          <Paper
-            elevation={0}
-            sx={{
-              mb: 3,
-              p: 2,
-              background: "rgba(255, 200, 100, 0.2)",
-              backdropFilter: "blur(10px)",
-              border: "1px solid rgba(255, 200, 100, 0.4)",
-              borderRadius: 2
-            }}
-          >
-            <Typography variant="body2" sx={{ color: "#E0F2FF !important", fontWeight: 500 }}>
-              Note: Chapter 16 (Wave Optics) relates to Volume 3 Chapters 3 & 4
-            </Typography>
-          </Paper>
           <Grid container spacing={3}>
             {filteredChapters.map((chapter, idx) => (
               <Grid size={{ xs: 12, md: 6 }} key={chapter.id}>
@@ -1011,28 +1009,23 @@ export default function PhysicsStudyHub() {
                     elevation={0}
                     sx={{
                       height: "100%",
-                      background: chapter.id === 16
-                        ? "rgba(255, 200, 100, 0.15)"
-                        : "rgba(255, 255, 255, 0.15)",
+                      background: "rgba(255, 255, 255, 0.15)",
                       backdropFilter: "blur(20px)",
-                      border: chapter.id === 16
-                        ? "1px solid rgba(255, 200, 100, 0.4)"
-                        : "1px solid rgba(255, 255, 255, 0.3)",
+                      border: "1px solid rgba(255, 255, 255, 0.3)",
                       borderRadius: 3,
                       transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                       "&:hover": {
                         transform: "translateY(-8px)",
-                        background: chapter.id === 16
-                          ? "rgba(255, 200, 100, 0.25)"
-                          : "rgba(255, 255, 255, 0.25)",
+                        background: "rgba(255, 255, 255, 0.25)",
                         boxShadow: "0 12px 32px rgba(0,0,0,0.2)",
-                        border: chapter.id === 16
-                          ? "1px solid rgba(255, 200, 100, 0.6)"
-                          : "1px solid rgba(255, 255, 255, 0.5)"
+                        border: "1px solid rgba(255, 255, 255, 0.5)"
                       },
                       cursor: "pointer"
                     }}
-                    onClick={() => setSelectedChapter(chapter.id)}
+                    onClick={() => {
+                      setSelectedVolume('VOL1');
+                      setSelectedChapter(chapter.id);
+                    }}
                   >
                     <CardContent sx={{ p: 3 }}>
                       <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
@@ -1067,19 +1060,6 @@ export default function PhysicsStudyHub() {
                           >
                             {chapter.title}
                           </Typography>
-                          {chapter.id === 16 && (
-                            <Chip
-                              label="→ See Vol 3 Ch 3-4"
-                              size="small"
-                              sx={{
-                                mt: 0.5,
-                                background: "rgba(255, 200, 100, 0.3)",
-                                color: "#E0F2FF !important",
-                                fontWeight: 600,
-                                fontSize: "0.7rem"
-                              }}
-                            />
-                          )}
                         </Box>
                       </Box>
 
@@ -1174,10 +1154,10 @@ export default function PhysicsStudyHub() {
       {activeTab === 1 && selectedChapter === null && (
         <Box>
           <Typography variant="h4" sx={{ color: "#E0F2FF !important", mb: 3, fontWeight: 700 }}>
-            Volume 2: Thermodynamics - Chapters 1-4
+            {volumeStructure[1].title} - Chapters 1-{chapters.length}
           </Typography>
           <Grid container spacing={3}>
-            {filteredChapters.filter(ch => ch.id <= 4).map((chapter, idx) => (
+            {filteredChapters.map((chapter, idx) => (
               <Grid size={{ xs: 12, md: 6 }} key={chapter.id}>
                 <Grow in timeout={400 + idx * 150}>
                   <Card
@@ -1197,7 +1177,10 @@ export default function PhysicsStudyHub() {
                       },
                       cursor: "pointer"
                     }}
-                    onClick={() => setSelectedChapter(chapter.id)}
+                    onClick={() => {
+                      setSelectedVolume('VOL2');
+                      setSelectedChapter(chapter.id);
+                    }}
                   >
                     <CardContent sx={{ p: 3 }}>
                       <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
@@ -1323,54 +1306,34 @@ export default function PhysicsStudyHub() {
       {/* Volume 3 Tab (Chapters 1-4 only, with cross-reference to Vol 1 Ch 16) */}
       {activeTab === 2 && selectedChapter === null && (
         <Box>
-          <Typography variant="h4" sx={{ color: "#E0F2FF !important", mb: 1, fontWeight: 700 }}>
-            Volume 3: Optics & Modern Physics - Chapters 1-4
+          <Typography variant="h4" sx={{ color: "#E0F2FF !important", mb: 3, fontWeight: 700 }}>
+            {volumeStructure[2].title} - Chapters 1-{volume3Chapters.length}
           </Typography>
-          <Paper
-            elevation={0}
-            sx={{
-              mb: 3,
-              p: 2,
-              background: "rgba(255, 200, 100, 0.2)",
-              backdropFilter: "blur(10px)",
-              border: "1px solid rgba(255, 200, 100, 0.4)",
-              borderRadius: 2
-            }}
-          >
-            <Typography variant="body2" sx={{ color: "#E0F2FF !important", fontWeight: 500 }}>
-              Note: Chapters 3 & 4 relate to Volume 1 Chapter 16 (Waves)
-            </Typography>
-          </Paper>
           <Grid container spacing={3}>
-            {filteredChapters.filter(ch => ch.id <= 4).map((chapter, idx) => (
+            {filteredChapters.map((chapter, idx) => (
               <Grid size={{ xs: 12, md: 6 }} key={chapter.id}>
                 <Grow in timeout={400 + idx * 150}>
                   <Card
                     elevation={0}
                     sx={{
                       height: "100%",
-                      background: (chapter.id === 3 || chapter.id === 4)
-                        ? "rgba(255, 200, 100, 0.15)"
-                        : "rgba(255, 255, 255, 0.15)",
+                      background: "rgba(255, 255, 255, 0.15)",
                       backdropFilter: "blur(20px)",
-                      border: (chapter.id === 3 || chapter.id === 4)
-                        ? "1px solid rgba(255, 200, 100, 0.4)"
-                        : "1px solid rgba(255, 255, 255, 0.3)",
+                      border: "1px solid rgba(255, 255, 255, 0.3)",
                       borderRadius: 3,
                       transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                       "&:hover": {
                         transform: "translateY(-8px)",
-                        background: (chapter.id === 3 || chapter.id === 4)
-                          ? "rgba(255, 200, 100, 0.25)"
-                          : "rgba(255, 255, 255, 0.25)",
+                        background: "rgba(255, 255, 255, 0.25)",
                         boxShadow: "0 12px 32px rgba(0,0,0,0.2)",
-                        border: (chapter.id === 3 || chapter.id === 4)
-                          ? "1px solid rgba(255, 200, 100, 0.6)"
-                          : "1px solid rgba(255, 255, 255, 0.5)"
+                        border: "1px solid rgba(255, 255, 255, 0.5)"
                       },
                       cursor: "pointer"
                     }}
-                    onClick={() => setSelectedChapter(chapter.id)}
+                    onClick={() => {
+                      setSelectedVolume('VOL3');
+                      setSelectedChapter(chapter.id);
+                    }}
                   >
                     <CardContent sx={{ p: 3 }}>
                       <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
@@ -1405,19 +1368,6 @@ export default function PhysicsStudyHub() {
                           >
                             {chapter.title}
                           </Typography>
-                          {(chapter.id === 3 || chapter.id === 4) && (
-                            <Chip
-                              label="→ See Vol 1 Ch 16"
-                              size="small"
-                              sx={{
-                                mt: 0.5,
-                                background: "rgba(255, 200, 100, 0.3)",
-                                color: "#E0F2FF !important",
-                                fontWeight: 600,
-                                fontSize: "0.7rem"
-                              }}
-                            />
-                          )}
                         </Box>
                       </Box>
 
@@ -1509,7 +1459,10 @@ export default function PhysicsStudyHub() {
       )}
 
       {(activeTab === 0 || activeTab === 1 || activeTab === 2) && selectedChapter !== null && (() => {
-        const chapter = chapters.find(ch => ch.id === selectedChapter);
+        // Determine which chapter array to use based on selected volume
+        const chapterArray = selectedVolume === 'VOL1' ? volume1Chapters :
+                            selectedVolume === 'VOL3' ? volume3Chapters : chapters;
+        const chapter = chapterArray.find(ch => ch.id === selectedChapter);
         if (!chapter) return null;
         return (
           <Box>
@@ -1540,9 +1493,40 @@ export default function PhysicsStudyHub() {
               }}
             >
               <CardContent>
-                <Typography variant="h4" sx={{ fontWeight: 700, mb: 1, color: "white" }}>
-                  Chapter {chapter.id}: {chapter.title}
-                </Typography>
+                <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", mb: 1 }}>
+                  <Typography variant="h4" sx={{ fontWeight: 700, color: "white", flex: 1 }}>
+                    Chapter {chapter.id}: {chapter.title}
+                  </Typography>
+                  {chapter.openStaxUrl && (
+                    <Button
+                      href={chapter.openStaxUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      startIcon={<AutoStoriesIcon />}
+                      sx={{
+                        ml: 2,
+                        px: 3,
+                        py: 1,
+                        fontWeight: 600,
+                        fontSize: "0.9rem",
+                        textTransform: "none",
+                        background: "rgba(100, 200, 255, 0.3)",
+                        backdropFilter: "blur(10px)",
+                        color: "#E0F2FF !important",
+                        border: "1px solid rgba(100, 200, 255, 0.4)",
+                        borderRadius: 2,
+                        transition: "all 0.3s ease",
+                        "&:hover": {
+                          background: "rgba(100, 200, 255, 0.5)",
+                          transform: "translateY(-2px)",
+                          boxShadow: "0 6px 16px rgba(0, 0, 0, 0.2)"
+                        }
+                      }}
+                    >
+                      Read on OpenStax
+                    </Button>
+                  )}
+                </Box>
                 <Divider sx={{ my: 3, borderColor: "rgba(255, 255, 255, 0.3)" }} />
 
                 <Typography variant="h6" sx={{ fontWeight: 600, mb: 2, color: "white" }}>

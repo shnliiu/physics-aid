@@ -625,3 +625,595 @@ export const flashcards = [
     back: "PV = nRT. Valid when: 1) Low pressure, 2) High temperature, 3) No intermolecular forces, 4) Point particles.",
   },
 ];
+
+// ========== VOLUME 1: MECHANICS ==========
+// Based on OpenStax University Physics Volume 1
+
+export const volume1Chapters: Chapter[] = [
+  {
+    id: 1,
+    title: "Units and Measurement",
+    topics: ["SI Units", "Unit Conversion", "Dimensional Analysis", "Uncertainty and Significant Figures", "Estimation"],
+    summary: "Physics is built on measurement and quantification. This chapter introduces the International System of Units (SI), dimensional analysis, significant figures, and the importance of precision and accuracy in scientific measurements.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-1/pages/1-introduction",
+    keyFormulas: [],
+    concepts: [
+      {
+        title: "SI Base Units",
+        explanation: "The seven SI base units are: meter (m) for length, kilogram (kg) for mass, second (s) for time, ampere (A) for electric current, kelvin (K) for temperature, mole (mol) for amount of substance, and candela (cd) for luminous intensity.",
+      },
+      {
+        title: "Dimensional Analysis",
+        explanation: "A method to check equations and convert units by treating units as algebraic quantities that can be cancelled.",
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "Vectors",
+    topics: ["Vector Components", "Vector Addition", "Scalar and Vector Products", "Unit Vectors"],
+    summary: "Vectors are mathematical objects that have both magnitude and direction. This chapter covers vector representation, addition, subtraction, and multiplication operations essential for describing physical quantities like displacement, velocity, and force.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-1/pages/2-introduction",
+    keyFormulas: [
+      {
+        name: "Vector Magnitude",
+        formula: "|v| = √(v_x² + v_y² + v_z²)",
+        description: "Magnitude of a vector from its components",
+      },
+      {
+        name: "Dot Product",
+        formula: "A · B = |A||B|cos(θ)",
+        description: "Scalar product of two vectors",
+      },
+      {
+        name: "Cross Product Magnitude",
+        formula: "|A × B| = |A||B|sin(θ)",
+        description: "Magnitude of vector product",
+      },
+    ],
+    concepts: [
+      {
+        title: "Scalar vs Vector",
+        explanation: "Scalars have only magnitude (temperature, mass, time), while vectors have both magnitude and direction (velocity, force, acceleration).",
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "Motion Along a Straight Line",
+    topics: ["Position and Displacement", "Average and Instantaneous Velocity", "Acceleration", "Free Fall", "Kinematic Equations"],
+    summary: "Kinematics describes motion without considering its causes. This chapter focuses on one-dimensional motion, including concepts of displacement, velocity, acceleration, and the kinematic equations for constant acceleration.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-1/pages/3-introduction",
+    keyFormulas: [
+      {
+        name: "Average Velocity",
+        formula: "v_avg = Δx/Δt",
+        description: "Average velocity over a time interval",
+      },
+      {
+        name: "Constant Acceleration",
+        formula: "v = v₀ + at",
+        description: "Velocity as a function of time",
+      },
+      {
+        name: "Position with Constant Acceleration",
+        formula: "x = x₀ + v₀t + (1/2)at²",
+        description: "Position as a function of time",
+      },
+      {
+        name: "Velocity-Position Relation",
+        formula: "v² = v₀² + 2a(x - x₀)",
+        description: "Relates velocity to position without time",
+      },
+    ],
+    concepts: [
+      {
+        title: "Free Fall",
+        explanation: "An object in free fall experiences constant downward acceleration g = 9.8 m/s² near Earth's surface, neglecting air resistance.",
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: "Motion in Two and Three Dimensions",
+    topics: ["Position and Velocity Vectors", "Acceleration Vector", "Projectile Motion", "Uniform Circular Motion", "Relative Velocity"],
+    summary: "Extending kinematics to two and three dimensions, this chapter covers vector methods for analyzing motion, projectile motion, circular motion, and relative motion between different reference frames.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-1/pages/4-introduction",
+    keyFormulas: [
+      {
+        name: "Projectile Motion (Horizontal)",
+        formula: "x = v₀cos(θ)t",
+        description: "Horizontal position in projectile motion",
+      },
+      {
+        name: "Projectile Motion (Vertical)",
+        formula: "y = v₀sin(θ)t - (1/2)gt²",
+        description: "Vertical position in projectile motion",
+      },
+      {
+        name: "Centripetal Acceleration",
+        formula: "a_c = v²/r",
+        description: "Acceleration toward center in circular motion",
+      },
+    ],
+    concepts: [
+      {
+        title: "Independence of Motion",
+        explanation: "In projectile motion, horizontal and vertical motions are independent. Horizontal velocity remains constant while vertical motion undergoes constant acceleration.",
+      },
+    ],
+  },
+  {
+    id: 5,
+    title: "Newton's Laws of Motion",
+    topics: ["Force and Mass", "Newton's First Law", "Newton's Second Law", "Newton's Third Law", "Free-Body Diagrams", "Friction"],
+    summary: "Newton's three laws of motion form the foundation of classical mechanics. This chapter introduces the concept of force, inertia, and the relationship between force, mass, and acceleration.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-1/pages/5-introduction",
+    keyFormulas: [
+      {
+        name: "Newton's Second Law",
+        formula: "F = ma",
+        description: "Net force equals mass times acceleration",
+      },
+      {
+        name: "Weight",
+        formula: "W = mg",
+        description: "Gravitational force on an object",
+      },
+      {
+        name: "Kinetic Friction",
+        formula: "f_k = μ_k N",
+        description: "Friction force when object is moving",
+      },
+      {
+        name: "Static Friction",
+        formula: "f_s ≤ μ_s N",
+        description: "Maximum static friction before motion",
+      },
+    ],
+    concepts: [
+      {
+        title: "Newton's Third Law",
+        explanation: "For every action, there is an equal and opposite reaction. Forces always come in pairs acting on different objects.",
+      },
+    ],
+  },
+  {
+    id: 6,
+    title: "Applications of Newton's Laws",
+    topics: ["Drag Forces", "Tension", "Normal Force", "Springs and Hooke's Law", "Centripetal Force"],
+    summary: "This chapter applies Newton's laws to various physical situations including drag forces, tension in ropes and cables, normal forces, elastic forces in springs, and forces in circular motion.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-1/pages/6-introduction",
+    keyFormulas: [
+      {
+        name: "Hooke's Law",
+        formula: "F = -kx",
+        description: "Spring force proportional to displacement",
+      },
+      {
+        name: "Drag Force",
+        formula: "F_D = (1/2)CρAv²",
+        description: "Air resistance force",
+      },
+    ],
+    concepts: [
+      {
+        title: "Free-Body Diagrams",
+        explanation: "A diagram showing all forces acting on an object, essential for applying Newton's second law systematically.",
+      },
+    ],
+  },
+  {
+    id: 7,
+    title: "Work and Kinetic Energy",
+    topics: ["Work Done by a Force", "Kinetic Energy", "Work-Energy Theorem", "Power"],
+    summary: "Work is the transfer of energy by a force. This chapter introduces the concepts of work and kinetic energy, and establishes the work-energy theorem connecting them.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-1/pages/7-introduction",
+    keyFormulas: [
+      {
+        name: "Work",
+        formula: "W = F·d = Fd cos(θ)",
+        description: "Work done by constant force",
+      },
+      {
+        name: "Kinetic Energy",
+        formula: "KE = (1/2)mv²",
+        description: "Energy of motion",
+      },
+      {
+        name: "Work-Energy Theorem",
+        formula: "W_net = ΔKE",
+        description: "Net work equals change in kinetic energy",
+      },
+      {
+        name: "Power",
+        formula: "P = W/t = F·v",
+        description: "Rate of doing work",
+      },
+    ],
+    concepts: [
+      {
+        title: "Conservative vs Non-conservative Forces",
+        explanation: "Conservative forces (like gravity) store energy that can be fully recovered, while non-conservative forces (like friction) dissipate energy as heat.",
+      },
+    ],
+  },
+  {
+    id: 8,
+    title: "Potential Energy and Conservation of Energy",
+    topics: ["Potential Energy", "Conservative Forces", "Mechanical Energy Conservation", "Energy Diagrams"],
+    summary: "Potential energy is stored energy due to position or configuration. This chapter covers gravitational and elastic potential energy, and introduces the principle of conservation of mechanical energy.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-1/pages/8-introduction",
+    keyFormulas: [
+      {
+        name: "Gravitational Potential Energy",
+        formula: "U_g = mgh",
+        description: "Potential energy near Earth's surface",
+      },
+      {
+        name: "Elastic Potential Energy",
+        formula: "U_s = (1/2)kx²",
+        description: "Energy stored in a spring",
+      },
+      {
+        name: "Conservation of Mechanical Energy",
+        formula: "KE₁ + PE₁ = KE₂ + PE₂",
+        description: "Total mechanical energy is constant",
+      },
+    ],
+    concepts: [
+      {
+        title: "Energy Conservation",
+        explanation: "In the absence of non-conservative forces, the total mechanical energy (kinetic plus potential) of a system remains constant.",
+      },
+    ],
+  },
+  {
+    id: 9,
+    title: "Linear Momentum and Collisions",
+    topics: ["Linear Momentum", "Impulse", "Conservation of Momentum", "Elastic and Inelastic Collisions", "Center of Mass"],
+    summary: "Momentum is mass times velocity. This chapter covers momentum conservation, impulse-momentum theorem, and analyzes various types of collisions between objects.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-1/pages/9-introduction",
+    keyFormulas: [
+      {
+        name: "Linear Momentum",
+        formula: "p = mv",
+        description: "Momentum of an object",
+      },
+      {
+        name: "Impulse",
+        formula: "J = FΔt = Δp",
+        description: "Change in momentum",
+      },
+      {
+        name: "Conservation of Momentum",
+        formula: "p₁ᵢ + p₂ᵢ = p₁f + p₂f",
+        description: "Total momentum before equals after",
+      },
+    ],
+    concepts: [
+      {
+        title: "Elastic vs Inelastic Collisions",
+        explanation: "In elastic collisions, kinetic energy is conserved. In inelastic collisions, some kinetic energy is converted to other forms. Momentum is conserved in both.",
+      },
+    ],
+  },
+  {
+    id: 10,
+    title: "Fixed-Axis Rotation",
+    topics: ["Rotational Kinematics", "Rotational Inertia", "Torque", "Rotational Kinetic Energy", "Angular Momentum"],
+    summary: "This chapter extends the concepts of kinematics and dynamics to rotational motion about a fixed axis, introducing angular quantities and their relationships.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-1/pages/10-introduction",
+    keyFormulas: [
+      {
+        name: "Angular Velocity",
+        formula: "ω = Δθ/Δt",
+        description: "Rate of angular displacement",
+      },
+      {
+        name: "Torque",
+        formula: "τ = rF sin(θ)",
+        description: "Rotational effect of a force",
+      },
+      {
+        name: "Rotational Inertia",
+        formula: "I = Σmr²",
+        description: "Resistance to rotational acceleration",
+      },
+      {
+        name: "Rotational Kinetic Energy",
+        formula: "KE_rot = (1/2)Iω²",
+        description: "Energy of rotation",
+      },
+    ],
+    concepts: [
+      {
+        title: "Moment of Inertia",
+        explanation: "The rotational analog of mass, depending on both the mass distribution and the axis of rotation.",
+      },
+    ],
+  },
+  {
+    id: 11,
+    title: "Angular Momentum",
+    topics: ["Angular Momentum of a Particle", "Angular Momentum of a Rigid Body", "Conservation of Angular Momentum", "Precession"],
+    summary: "Angular momentum is the rotational analog of linear momentum. This chapter covers its calculation, conservation, and applications including gyroscopes and precession.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-1/pages/11-introduction",
+    keyFormulas: [
+      {
+        name: "Angular Momentum",
+        formula: "L = Iω",
+        description: "Angular momentum of rotating body",
+      },
+      {
+        name: "Conservation of Angular Momentum",
+        formula: "L_i = L_f",
+        description: "Angular momentum conserved when no external torque",
+      },
+    ],
+    concepts: [
+      {
+        title: "Angular Momentum Conservation",
+        explanation: "When the net external torque on a system is zero, the total angular momentum remains constant. This explains phenomena like figure skaters spinning faster when they pull their arms in.",
+      },
+    ],
+  },
+  {
+    id: 12,
+    title: "Static Equilibrium and Elasticity",
+    topics: ["Conditions for Equilibrium", "Center of Gravity", "Stress and Strain", "Elastic Moduli"],
+    summary: "An object in static equilibrium has no net force and no net torque acting on it. This chapter analyzes equilibrium conditions and introduces stress, strain, and elastic properties of materials.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-1/pages/12-introduction",
+    keyFormulas: [
+      {
+        name: "First Condition of Equilibrium",
+        formula: "ΣF = 0",
+        description: "No net force",
+      },
+      {
+        name: "Second Condition of Equilibrium",
+        formula: "Στ = 0",
+        description: "No net torque",
+      },
+      {
+        name: "Young's Modulus",
+        formula: "Y = (F/A)/(ΔL/L)",
+        description: "Measure of stiffness",
+      },
+    ],
+    concepts: [
+      {
+        title: "Static Equilibrium",
+        explanation: "For an object to be in static equilibrium, both the net force and net torque must be zero.",
+      },
+    ],
+  },
+  {
+    id: 13,
+    title: "Gravitation",
+    topics: ["Newton's Law of Universal Gravitation", "Gravitational Potential Energy", "Kepler's Laws", "Satellite Orbits"],
+    summary: "Gravitation is the attractive force between all masses. This chapter covers Newton's law of universal gravitation, gravitational potential energy, orbital motion, and Kepler's laws of planetary motion.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-1/pages/13-introduction",
+    keyFormulas: [
+      {
+        name: "Newton's Law of Gravitation",
+        formula: "F = Gm₁m₂/r²",
+        description: "Gravitational force between two masses",
+      },
+      {
+        name: "Gravitational Potential Energy",
+        formula: "U = -Gm₁m₂/r",
+        description: "Potential energy in gravitational field",
+      },
+      {
+        name: "Orbital Speed",
+        formula: "v = √(GM/r)",
+        description: "Speed for circular orbit",
+      },
+    ],
+    concepts: [
+      {
+        title: "Kepler's Laws",
+        explanation: "Kepler's three laws describe planetary motion: 1) Orbits are ellipses with the Sun at one focus, 2) Equal areas swept in equal times, 3) Period squared proportional to semi-major axis cubed.",
+      },
+    ],
+  },
+  {
+    id: 14,
+    title: "Fluid Mechanics",
+    topics: ["Density and Pressure", "Buoyancy", "Fluid Dynamics", "Bernoulli's Equation", "Viscosity"],
+    summary: "Fluid mechanics studies the behavior of liquids and gases. This chapter covers pressure, buoyancy, continuity equation, Bernoulli's equation, and viscous flow.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-1/pages/14-introduction",
+    keyFormulas: [
+      {
+        name: "Pressure",
+        formula: "P = F/A",
+        description: "Force per unit area",
+      },
+      {
+        name: "Buoyant Force",
+        formula: "F_B = ρ_fluid V_displaced g",
+        description: "Upward force on submerged object",
+      },
+      {
+        name: "Continuity Equation",
+        formula: "A₁v₁ = A₂v₂",
+        description: "Volume flow rate is constant",
+      },
+      {
+        name: "Bernoulli's Equation",
+        formula: "P + (1/2)ρv² + ρgh = constant",
+        description: "Energy conservation for fluids",
+      },
+    ],
+    concepts: [
+      {
+        title: "Archimedes' Principle",
+        explanation: "The buoyant force on an object equals the weight of the fluid displaced by the object.",
+      },
+    ],
+  },
+];
+
+// ========== VOLUME 3: OPTICS AND MODERN PHYSICS ==========
+// Based on OpenStax University Physics Volume 3
+
+export const volume3Chapters: Chapter[] = [
+  {
+    id: 1,
+    title: "The Nature of Light",
+    topics: ["Propagation of Light", "Speed of Light", "Electromagnetic Spectrum", "Wave-Particle Duality", "Huygens's Principle"],
+    summary: "Light is an electromagnetic wave that travels at approximately 3×10⁸ m/s in vacuum. This chapter explores the fundamental nature of light, including its propagation, the electromagnetic spectrum from radio waves to gamma rays, and the dual wave-particle nature that is central to modern physics.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-3/pages/1-introduction",
+    keyFormulas: [
+      {
+        name: "Speed of Light",
+        formula: "c = 3.00 × 10⁸ m/s",
+        description: "Speed of light in vacuum",
+      },
+      {
+        name: "Index of Refraction",
+        formula: "n = c/v",
+        description: "Ratio of speed of light in vacuum to speed in medium",
+      },
+      {
+        name: "Wavelength-Frequency",
+        formula: "c = λf",
+        description: "Relationship between wavelength and frequency for electromagnetic waves",
+      },
+    ],
+    concepts: [
+      {
+        title: "Electromagnetic Spectrum",
+        explanation: "The electromagnetic spectrum encompasses all forms of electromagnetic radiation, from long-wavelength radio waves to short-wavelength gamma rays. All travel at the speed of light in vacuum but differ in wavelength and frequency.",
+        example: "Visible light occupies a narrow band from about 400 nm (violet) to 700 nm (red). Radio waves can be kilometers long, while gamma rays are shorter than atomic nuclei.",
+      },
+      {
+        title: "Wave-Particle Duality",
+        explanation: "Light exhibits both wave-like properties (interference, diffraction) and particle-like properties (photoelectric effect). This duality is fundamental to quantum mechanics.",
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "Geometric Optics and Image Formation",
+    topics: ["Reflection", "Refraction", "Snell's Law", "Total Internal Reflection", "Mirrors", "Lenses", "Optical Instruments"],
+    summary: "Geometric optics describes how light rays interact with mirrors and lenses to form images. This chapter covers the laws of reflection and refraction, image formation by curved mirrors and lenses, and applications in optical instruments like cameras, telescopes, and microscopes.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-3/pages/2-introduction",
+    keyFormulas: [
+      {
+        name: "Law of Reflection",
+        formula: "θᵢ = θᵣ",
+        description: "Angle of incidence equals angle of reflection",
+      },
+      {
+        name: "Snell's Law",
+        formula: "n₁sinθ₁ = n₂sinθ₂",
+        description: "Law of refraction relating angles and indices of refraction",
+      },
+      {
+        name: "Mirror Equation",
+        formula: "1/f = 1/dₒ + 1/dᵢ",
+        description: "Relates object distance, image distance, and focal length for mirrors",
+      },
+      {
+        name: "Lens Maker's Equation",
+        formula: "1/f = (n-1)(1/R₁ - 1/R₂)",
+        description: "Focal length depends on index of refraction and radii of curvature",
+      },
+      {
+        name: "Magnification",
+        formula: "m = -dᵢ/dₒ = hᵢ/hₒ",
+        description: "Ratio of image size to object size",
+      },
+    ],
+    concepts: [
+      {
+        title: "Total Internal Reflection",
+        explanation: "When light travels from a denser to less dense medium at an angle greater than the critical angle, all light is reflected back. This principle enables fiber optic communication.",
+        example: "Critical angle for water-air interface is about 48.6°. Light hitting at steeper angles is completely reflected, which is why underwater objects can appear mirror-like from below.",
+      },
+      {
+        title: "Real vs Virtual Images",
+        explanation: "Real images are formed by actual convergence of light rays and can be projected on a screen. Virtual images are formed by apparent divergence of rays and cannot be projected.",
+        example: "A movie projector forms a real image on the screen. A plane mirror forms a virtual image that appears behind the mirror.",
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "Interference",
+    topics: ["Superposition", "Young's Double-Slit", "Thin-Film Interference", "Coherence", "Interferometers"],
+    summary: "Wave optics describes phenomena that depend on the wave nature of light. Interference occurs when two or more light waves overlap, creating patterns of constructive and destructive interference. This chapter explains interference patterns, thin-film effects like colors in soap bubbles, and applications in precision measurements.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-3/pages/3-introduction",
+    keyFormulas: [
+      {
+        name: "Double-Slit Constructive Interference",
+        formula: "dsinθ = mλ (m = 0, ±1, ±2, ...)",
+        description: "Condition for bright fringes in double-slit experiment",
+      },
+      {
+        name: "Double-Slit Destructive Interference",
+        formula: "dsinθ = (m + 1/2)λ",
+        description: "Condition for dark fringes in double-slit experiment",
+      },
+      {
+        name: "Thin-Film Interference",
+        formula: "2nt = mλ or (m + 1/2)λ",
+        description: "Interference condition for thin films (depends on reflections)",
+      },
+    ],
+    concepts: [
+      {
+        title: "Coherence",
+        explanation: "Coherent light sources maintain a constant phase relationship, essential for producing stable interference patterns. Lasers are highly coherent; ordinary light bulbs are not.",
+      },
+      {
+        title: "Path Difference",
+        explanation: "Interference patterns arise from differences in the distances traveled by light waves. Constructive interference occurs when path difference is an integer multiple of wavelength; destructive when it's a half-integer multiple.",
+        example: "In thin soap films, light reflected from the front and back surfaces interferes, creating colorful patterns that change with film thickness and viewing angle.",
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: "Diffraction",
+    topics: ["Single-Slit Diffraction", "Circular Apertures", "Resolution", "Diffraction Gratings", "X-ray Diffraction"],
+    summary: "Diffraction is the bending and spreading of waves around obstacles and through openings. This chapter examines single-slit diffraction patterns, the resolution limits of optical instruments due to diffraction, diffraction gratings used in spectroscopy, and X-ray diffraction for determining crystal structures.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-3/pages/4-introduction",
+    keyFormulas: [
+      {
+        name: "Single-Slit Minima",
+        formula: "asinθ = mλ (m = ±1, ±2, ...)",
+        description: "Dark fringes in single-slit diffraction pattern",
+      },
+      {
+        name: "Rayleigh Criterion",
+        formula: "θ = 1.22λ/D",
+        description: "Minimum angular separation for resolving two point sources",
+      },
+      {
+        name: "Diffraction Grating",
+        formula: "dsinθ = mλ",
+        description: "Condition for maxima in grating diffraction pattern",
+      },
+      {
+        name: "Grating Resolution",
+        formula: "R = mN",
+        description: "Resolving power of a diffraction grating",
+      },
+    ],
+    concepts: [
+      {
+        title: "Diffraction Limit",
+        explanation: "Diffraction sets a fundamental limit on the resolution of optical systems. Smaller apertures and longer wavelengths increase diffraction effects, reducing resolution.",
+        example: "Telescopes with larger mirrors can resolve finer details because their larger aperture reduces diffraction. This is why professional telescopes have mirrors several meters in diameter.",
+      },
+      {
+        title: "Diffraction Gratings",
+        explanation: "A diffraction grating contains thousands of equally-spaced slits that produce sharp, intense interference maxima at specific angles. Used in spectrometers to separate light into its component wavelengths.",
+        example: "A CD or DVD acts as a reflection grating, separating white light into rainbow colors. The closely spaced tracks (1.6 μm for CDs) serve as the grating lines.",
+      },
+    ],
+  },
+];
