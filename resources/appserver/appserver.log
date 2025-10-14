@@ -1,11 +1,52 @@
-[2025-10-08T21:12:59.620Z] Starting appserver: PORT=3000 npm run dev
-[2025-10-08T21:12:59.737Z] > physics-aid@3.5.0 dev
-[2025-10-08T21:12:59.737Z] > next dev
-[2025-10-08T21:13:00.137Z]    ▲ Next.js 15.5.0
-[2025-10-08T21:13:00.137Z]    - Local:        http://localhost:3000
-[2025-10-08T21:13:00.137Z]    - Network:      http://192.168.1.125:3000
-[2025-10-08T21:13:00.137Z]  ✓ Starting...
-[2025-10-08T21:13:01.635Z]  ✓ Ready in 1553ms
-[2025-10-08T21:16:31.049Z]  ○ Compiling / ...
-[2025-10-08T21:16:33.228Z]  ✓ Compiled / in 2.7s (2291 modules)
-[2025-10-08T21:16:33.689Z]  GET / 200 in 3145ms
+[2025-10-14T02:52:12.540Z] Starting appserver: npm run dev
+[2025-10-14T02:52:12.687Z] > physics-aid@3.5.0 dev
+[2025-10-14T02:52:12.687Z] > next dev
+[2025-10-14T02:52:13.239Z]    ▲ Next.js 15.5.0
+[2025-10-14T02:52:13.239Z]    - Local:        http://localhost:3000
+[2025-10-14T02:52:13.239Z]    - Network:      http://192.168.1.29:3000
+[2025-10-14T02:52:13.239Z]  ✓ Starting...
+[2025-10-14T02:52:14.747Z]  ✓ Ready in 1580ms
+[2025-10-14T02:52:30.331Z]  ○ Compiling /tutor ...
+[2025-10-14T02:52:35.612Z]  ✓ Compiled /tutor in 5.8s (3951 modules)
+[2025-10-14T02:52:36.462Z]  GET /tutor 200 in 6653ms
+[2025-10-14T02:52:42.464Z]  ○ Compiling / ...
+[2025-10-14T02:52:42.715Z]  ✓ Compiled / in 760ms (3689 modules)
+[2025-10-14T02:52:43.196Z]  GET / 200 in 1254ms
+[2025-10-14T02:52:43.857Z]  GET /tutor 200 in 58ms
+[2025-10-14T02:52:47.647Z]  ○ Compiling /landing ...
+[2025-10-14T02:52:48.374Z]  ✓ Compiled /landing in 1231ms (4480 modules)
+[2025-10-14T02:52:48.436Z]  GET /landing 200 in 1300ms
+[2025-10-14T02:52:52.137Z]  ○ Compiling /auth ...
+[2025-10-14T02:52:52.599Z]  ✓ Compiled /auth in 962ms (4533 modules)
+[2025-10-14T02:52:52.680Z]  GET /auth 200 in 1051ms
+[2025-10-14T02:53:00.409Z]  GET /tutor 200 in 125ms
+[2025-10-14T02:53:36.079Z]  ✓ Compiled in 887ms (4533 modules)
+[2025-10-14T02:55:43.736Z] [ERROR]  ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[2025-10-14T02:55:45.123Z]  ✓ Compiled in 2.5s (4528 modules)
+[2025-10-14T02:55:46.059Z]  GET /tutor 200 in 1802ms
+[2025-10-14T02:56:02.318Z]  GET /tutor 200 in 508ms
+[2025-10-14T02:57:00.630Z] [ERROR]  ⨯ ./src/app/tutor/page.tsx
+[2025-10-14T02:57:00.630Z] [ERROR] Error:   [31mx[0m Expected '</', got 'white'
+[2025-10-14T02:57:00.630Z] [ERROR]      ,-[[36;1;4m/Users/shannonliu/Documents/Projects/physics-aid/src/app/tutor/page.tsx[0m:678:1]
+[2025-10-14T02:57:00.630Z] [ERROR]  [2m675[0m |           {/* Sidebar Header */}
+[2025-10-14T02:57:00.630Z] [ERROR]  [2m676[0m |           <Box sx={{ p: 3, borderBottom: "1px solid rgba(255, 255, 255, 0.2)" }}>
+[2025-10-14T02:57:00.630Z] [ERROR]  [2m677[0m |             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 2 }}>
+[2025-10-14T02:57:00.630Z] [ERROR]  [2m678[0m |               <Typography variant="h6" sx={{ fontWeight: 700, color: ""white"" }}>
+[2025-10-14T02:57:00.630Z] [ERROR]      : [35;1m                                                                       ^^^^^[0m
+[2025-10-14T02:57:00.630Z] [ERROR]  [2m679[0m |                 Contents
+[2025-10-14T02:57:00.630Z] [ERROR]  [2m680[0m |               </Typography>
+[2025-10-14T02:57:00.630Z] [ERROR]  [2m680[0m |               <Button
+[2025-10-14T02:57:00.630Z] [ERROR]      `----
+[2025-10-14T02:57:00.630Z] [ERROR] Caused by:
+[2025-10-14T02:57:00.630Z] [ERROR]     Syntax Error
+[2025-10-14T02:57:00.630Z] [ERROR] Import trace for requested module:
+[2025-10-14T02:57:00.630Z] [ERROR] ./src/app/tutor/page.tsx
+[2025-10-14T02:57:13.434Z] [ERROR]  ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[2025-10-14T02:57:15.903Z]  ✓ Compiled in 2.6s (4528 modules)
+[2025-10-14T02:57:16.770Z]  GET /tutor 200 in 3235ms
+[2025-10-14T02:57:29.909Z]  ✓ Compiled in 856ms (4528 modules)
+[2025-10-14T02:58:01.847Z]  GET /tutor 200 in 871ms
+[2025-10-14T03:00:33.435Z]  ✓ Compiled in 1130ms (4528 modules)
+[2025-10-14T03:00:33.465Z] [ERROR]  ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[2025-10-14T03:00:34.448Z]  GET /tutor 200 in 937ms
+[2025-10-14T03:00:48.600Z]  GET /tutor 200 in 494ms

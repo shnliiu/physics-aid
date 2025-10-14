@@ -1,11 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// OpenStax textbook URLs
-const OPENSTAX_URLS = [
-  'https://openstax.org/books/university-physics-volume-1/pages/1-introduction',
-  'https://openstax.org/books/university-physics-volume-2/pages/1-introduction',
-  'https://openstax.org/books/university-physics-volume-3/pages/1-introduction'
-];
+// OpenStax textbook URLs - configured by chapter
+const OPENSTAX_CHAPTERS = {
+  volume1: {
+    baseUrl: 'https://openstax.org/books/university-physics-volume-1/pages/',
+    chapters: 'all' // All chapters
+  },
+  volume2: {
+    baseUrl: 'https://openstax.org/books/university-physics-volume-2/pages/',
+    chapters: [1, 2, 3, 4] // Chapters 1-4 only
+  },
+  volume3: {
+    baseUrl: 'https://openstax.org/books/university-physics-volume-3/pages/',
+    chapters: [1, 2, 3, 4] // Chapters 1-4 only
+  }
+};
 
 // Determine if a question is complex enough to need textbook references
 function isComplexQuestion(prompt: string): boolean {
@@ -50,7 +59,26 @@ async function fetchOpenStaxContent(): Promise<string> {
   try {
     console.log('Fetching OpenStax textbook content...');
 
-    const fetchPromises = OPENSTAX_URLS.map(async (url) => {
+    const urlsToFetch: string[] = [];
+
+    // Volume 1 - All chapters (we'll use introduction page to represent all content)
+    if (OPENSTAX_CHAPTERS.volume1.chapters === 'all') {
+      urlsToFetch.push(`${OPENSTAX_CHAPTERS.volume1.baseUrl}1-introduction`);
+    }
+
+    // Volume 2 - Chapters 1-4
+    for (const chapter of OPENSTAX_CHAPTERS.volume2.chapters) {
+      urlsToFetch.push(`${OPENSTAX_CHAPTERS.volume2.baseUrl}${chapter}-introduction`);
+    }
+
+    // Volume 3 - Chapters 1-4
+    for (const chapter of OPENSTAX_CHAPTERS.volume3.chapters) {
+      urlsToFetch.push(`${OPENSTAX_CHAPTERS.volume3.baseUrl}${chapter}-introduction`);
+    }
+
+    console.log(`Fetching ${urlsToFetch.length} chapter pages...`);
+
+    const fetchPromises = urlsToFetch.map(async (url) => {
       try {
         const response = await fetch(url, {
           headers: {
@@ -151,22 +179,110 @@ Use the above textbook content to provide accurate, textbook-grounded answers wh
 
 Student's message: ${prompt}`;
 
-    const response = await fetch('https://claude.chinchilla-ai.com/query', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        prompt: systemPrompt
-      }),
-      signal: AbortSignal.timeout(600000) // 10 minute timeout
+    // Try to call Chinchilla API
+    let claudeResponse: string | null = null;
+    let usedTextbook = false;
+
+    try {
+      const response = await fetch('https://claude.chinchilla-ai.com/query', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          prompt: systemPrompt
+        }),
+        signal: AbortSignal.timeout(30000) // 30 second timeout
+      });
+
+      const data = await response.json();
+
+      if (data.success && !data.error && data.claude_response) {
+        claudeResponse = data.claude_response;
+        usedTextbook = textbookContent.length > 0;
+      }
+    } catch (apiError) {
+      console.warn('Chinchilla API unavailable, using fallback:', apiError);
+    }
+
+    // If Chinchilla API failed, use Claude's general knowledge as fallback
+    if (!claudeResponse) {
+      console.log('Using general knowledge fallback (no textbook context)');
+
+      // Use Claude's built-in knowledge to answer the question
+      const fallbackPrompt = `You are an expert physics teacher's assistant specializing in Heat and Thermodynamics.
+
+⚠️ IMPORTANT: You are currently operating WITHOUT access to the OpenStax textbooks. Use your general knowledge to help the student, but acknowledge this limitation.
+
+Guidelines:
+- Provide accurate physics explanations based on your general knowledge
+- Be clear, step-by-step, and educational
+- Use proper physics terminology and units
+- At the start of your response, briefly acknowledge you're not using the textbooks
+- Still provide the best help you can with thermodynamics, mechanics, and physics concepts
+
+Student's question: ${prompt}
+
+Start your response with a brief note like: "⚠️ Note: I'm currently answering based on general physics knowledge without textbook access."`;
+
+      try {
+        const fallbackResponse = await fetch('https://claude.chinchilla-ai.com/query', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            prompt: fallbackPrompt
+          }),
+          signal: AbortSignal.timeout(30000)
+        });
+
+        const fallbackData = await fallbackResponse.json();
+
+        if (fallbackData.success && fallbackData.claude_response) {
+          return NextResponse.json({
+            success: true,
+            claude_response: fallbackData.claude_response,
+            warning: 'Response based on general knowledge - textbooks unavailable',
+            usedTextbook: false,
+            timestamp: new Date().toISOString()
+          });
+        }
+      } catch (fallbackError) {
+        console.error('Fallback also failed:', fallbackError);
+      }
+
+      // If everything fails, return a helpful message
+      return NextResponse.json({
+        success: true,
+        claude_response: `⚠️ **Service Temporarily Unavailable**
+
+I apologize, but I'm having trouble connecting to the AI service right now. While I can't provide an AI-powered answer at the moment, here are some resources that can help:
+
+📚 **Alternative Resources:**
+1. **Formulas Tab**: Browse physics equations organized by chapter
+2. **Problems Tab**: Post your question and get help from classmates
+3. **Chapter Wiki**: Check collaborative notes and explanations
+4. **OpenStax Textbooks**: Access the free textbooks directly at openstax.org
+
+**Your Question:**
+"${prompt}"
+
+Please try again in a few moments, or use the resources above. I'm here to help once the service is back online!`,
+        warning: 'AI service unavailable',
+        usedTextbook: false,
+        timestamp: new Date().toISOString()
+      });
+    }
+
+    // Success - return the response with metadata
+    return NextResponse.json({
+      success: true,
+      claude_response: claudeResponse,
+      usedTextbook,
+      textbookContentLength: textbookContent.length,
+      timestamp: new Date().toISOString()
     });
-
-    const data = await response.json();
-
-    return NextResponse.json(data);
   } catch (error) {
-    console.error('Error calling Claude API:', error);
+    console.error('Error in chat route:', error);
     return NextResponse.json(
-      { success: false, error: 'Failed to connect to AI service' },
+      { success: false, error: 'Failed to process request' },
       { status: 500 }
     );
   }

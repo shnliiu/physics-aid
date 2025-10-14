@@ -29,6 +29,10 @@ const LayoutProvider: React.FC<LayoutProviderProps> = ({ children }) => {
   const isFullPageApp = [
     "/tutor",
     "/tutor/",
+    "/landing",
+    "/landing/",
+    "/auth",
+    "/auth/",
   ].includes(pathname);
 
   return (

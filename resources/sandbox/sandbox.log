@@ -1,45 +1,660 @@
-[2025-10-08T21:11:15.507Z] Starting Amplify sandbox: npx ampx sandbox --stream-function-logs
-[2025-10-08T21:11:17.482Z]   Amplify Sandbox
-[2025-10-08T21:11:17.483Z]   Identifier: 	feather
-[2025-10-08T21:11:17.483Z]   Stack: 	amplify-physicsaid-feather-sandbox-3f9639d634
-[2025-10-08T21:11:17.483Z]   Region: 	us-east-1
-[2025-10-08T21:11:17.483Z]   To specify a different sandbox identifier, use --identifier
-[2025-10-08T21:11:17.782Z] 4:11:17 PM Synthesizing backend...
-[2025-10-08T21:11:18.540Z] 4:11:18 PM ✔ Backend synthesized in 0.76 seconds
-[2025-10-08T21:11:18.540Z] 4:11:18 PM Running type checks...
-[2025-10-08T21:11:20.850Z] 4:11:20 PM ✔ Type checks completed in 2.31 seconds
-[2025-10-08T21:11:20.852Z] 4:11:20 PM Building and publishing assets...
-[2025-10-08T21:11:23.106Z] 4:11:23 PM ✔ Built and published assets
-[2025-10-08T21:11:27.182Z] amplify-physicsaid-feather-sandbox-3f9639d634 |   0 | 4:11:24 PM | CREATE_IN_PROGRESS | AWS::CloudFormation::Stack | amplify-physicsaid-feather-sandbox-3f9639d634 User Initiated
-[2025-10-08T21:11:29.319Z] amplify-physicsaid-feather-sandbox-3f9639d634 |   0 | 4:11:27 PM | CREATE_IN_PROGRESS | AWS::CDK::Metadata | auth/CDKMetadata/Default (CDKMetadata)
-[2025-10-08T21:11:29.319Z] amplify-physicsaid-feather-sandbox-3f9639d634 |   0 | 4:11:27 PM | CREATE_IN_PROGRESS | AWS::CloudFormation::Stack | auth.NestedStack/auth.NestedStackResource (auth179371D7)
-[2025-10-08T21:11:29.319Z] amplify-physicsaid-feather-sandbox-3f9639d634 |   0 | 4:11:28 PM | CREATE_IN_PROGRESS | AWS::CDK::Metadata | auth/CDKMetadata/Default (CDKMetadata) Resource creation Initiated
-[2025-10-08T21:11:29.319Z] amplify-physicsaid-feather-sandbox-3f9639d634 |   1 | 4:11:28 PM | CREATE_COMPLETE | AWS::CDK::Metadata | auth/CDKMetadata/Default (CDKMetadata)
-[2025-10-08T21:11:29.319Z] amplify-physicsaid-feather-sandbox-3f9639d634 |   1 | 4:11:28 PM | CREATE_IN_PROGRESS | AWS::CloudFormation::Stack | auth.NestedStack/auth.NestedStackResource (auth179371D7) Resource creation Initiated
-[2025-10-08T21:11:31.455Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   1 | 4:11:30 PM | CREATE_IN_PROGRESS | AWS::Cognito::UserPool | auth/amplifyAuth/UserPool (amplifyAuthUserPool4BA7F805)
-[2025-10-08T21:11:31.455Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   1 | 4:11:30 PM | CREATE_IN_PROGRESS | AWS::CDK::Metadata | auth/CDKMetadata/Default (CDKMetadata)
-[2025-10-08T21:11:33.590Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   1 | 4:11:31 PM | CREATE_IN_PROGRESS | AWS::CDK::Metadata | auth/CDKMetadata/Default (CDKMetadata) Resource creation Initiated
-[2025-10-08T21:11:33.590Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   0 | 4:11:31 PM | CREATE_COMPLETE | AWS::CDK::Metadata | auth/CDKMetadata/Default (CDKMetadata)
-[2025-10-08T21:11:33.590Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   0 | 4:11:32 PM | CREATE_IN_PROGRESS | AWS::Cognito::UserPool | auth/amplifyAuth/UserPool (amplifyAuthUserPool4BA7F805) Resource creation Initiated
-[2025-10-08T21:11:35.727Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   1 | 4:11:33 PM | CREATE_COMPLETE | AWS::Cognito::UserPool | auth/amplifyAuth/UserPool (amplifyAuthUserPool4BA7F805)
-[2025-10-08T21:11:35.728Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   1 | 4:11:34 PM | CREATE_IN_PROGRESS | AWS::Cognito::UserPoolClient | auth/amplifyAuth/UserPoolAppClient (amplifyAuthUserPoolAppClient2626C6F8)
-[2025-10-08T21:11:35.728Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   1 | 4:11:35 PM | CREATE_IN_PROGRESS | AWS::Cognito::UserPoolClient | auth/amplifyAuth/UserPoolAppClient (amplifyAuthUserPoolAppClient2626C6F8) Resource creation Initiated
-[2025-10-08T21:11:42.161Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   2 | 4:11:41 PM | CREATE_COMPLETE | AWS::Cognito::UserPoolClient | auth/amplifyAuth/UserPoolAppClient (amplifyAuthUserPoolAppClient2626C6F8)
-[2025-10-08T21:11:42.161Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   2 | 4:11:41 PM | CREATE_IN_PROGRESS | AWS::Cognito::IdentityPool | auth/amplifyAuth/IdentityPool (amplifyAuthIdentityPool3FDE84CC)
-[2025-10-08T21:11:44.334Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   2 | 4:11:42 PM | CREATE_IN_PROGRESS | AWS::Cognito::IdentityPool | auth/amplifyAuth/IdentityPool (amplifyAuthIdentityPool3FDE84CC) Resource creation Initiated
-[2025-10-08T21:11:44.334Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   3 | 4:11:43 PM | CREATE_COMPLETE | AWS::Cognito::IdentityPool | auth/amplifyAuth/IdentityPool (amplifyAuthIdentityPool3FDE84CC)
-[2025-10-08T21:11:44.334Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   3 | 4:11:43 PM | CREATE_IN_PROGRESS | AWS::IAM::Role | auth/amplifyAuth/unauthenticatedUserRole (amplifyAuthunauthenticatedUserRole2B524D9E)
-[2025-10-08T21:11:44.334Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   3 | 4:11:43 PM | CREATE_IN_PROGRESS | AWS::IAM::Role | auth/amplifyAuth/authenticatedUserRole (amplifyAuthauthenticatedUserRoleD8DA3689)
-[2025-10-08T21:11:46.514Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   3 | 4:11:44 PM | CREATE_IN_PROGRESS | AWS::IAM::Role | auth/amplifyAuth/authenticatedUserRole (amplifyAuthauthenticatedUserRoleD8DA3689) Resource creation Initiated
-[2025-10-08T21:11:46.515Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   3 | 4:11:44 PM | CREATE_IN_PROGRESS | AWS::IAM::Role | auth/amplifyAuth/unauthenticatedUserRole (amplifyAuthunauthenticatedUserRole2B524D9E) Resource creation Initiated
-[2025-10-08T21:12:01.779Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   4 | 4:12:01 PM | CREATE_COMPLETE | AWS::IAM::Role | auth/amplifyAuth/unauthenticatedUserRole (amplifyAuthunauthenticatedUserRole2B524D9E)
-[2025-10-08T21:12:01.780Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   5 | 4:12:01 PM | CREATE_COMPLETE | AWS::IAM::Role | auth/amplifyAuth/authenticatedUserRole (amplifyAuthauthenticatedUserRoleD8DA3689)
-[2025-10-08T21:12:03.947Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   5 | 4:12:02 PM | CREATE_IN_PROGRESS | AWS::Cognito::IdentityPoolRoleAttachment | auth/amplifyAuth/IdentityPoolRoleAttachment (amplifyAuthIdentityPoolRoleAttachment045F17C8)
-[2025-10-08T21:12:03.947Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   5 | 4:12:03 PM | CREATE_IN_PROGRESS | AWS::Cognito::IdentityPoolRoleAttachment | auth/amplifyAuth/IdentityPoolRoleAttachment (amplifyAuthIdentityPoolRoleAttachment045F17C8) Resource creation Initiated
-[2025-10-08T21:12:06.135Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   6 | 4:12:05 PM | CREATE_COMPLETE | AWS::Cognito::IdentityPoolRoleAttachment | auth/amplifyAuth/IdentityPoolRoleAttachment (amplifyAuthIdentityPoolRoleAttachment045F17C8)
-[2025-10-08T21:12:08.316Z] amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR |   7 | 4:12:06 PM | CREATE_COMPLETE | AWS::CloudFormation::Stack | amplify-physicsaid-feather-sandbox-3f9639d634-auth179371D7-1O1NIPGSY9MJR
-[2025-10-08T21:12:16.618Z] amplify-physicsaid-feather-sandbox-3f9639d634 |   8 | 4:12:15 PM | CREATE_COMPLETE | AWS::CloudFormation::Stack | auth.NestedStack/auth.NestedStackResource (auth179371D7)
-[2025-10-08T21:12:16.619Z] amplify-physicsaid-feather-sandbox-3f9639d634 |   9 | 4:12:16 PM | CREATE_COMPLETE | AWS::CloudFormation::Stack | amplify-physicsaid-feather-sandbox-3f9639d634
-[2025-10-08T21:12:21.043Z] 4:12:21 PM ✔ Deployment completed in 57.937 seconds
-[2025-10-08T21:12:21.046Z] 4:12:21 PM [Sandbox] Watching for file changes...
-[2025-10-08T21:12:21.426Z] 4:12:21 PM File written: amplify_outputs.json
+[2025-10-14T00:45:41.665Z] Starting Amplify sandbox: npx ampx sandbox --stream-function-logs
+[2025-10-14T00:45:45.660Z]   Amplify Sandbox
+[2025-10-14T00:45:45.660Z]   Identifier: 	shannonliu
+[2025-10-14T00:45:45.660Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T00:45:45.660Z]   Region: 	us-east-1
+[2025-10-14T00:45:45.660Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T00:45:46.136Z] 5:45:46 PM Synthesizing backend...
+[2025-10-14T00:45:47.343Z] 5:45:47 PM WARNING: owners may reassign ownership for the following model(s) and role(s): ConversationAskPhysicsQuestion: [owner], ConversationMessageAskPhysicsQuestion: [owner]. If this is not intentional, you may want to apply field-level authorization rules to these fields. To read more: https://docs.amplify.aws/cli/graphql/authorization-rules/#per-user--owner-based-data-access.
+[2025-10-14T00:45:47.343Z] 5:45:47 PM 
+[2025-10-14T00:45:48.003Z] 5:45:48 PM ✔ Backend synthesized in 1.87 seconds
+[2025-10-14T00:45:48.003Z] 5:45:48 PM Running type checks...
+[2025-10-14T00:45:52.190Z] 5:45:52 PM ✔ Type checks completed in 4.18 seconds
+[2025-10-14T00:45:52.236Z] 5:45:52 PM Building and publishing assets...
+[2025-10-14T00:45:56.417Z] 5:45:56 PM ✔ Built and published assets
+[2025-10-14T00:46:05.483Z] 5:46:05 PM ✔ Deployment completed in 9.067 seconds
+[2025-10-14T00:46:05.483Z] 5:46:05 PM AppSync API endpoint = https://c2cgh7nxengjjjscy5lmugjlou.appsync-api.us-east-1.amazonaws.com/graphql
+[2025-10-14T00:46:05.485Z] 5:46:05 PM [Sandbox] Watching for file changes...
+[2025-10-14T00:46:06.437Z] 5:46:06 PM File written: amplify_outputs.json
+[2025-10-14T01:03:26.505Z]   Amplify Sandbox
+[2025-10-14T01:03:26.505Z]   Identifier: 	shannonliu
+[2025-10-14T01:03:26.505Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T01:03:26.505Z]   Region: 	us-east-1
+[2025-10-14T01:03:26.505Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T01:03:26.505Z]   Amplify Sandbox
+[2025-10-14T01:03:26.505Z]   Identifier: 	shannonliu
+[2025-10-14T01:03:26.505Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T01:03:26.505Z]   Region: 	us-east-1
+[2025-10-14T01:03:26.505Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T01:03:26.510Z] 6:03:26 PM [Sandbox] Triggered due to a file create event: amplify/data/resource.ts
+[2025-10-14T01:03:26.510Z] 6:03:26 PM [Sandbox] Triggered due to a file delete event: amplify/data/resource.ts.tmp.67375.1760403806485
+[2025-10-14T01:03:27.092Z] 6:03:27 PM Synthesizing backend...
+[2025-10-14T01:03:27.346Z] 6:03:27 PM ✔ Backend synthesized in 0.25 seconds
+[2025-10-14T01:03:27.347Z] 6:03:27 PM Running type checks...
+[2025-10-14T01:03:31.286Z] 6:03:31 PM [Sandbox] Triggered due to a file delete event: amplify/data/resource.ts.tmp.67375.1760403811280
+[2025-10-14T01:03:31.286Z] 6:03:31 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T01:03:31.351Z] 6:03:31 PM [Sandbox] Triggered due to a file create event: amplify/data/resource.ts
+[2025-10-14T01:03:31.351Z] 6:03:31 PM [Sandbox] Triggered due to a file delete event: amplify/data/resource.ts.tmp.67375.1760403811280
+[2025-10-14T01:03:31.351Z] 6:03:31 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T01:03:31.992Z] 6:03:31 PM ✔ Type checks completed in 4.64 seconds
+[2025-10-14T01:03:32.000Z] 6:03:32 PM [ERROR] [SyntaxError] TypeScript validation check failed.
+[2025-10-14T01:03:32.000Z] Resolution: Fix the syntax and type errors in your backend definition.
+[2025-10-14T01:03:32.000Z] Details: amplify/data/resource.ts:21:38 - error TS2339: Property 'default' does not exist on type 'RefType<SetTypeSubArg<RefTypeArgFactory<"Role">, "valueRequired", true>, "required", undefined>'.
+[2025-10-14T01:03:32.000Z] 21       role: a.ref('Role').required().default('STUDENT'),
+[2025-10-14T01:03:32.000Z]                                         ~~~~~~~
+[2025-10-14T01:03:32.000Z] amplify/data/resource.ts:76:49 - error TS2339: Property 'default' does not exist on type 'RefType<SetTypeSubArg<RefTypeArgFactory<"ProblemStatus">, "valueRequired", true>, "required", undefined>'.
+[2025-10-14T01:03:32.000Z] 76       status: a.ref('ProblemStatus').required().default('NEED_HELP'),
+[2025-10-14T01:03:32.000Z]                                                    ~~~~~~~
+[2025-10-14T01:03:32.000Z] amplify/data/resource.ts:91:10 - error TS2339: Property 'partitionKey' does not exist on type 'ModelIndexType<any, string, readonly any[]>'.
+[2025-10-14T01:03:32.000Z] 91         .partitionKey('chapterId')
+[2025-10-14T01:03:32.000Z]             ~~~~~~~~~~~~
+[2025-10-14T01:03:32.000Z] amplify/data/resource.ts:95:10 - error TS2339: Property 'partitionKey' does not exist on type 'ModelIndexType<any, string, readonly any[]>'.
+[2025-10-14T01:03:32.000Z] 95         .partitionKey('authorId')
+[2025-10-14T01:03:32.000Z]             ~~~~~~~~~~~~
+[2025-10-14T01:03:32.000Z] amplify/data/resource.ts:99:10 - error TS2339: Property 'partitionKey' does not exist on type 'ModelIndexType<any, string, readonly any[]>'.
+[2025-10-14T01:03:32.000Z] 99         .partitionKey('status')
+[2025-10-14T01:03:32.000Z]             ~~~~~~~~~~~~
+[2025-10-14T01:03:32.000Z] amplify/data/resource.ts:105:19 - error TS2345: Argument of type '"authorId"' is not assignable to parameter of type '"userPools" | "oidc" | undefined'.
+[2025-10-14T01:03:32.000Z] 105       allow.owner('authorId').to(['create', 'update', 'delete']),
+[2025-10-14T01:03:32.000Z]                       ~~~~~~~~~~
+[2025-10-14T01:03:32.000Z] amplify/data/resource.ts:106:37 - error TS2554: Expected 0-1 arguments, but got 2.
+[2025-10-14T01:03:32.000Z] 106       allow.authenticated('groups', ['TEACHER']).to(['update']), // Teachers can feature
+[2025-10-14T01:03:32.000Z]                                         ~~~~~~~~~~~
+[2025-10-14T01:03:32.000Z] amplify/data/resource.ts:124:19 - error TS2345: Argument of type '"authorId"' is not assignable to parameter of type '"userPools" | "oidc" | undefined'.
+[2025-10-14T01:03:32.000Z] 124       allow.owner('authorId').to(['create', 'update', 'delete']),
+[2025-10-14T01:03:32.000Z]                       ~~~~~~~~~~
+[2025-10-14T01:03:32.002Z]   Amplify Sandbox
+[2025-10-14T01:03:32.002Z]   Identifier: 	shannonliu
+[2025-10-14T01:03:32.002Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T01:03:32.002Z]   Region: 	us-east-1
+[2025-10-14T01:03:32.002Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T01:03:32.003Z] 6:03:32 PM [Sandbox] Detected file changes while previous deployment was in progress. Invoking 'sandbox' again
+[2025-10-14T01:03:32.303Z] 6:03:32 PM Synthesizing backend...
+[2025-10-14T01:03:32.324Z] 6:03:32 PM ✔ Backend synthesized in 0.02 seconds
+[2025-10-14T01:03:32.324Z] 6:03:32 PM Running type checks...
+[2025-10-14T01:03:35.978Z] 6:03:35 PM ✔ Type checks completed in 3.64 seconds
+[2025-10-14T01:03:35.983Z] 6:03:35 PM [ERROR] [SyntaxError] TypeScript validation check failed.
+[2025-10-14T01:03:35.983Z] Resolution: Fix the syntax and type errors in your backend definition.
+[2025-10-14T01:03:35.983Z] Details: amplify/data/resource.ts:21:38 - error TS2339: Property 'default' does not exist on type 'RefType<SetTypeSubArg<RefTypeArgFactory<"Role">, "valueRequired", true>, "required", undefined>'.
+[2025-10-14T01:03:35.983Z] 21       role: a.ref('Role').required().default('STUDENT'),
+[2025-10-14T01:03:35.983Z]                                         ~~~~~~~
+[2025-10-14T01:03:35.983Z] amplify/data/resource.ts:76:49 - error TS2339: Property 'default' does not exist on type 'RefType<SetTypeSubArg<RefTypeArgFactory<"ProblemStatus">, "valueRequired", true>, "required", undefined>'.
+[2025-10-14T01:03:35.983Z] 76       status: a.ref('ProblemStatus').required().default('NEED_HELP'),
+[2025-10-14T01:03:35.983Z]                                                    ~~~~~~~
+[2025-10-14T01:03:35.983Z] amplify/data/resource.ts:91:10 - error TS2339: Property 'partitionKey' does not exist on type 'ModelIndexType<any, string, readonly any[]>'.
+[2025-10-14T01:03:35.983Z] 91         .partitionKey('chapterId')
+[2025-10-14T01:03:35.983Z]             ~~~~~~~~~~~~
+[2025-10-14T01:03:35.983Z] amplify/data/resource.ts:95:10 - error TS2339: Property 'partitionKey' does not exist on type 'ModelIndexType<any, string, readonly any[]>'.
+[2025-10-14T01:03:35.983Z] 95         .partitionKey('authorId')
+[2025-10-14T01:03:35.983Z]             ~~~~~~~~~~~~
+[2025-10-14T01:03:35.983Z] amplify/data/resource.ts:99:10 - error TS2339: Property 'partitionKey' does not exist on type 'ModelIndexType<any, string, readonly any[]>'.
+[2025-10-14T01:03:35.983Z] 99         .partitionKey('status')
+[2025-10-14T01:03:35.983Z]             ~~~~~~~~~~~~
+[2025-10-14T01:03:35.983Z] amplify/data/resource.ts:105:19 - error TS2345: Argument of type '"authorId"' is not assignable to parameter of type '"userPools" | "oidc" | undefined'.
+[2025-10-14T01:03:35.983Z] 105       allow.owner('authorId').to(['create', 'update', 'delete']),
+[2025-10-14T01:03:35.983Z]                       ~~~~~~~~~~
+[2025-10-14T01:03:35.983Z] amplify/data/resource.ts:106:37 - error TS2554: Expected 0-1 arguments, but got 2.
+[2025-10-14T01:03:35.983Z] 106       allow.authenticated('groups', ['TEACHER']).to(['update']), // Teachers can feature
+[2025-10-14T01:03:35.983Z]                                         ~~~~~~~~~~~
+[2025-10-14T01:03:35.983Z] amplify/data/resource.ts:124:19 - error TS2345: Argument of type '"authorId"' is not assignable to parameter of type '"userPools" | "oidc" | undefined'.
+[2025-10-14T01:03:35.983Z] 124       allow.owner('authorId').to(['create', 'update', 'delete']),
+[2025-10-14T01:03:35.983Z]                       ~~~~~~~~~~
+[2025-10-14T01:03:35.983Z] amplify/data/resource.ts:219:3 - error TS2695: Left side of comma operator is unused and has no side effects.
+[2025-10-14T01:03:35.983Z] 219   schema,
+[2025-10-14T01:03:35.983Z]       ~~~~~~
+[2025-10-14T01:03:35.983Z] amplify/data/resource.ts:220:3 - error TS2304: Cannot find name 'authorizationModes'.
+[2025-10-14T01:03:35.983Z] 220   authorizationModes: {
+[2025-10-14T01:03:35.983Z]       ~~~~~~~~~~~~~~~~~~
+[2025-10-14T01:03:35.983Z] amplify/data/resource.ts:220:21 - error TS1005: ';' expected.
+[2025-10-14T01:03:35.983Z] 220   authorizationModes: {
+[2025-10-14T01:03:35.983Z]                         ~
+[2025-10-14T01:03:35.983Z] amplify/data/resource.ts:222:31 - error TS2695: Left side of comma operator is unused and has no side effects.
+[2025-10-14T01:03:35.983Z] 222     defaultAuthorizationMode: 'userPool',
+[2025-10-14T01:03:35.983Z]                                   ~~~~~~~~~~
+[2025-10-14T01:03:35.983Z] amplify/data/resource.ts:227:3 - error TS1109: Expression expected.
+[2025-10-14T01:03:35.983Z] 227   },
+[2025-10-14T01:03:35.983Z]       ~
+[2025-10-14T01:03:35.983Z] amplify/data/resource.ts:227:4 - error TS1128: Declaration or statement expected.
+[2025-10-14T01:03:35.983Z] 227   },
+[2025-10-14T01:03:35.983Z]        ~
+[2025-10-14T01:03:35.983Z] amplify/data/resource.ts:228:1 - error TS1128: Declaration or statement expected.
+[2025-10-14T01:03:35.983Z] 228 });
+[2025-10-14T01:03:35.983Z]     ~
+[2025-10-14T01:03:35.983Z] amplify/data/resource.ts:228:2 - error TS1128: Declaration or statement expected.
+[2025-10-14T01:03:35.983Z] 228 });
+[2025-10-14T01:03:35.983Z]      ~
+[2025-10-14T01:03:35.983Z] 6:03:35 PM [Sandbox] Watching for file changes...
+[2025-10-14T01:03:47.776Z]   Amplify Sandbox
+[2025-10-14T01:03:47.776Z]   Identifier: 	shannonliu
+[2025-10-14T01:03:47.777Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T01:03:47.777Z]   Region: 	us-east-1
+[2025-10-14T01:03:47.777Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T01:03:47.777Z]   Amplify Sandbox
+[2025-10-14T01:03:47.777Z]   Identifier: 	shannonliu
+[2025-10-14T01:03:47.777Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T01:03:47.777Z]   Region: 	us-east-1
+[2025-10-14T01:03:47.777Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T01:03:47.777Z] 6:03:47 PM [Sandbox] Triggered due to a file create event: amplify/data/resource.ts
+[2025-10-14T01:03:47.777Z] 6:03:47 PM [Sandbox] Triggered due to a file delete event: amplify/data/resource.ts.tmp.67375.1760403827757
+[2025-10-14T01:03:48.302Z] 6:03:48 PM Synthesizing backend...
+[2025-10-14T01:03:48.497Z] 6:03:48 PM ✔ Backend synthesized in 0.19 seconds
+[2025-10-14T01:03:48.497Z] 6:03:48 PM Running type checks...
+[2025-10-14T01:03:52.687Z] 6:03:52 PM ✔ Type checks completed in 4.19 seconds
+[2025-10-14T01:03:52.689Z] 6:03:52 PM [ERROR] [SyntaxError] TypeScript validation check failed.
+[2025-10-14T01:03:52.689Z] Resolution: Fix the syntax and type errors in your backend definition.
+[2025-10-14T01:03:52.689Z] Details: amplify/data/resource.ts:21:38 - error TS2339: Property 'default' does not exist on type 'RefType<SetTypeSubArg<RefTypeArgFactory<"Role">, "valueRequired", true>, "required", undefined>'.
+[2025-10-14T01:03:52.689Z] 21       role: a.ref('Role').required().default('STUDENT'),
+[2025-10-14T01:03:52.689Z]                                         ~~~~~~~
+[2025-10-14T01:03:52.689Z] amplify/data/resource.ts:76:49 - error TS2339: Property 'default' does not exist on type 'RefType<SetTypeSubArg<RefTypeArgFactory<"ProblemStatus">, "valueRequired", true>, "required", undefined>'.
+[2025-10-14T01:03:52.689Z] 76       status: a.ref('ProblemStatus').required().default('NEED_HELP'),
+[2025-10-14T01:03:52.689Z]                                                    ~~~~~~~
+[2025-10-14T01:03:52.689Z] amplify/data/resource.ts:91:10 - error TS2339: Property 'partitionKey' does not exist on type 'ModelIndexType<any, string, readonly any[]>'.
+[2025-10-14T01:03:52.689Z] 91         .partitionKey('chapterId')
+[2025-10-14T01:03:52.689Z]             ~~~~~~~~~~~~
+[2025-10-14T01:03:52.689Z] amplify/data/resource.ts:95:10 - error TS2339: Property 'partitionKey' does not exist on type 'ModelIndexType<any, string, readonly any[]>'.
+[2025-10-14T01:03:52.689Z] 95         .partitionKey('authorId')
+[2025-10-14T01:03:52.689Z]             ~~~~~~~~~~~~
+[2025-10-14T01:03:52.689Z] amplify/data/resource.ts:99:10 - error TS2339: Property 'partitionKey' does not exist on type 'ModelIndexType<any, string, readonly any[]>'.
+[2025-10-14T01:03:52.689Z] 99         .partitionKey('status')
+[2025-10-14T01:03:52.689Z]             ~~~~~~~~~~~~
+[2025-10-14T01:03:52.689Z] amplify/data/resource.ts:105:19 - error TS2345: Argument of type '"authorId"' is not assignable to parameter of type '"userPools" | "oidc" | undefined'.
+[2025-10-14T01:03:52.689Z] 105       allow.owner('authorId').to(['create', 'update', 'delete']),
+[2025-10-14T01:03:52.689Z]                       ~~~~~~~~~~
+[2025-10-14T01:03:52.689Z] amplify/data/resource.ts:106:37 - error TS2554: Expected 0-1 arguments, but got 2.
+[2025-10-14T01:03:52.689Z] 106       allow.authenticated('groups', ['TEACHER']).to(['update']), // Teachers can feature
+[2025-10-14T01:03:52.689Z]                                         ~~~~~~~~~~~
+[2025-10-14T01:03:52.689Z] amplify/data/resource.ts:124:19 - error TS2345: Argument of type '"authorId"' is not assignable to parameter of type '"userPools" | "oidc" | undefined'.
+[2025-10-14T01:03:52.689Z] 124       allow.owner('authorId').to(['create', 'update', 'delete']),
+[2025-10-14T01:03:52.689Z]                       ~~~~~~~~~~
+[2025-10-14T01:03:52.691Z] 6:03:52 PM [Sandbox] Watching for file changes...
+[2025-10-14T01:03:54.674Z]   Amplify Sandbox
+[2025-10-14T01:03:54.674Z]   Identifier: 	shannonliu
+[2025-10-14T01:03:54.674Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T01:03:54.674Z]   Region: 	us-east-1
+[2025-10-14T01:03:54.674Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T01:03:54.674Z]   Amplify Sandbox
+[2025-10-14T01:03:54.674Z]   Identifier: 	shannonliu
+[2025-10-14T01:03:54.675Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T01:03:54.675Z]   Region: 	us-east-1
+[2025-10-14T01:03:54.675Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T01:03:54.675Z]   Amplify Sandbox
+[2025-10-14T01:03:54.675Z]   Identifier: 	shannonliu
+[2025-10-14T01:03:54.675Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T01:03:54.675Z]   Region: 	us-east-1
+[2025-10-14T01:03:54.675Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T01:03:54.675Z]   Amplify Sandbox
+[2025-10-14T01:03:54.675Z]   Identifier: 	shannonliu
+[2025-10-14T01:03:54.675Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T01:03:54.675Z]   Region: 	us-east-1
+[2025-10-14T01:03:54.675Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T01:03:54.675Z] 6:03:54 PM [Sandbox] Triggered due to a file create event: amplify/functions
+[2025-10-14T01:03:54.675Z] 6:03:54 PM [Sandbox] Triggered due to a file create event: amplify/functions/getFeaturedProblems
+[2025-10-14T01:03:54.675Z] 6:03:54 PM [Sandbox] Triggered due to a file create event: amplify/functions/searchFormulas
+[2025-10-14T01:03:54.675Z] 6:03:54 PM [Sandbox] Triggered due to a file create event: amplify/functions/verifyProblemSolution
+[2025-10-14T01:03:54.891Z] 6:03:54 PM Synthesizing backend...
+[2025-10-14T01:03:55.082Z] 6:03:55 PM ✔ Backend synthesized in 0.19 seconds
+[2025-10-14T01:03:55.082Z] 6:03:55 PM Running type checks...
+[2025-10-14T01:03:55.084Z] 6:03:55 PM [ERROR] [BackendBuildError] Unable to deploy due to CDK Assembly Error
+[2025-10-14T01:03:55.084Z]   ∟ Caused by: [AssemblyError] Assembly builder failed
+[2025-10-14T01:03:55.084Z]     ∟ Caused by: [TypeError] a.ref(...).required(...).default is not a function
+[2025-10-14T01:03:55.084Z] Resolution: Check the Caused by error and fix any issues in your backend code
+[2025-10-14T01:03:55.084Z] 6:03:55 PM [Sandbox] Watching for file changes...
+[2025-10-14T01:03:56.651Z]   Amplify Sandbox
+[2025-10-14T01:03:56.652Z]   Identifier: 	shannonliu
+[2025-10-14T01:03:56.652Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T01:03:56.652Z]   Region: 	us-east-1
+[2025-10-14T01:03:56.652Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T01:03:56.652Z]   Amplify Sandbox
+[2025-10-14T01:03:56.652Z]   Identifier: 	shannonliu
+[2025-10-14T01:03:56.652Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T01:03:56.652Z]   Region: 	us-east-1
+[2025-10-14T01:03:56.652Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T01:03:56.652Z] 6:03:56 PM [Sandbox] Triggered due to a file update event: amplify
+[2025-10-14T01:03:56.652Z] 6:03:56 PM [Sandbox] Triggered due to a file update event: amplify/functions
+[2025-10-14T01:03:56.852Z] 6:03:56 PM Synthesizing backend...
+[2025-10-14T01:03:57.024Z] 6:03:57 PM ✔ Backend synthesized in 0.17 seconds
+[2025-10-14T01:03:57.024Z] 6:03:57 PM Running type checks...
+[2025-10-14T01:03:57.024Z] 6:03:57 PM [ERROR] [BackendBuildError] Unable to deploy due to CDK Assembly Error
+[2025-10-14T01:03:57.024Z]   ∟ Caused by: [AssemblyError] Assembly builder failed
+[2025-10-14T01:03:57.024Z]     ∟ Caused by: [TypeError] a.ref(...).required(...).default is not a function
+[2025-10-14T01:03:57.024Z] Resolution: Check the Caused by error and fix any issues in your backend code
+[2025-10-14T01:03:57.025Z] 6:03:57 PM [Sandbox] Watching for file changes...
+[2025-10-14T01:03:58.161Z]   Amplify Sandbox
+[2025-10-14T01:03:58.161Z]   Identifier: 	shannonliu
+[2025-10-14T01:03:58.161Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T01:03:58.161Z]   Region: 	us-east-1
+[2025-10-14T01:03:58.161Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T01:03:58.161Z]   Amplify Sandbox
+[2025-10-14T01:03:58.161Z]   Identifier: 	shannonliu
+[2025-10-14T01:03:58.161Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T01:03:58.161Z]   Region: 	us-east-1
+[2025-10-14T01:03:58.161Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T01:03:58.162Z]   Amplify Sandbox
+[2025-10-14T01:03:58.162Z]   Identifier: 	shannonliu
+[2025-10-14T01:03:58.162Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T01:03:58.162Z]   Region: 	us-east-1
+[2025-10-14T01:03:58.162Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T01:03:58.162Z] 6:03:58 PM [Sandbox] Triggered due to a file update event: amplify/functions/getFeaturedProblems
+[2025-10-14T01:03:58.162Z] 6:03:58 PM [Sandbox] Triggered due to a file update event: amplify/functions/searchFormulas
+[2025-10-14T01:03:58.162Z] 6:03:58 PM [Sandbox] Triggered due to a file update event: amplify/functions/verifyProblemSolution
+[2025-10-14T01:03:58.228Z] 6:03:58 PM [Sandbox] Triggered due to a file update event: amplify/functions
+[2025-10-14T01:03:58.228Z] 6:03:58 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T01:03:58.371Z] 6:03:58 PM Synthesizing backend...
+[2025-10-14T01:03:58.506Z] 6:03:58 PM ✔ Backend synthesized in 0.13 seconds
+[2025-10-14T01:03:58.506Z] 6:03:58 PM Running type checks...
+[2025-10-14T01:03:58.507Z] 6:03:58 PM [ERROR] [BackendBuildError] Unable to deploy due to CDK Assembly Error
+[2025-10-14T01:03:58.507Z]   ∟ Caused by: [AssemblyError] Assembly builder failed
+[2025-10-14T01:03:58.507Z]     ∟ Caused by: [TypeError] a.ref(...).required(...).default is not a function
+[2025-10-14T01:03:58.507Z] Resolution: Check the Caused by error and fix any issues in your backend code
+[2025-10-14T01:03:58.508Z]   Amplify Sandbox
+[2025-10-14T01:03:58.508Z]   Identifier: 	shannonliu
+[2025-10-14T01:03:58.508Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T01:03:58.508Z]   Region: 	us-east-1
+[2025-10-14T01:03:58.508Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T01:03:58.508Z] 6:03:58 PM [Sandbox] Detected file changes while previous deployment was in progress. Invoking 'sandbox' again
+[2025-10-14T01:03:58.705Z] 6:03:58 PM Synthesizing backend...
+[2025-10-14T01:03:58.869Z] 6:03:58 PM ✔ Backend synthesized in 0.16 seconds
+[2025-10-14T01:03:58.869Z] 6:03:58 PM Running type checks...
+[2025-10-14T01:03:58.870Z] 6:03:58 PM [ERROR] [BackendBuildError] Unable to deploy due to CDK Assembly Error
+[2025-10-14T01:03:58.870Z]   ∟ Caused by: [AssemblyError] Assembly builder failed
+[2025-10-14T01:03:58.870Z]     ∟ Caused by: [TypeError] a.ref(...).required(...).default is not a function
+[2025-10-14T01:03:58.870Z] Resolution: Check the Caused by error and fix any issues in your backend code
+[2025-10-14T01:03:58.871Z] 6:03:58 PM [Sandbox] Watching for file changes...
+[2025-10-14T01:04:15.416Z]   Amplify Sandbox
+[2025-10-14T01:04:15.416Z]   Identifier: 	shannonliu
+[2025-10-14T01:04:15.417Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T01:04:15.417Z]   Region: 	us-east-1
+[2025-10-14T01:04:15.417Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T01:04:15.417Z]   Amplify Sandbox
+[2025-10-14T01:04:15.417Z]   Identifier: 	shannonliu
+[2025-10-14T01:04:15.417Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T01:04:15.417Z]   Region: 	us-east-1
+[2025-10-14T01:04:15.417Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T01:04:15.417Z] 6:04:15 PM [Sandbox] Triggered due to a file create event: amplify/functions/verifyProblemSolution/handler.ts
+[2025-10-14T01:04:15.417Z] 6:04:15 PM [Sandbox] Triggered due to a file delete event: amplify/functions/verifyProblemSolution/handler.ts.tmp.67375.1760403855351
+[2025-10-14T01:04:15.872Z] 6:04:15 PM Synthesizing backend...
+[2025-10-14T01:04:16.034Z] 6:04:16 PM ✔ Backend synthesized in 0.16 seconds
+[2025-10-14T01:04:16.035Z] 6:04:16 PM Running type checks...
+[2025-10-14T01:04:20.637Z] 6:04:20 PM ✔ Type checks completed in 4.6 seconds
+[2025-10-14T01:04:20.641Z] 6:04:20 PM [ERROR] [SyntaxError] TypeScript validation check failed.
+[2025-10-14T01:04:20.641Z] Resolution: Fix the syntax and type errors in your backend definition.
+[2025-10-14T01:04:20.641Z] Details: amplify/data/resource.ts:21:38 - error TS2339: Property 'default' does not exist on type 'RefType<SetTypeSubArg<RefTypeArgFactory<"Role">, "valueRequired", true>, "required", undefined>'.
+[2025-10-14T01:04:20.641Z] 21       role: a.ref('Role').required().default('STUDENT'),
+[2025-10-14T01:04:20.641Z]                                         ~~~~~~~
+[2025-10-14T01:04:20.641Z] amplify/data/resource.ts:76:49 - error TS2339: Property 'default' does not exist on type 'RefType<SetTypeSubArg<RefTypeArgFactory<"ProblemStatus">, "valueRequired", true>, "required", undefined>'.
+[2025-10-14T01:04:20.641Z] 76       status: a.ref('ProblemStatus').required().default('NEED_HELP'),
+[2025-10-14T01:04:20.641Z]                                                    ~~~~~~~
+[2025-10-14T01:04:20.641Z] amplify/data/resource.ts:91:10 - error TS2339: Property 'partitionKey' does not exist on type 'ModelIndexType<any, string, readonly any[]>'.
+[2025-10-14T01:04:20.641Z] 91         .partitionKey('chapterId')
+[2025-10-14T01:04:20.641Z]             ~~~~~~~~~~~~
+[2025-10-14T01:04:20.641Z] amplify/data/resource.ts:95:10 - error TS2339: Property 'partitionKey' does not exist on type 'ModelIndexType<any, string, readonly any[]>'.
+[2025-10-14T01:04:20.641Z] 95         .partitionKey('authorId')
+[2025-10-14T01:04:20.641Z]             ~~~~~~~~~~~~
+[2025-10-14T01:04:20.641Z] amplify/data/resource.ts:99:10 - error TS2339: Property 'partitionKey' does not exist on type 'ModelIndexType<any, string, readonly any[]>'.
+[2025-10-14T01:04:20.641Z] 99         .partitionKey('status')
+[2025-10-14T01:04:20.641Z]             ~~~~~~~~~~~~
+[2025-10-14T01:04:20.641Z] amplify/data/resource.ts:105:19 - error TS2345: Argument of type '"authorId"' is not assignable to parameter of type '"userPools" | "oidc" | undefined'.
+[2025-10-14T01:04:20.641Z] 105       allow.owner('authorId').to(['create', 'update', 'delete']),
+[2025-10-14T01:04:20.641Z]                       ~~~~~~~~~~
+[2025-10-14T01:04:20.641Z] amplify/data/resource.ts:106:37 - error TS2554: Expected 0-1 arguments, but got 2.
+[2025-10-14T01:04:20.641Z] 106       allow.authenticated('groups', ['TEACHER']).to(['update']), // Teachers can feature
+[2025-10-14T01:04:20.641Z]                                         ~~~~~~~~~~~
+[2025-10-14T01:04:20.641Z] amplify/data/resource.ts:124:19 - error TS2345: Argument of type '"authorId"' is not assignable to parameter of type '"userPools" | "oidc" | undefined'.
+[2025-10-14T01:04:20.641Z] 124       allow.owner('authorId').to(['create', 'update', 'delete']),
+[2025-10-14T01:04:20.641Z]                       ~~~~~~~~~~
+[2025-10-14T01:04:20.643Z] 6:04:20 PM [Sandbox] Watching for file changes...
+[2025-10-14T01:04:36.407Z]   Amplify Sandbox
+[2025-10-14T01:04:36.407Z]   Identifier: 	shannonliu
+[2025-10-14T01:04:36.407Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T01:04:36.407Z]   Region: 	us-east-1
+[2025-10-14T01:04:36.407Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T01:04:36.408Z] 6:04:36 PM [Sandbox] Triggered due to a file delete event: amplify/functions/verifyProblemSolution/resource.ts.tmp.67375.1760403876396
+[2025-10-14T01:04:36.465Z] 6:04:36 PM [Sandbox] Triggered due to a file create event: amplify/functions/verifyProblemSolution/resource.ts
+[2025-10-14T01:04:36.466Z] 6:04:36 PM [Sandbox] Triggered due to a file delete event: amplify/functions/verifyProblemSolution/resource.ts.tmp.67375.1760403876396
+[2025-10-14T01:04:36.466Z] 6:04:36 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T01:04:36.664Z] 6:04:36 PM [Sandbox] Triggered due to a file create event: amplify/functions/searchFormulas/handler.ts
+[2025-10-14T01:04:36.664Z] 6:04:36 PM [Sandbox] Triggered due to a file delete event: amplify/functions/searchFormulas/handler.ts.tmp.67375.1760403876573
+[2025-10-14T01:04:36.664Z] 6:04:36 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T01:04:36.792Z] 6:04:36 PM [Sandbox] Triggered due to a file create event: amplify/functions/searchFormulas/resource.ts
+[2025-10-14T01:04:36.792Z] 6:04:36 PM [Sandbox] Triggered due to a file delete event: amplify/functions/searchFormulas/resource.ts.tmp.67375.1760403876734
+[2025-10-14T01:04:36.792Z] 6:04:36 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T01:04:36.908Z] 6:04:36 PM Synthesizing backend...
+[2025-10-14T01:04:36.980Z] 6:04:36 PM [Sandbox] Triggered due to a file create event: amplify/functions/getFeaturedProblems/handler.ts
+[2025-10-14T01:04:36.981Z] 6:04:36 PM [Sandbox] Triggered due to a file delete event: amplify/functions/getFeaturedProblems/handler.ts.tmp.67375.1760403876922
+[2025-10-14T01:04:36.981Z] 6:04:36 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T01:04:37.205Z] 6:04:37 PM ✔ Backend synthesized in 0.29 seconds
+[2025-10-14T01:04:37.205Z] 6:04:37 PM Running type checks...
+[2025-10-14T01:04:37.276Z] 6:04:37 PM [Sandbox] Triggered due to a file create event: amplify/functions/getFeaturedProblems/resource.ts
+[2025-10-14T01:04:37.276Z] 6:04:37 PM [Sandbox] Triggered due to a file delete event: amplify/functions/getFeaturedProblems/resource.ts.tmp.67375.1760403877218
+[2025-10-14T01:04:37.276Z] 6:04:37 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T01:04:41.793Z] 6:04:41 PM ✔ Type checks completed in 4.58 seconds
+[2025-10-14T01:04:41.796Z] 6:04:41 PM [ERROR] [SyntaxError] TypeScript validation check failed.
+[2025-10-14T01:04:41.796Z] Resolution: Fix the syntax and type errors in your backend definition.
+[2025-10-14T01:04:41.796Z] Details: amplify/data/resource.ts:21:38 - error TS2339: Property 'default' does not exist on type 'RefType<SetTypeSubArg<RefTypeArgFactory<"Role">, "valueRequired", true>, "required", undefined>'.
+[2025-10-14T01:04:41.796Z] 21       role: a.ref('Role').required().default('STUDENT'),
+[2025-10-14T01:04:41.796Z]                                         ~~~~~~~
+[2025-10-14T01:04:41.796Z] amplify/data/resource.ts:76:49 - error TS2339: Property 'default' does not exist on type 'RefType<SetTypeSubArg<RefTypeArgFactory<"ProblemStatus">, "valueRequired", true>, "required", undefined>'.
+[2025-10-14T01:04:41.796Z] 76       status: a.ref('ProblemStatus').required().default('NEED_HELP'),
+[2025-10-14T01:04:41.796Z]                                                    ~~~~~~~
+[2025-10-14T01:04:41.796Z] amplify/data/resource.ts:91:10 - error TS2339: Property 'partitionKey' does not exist on type 'ModelIndexType<any, string, readonly any[]>'.
+[2025-10-14T01:04:41.796Z] 91         .partitionKey('chapterId')
+[2025-10-14T01:04:41.796Z]             ~~~~~~~~~~~~
+[2025-10-14T01:04:41.796Z] amplify/data/resource.ts:95:10 - error TS2339: Property 'partitionKey' does not exist on type 'ModelIndexType<any, string, readonly any[]>'.
+[2025-10-14T01:04:41.796Z] 95         .partitionKey('authorId')
+[2025-10-14T01:04:41.796Z]             ~~~~~~~~~~~~
+[2025-10-14T01:04:41.796Z] amplify/data/resource.ts:99:10 - error TS2339: Property 'partitionKey' does not exist on type 'ModelIndexType<any, string, readonly any[]>'.
+[2025-10-14T01:04:41.796Z] 99         .partitionKey('status')
+[2025-10-14T01:04:41.796Z]             ~~~~~~~~~~~~
+[2025-10-14T01:04:41.796Z] amplify/data/resource.ts:105:19 - error TS2345: Argument of type '"authorId"' is not assignable to parameter of type '"userPools" | "oidc" | undefined'.
+[2025-10-14T01:04:41.796Z] 105       allow.owner('authorId').to(['create', 'update', 'delete']),
+[2025-10-14T01:04:41.796Z]                       ~~~~~~~~~~
+[2025-10-14T01:04:41.796Z] amplify/data/resource.ts:106:37 - error TS2554: Expected 0-1 arguments, but got 2.
+[2025-10-14T01:04:41.796Z] 106       allow.authenticated('groups', ['TEACHER']).to(['update']), // Teachers can feature
+[2025-10-14T01:04:41.796Z]                                         ~~~~~~~~~~~
+[2025-10-14T01:04:41.796Z] amplify/data/resource.ts:124:19 - error TS2345: Argument of type '"authorId"' is not assignable to parameter of type '"userPools" | "oidc" | undefined'.
+[2025-10-14T01:04:41.796Z] 124       allow.owner('authorId').to(['create', 'update', 'delete']),
+[2025-10-14T01:04:41.796Z]                       ~~~~~~~~~~
+[2025-10-14T01:04:41.796Z] amplify/functions/getFeaturedProblems/handler.ts:40:17 - error TS2345: Argument of type 'Nullable<number>' is not assignable to parameter of type 'number | undefined'.
+[2025-10-14T01:04:41.796Z]   Type 'null' is not assignable to type 'number | undefined'.
+[2025-10-14T01:04:41.796Z] 40       .slice(0, limit);
+[2025-10-14T01:04:41.796Z]                    ~~~~~
+[2025-10-14T01:04:41.796Z] amplify/functions/searchFormulas/handler.ts:47:29 - error TS18047: 'tag' is possibly 'null'.
+[2025-10-14T01:04:41.796Z] 47         f.tags?.some(tag => tag.toLowerCase().includes(lowerKeyword))
+[2025-10-14T01:04:41.796Z]                                ~~~
+[2025-10-14T01:04:41.796Z] amplify/functions/searchFormulas/handler.ts:54:55 - error TS2345: Argument of type 'Nullable<number>' is not assignable to parameter of type 'number | undefined'.
+[2025-10-14T01:04:41.796Z]   Type 'null' is not assignable to type 'number | undefined'.
+[2025-10-14T01:04:41.796Z] 54     const limitedFormulas = filteredFormulas.slice(0, limit);
+[2025-10-14T01:04:41.796Z]                                                          ~~~~~
+[2025-10-14T01:04:41.798Z]   Amplify Sandbox
+[2025-10-14T01:04:41.798Z]   Identifier: 	shannonliu
+[2025-10-14T01:04:41.798Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T01:04:41.798Z]   Region: 	us-east-1
+[2025-10-14T01:04:41.798Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T01:04:41.798Z] 6:04:41 PM [Sandbox] Detected file changes while previous deployment was in progress. Invoking 'sandbox' again
+[2025-10-14T01:04:42.006Z] 6:04:42 PM Synthesizing backend...
+[2025-10-14T01:04:42.199Z] 6:04:42 PM ✔ Backend synthesized in 0.19 seconds
+[2025-10-14T01:04:42.199Z] 6:04:42 PM Running type checks...
+[2025-10-14T01:04:46.658Z] 6:04:46 PM ✔ Type checks completed in 4.45 seconds
+[2025-10-14T01:04:46.659Z] 6:04:46 PM [ERROR] [SyntaxError] TypeScript validation check failed.
+[2025-10-14T01:04:46.659Z] Resolution: Fix the syntax and type errors in your backend definition.
+[2025-10-14T01:04:46.659Z] Details: amplify/data/resource.ts:21:38 - error TS2339: Property 'default' does not exist on type 'RefType<SetTypeSubArg<RefTypeArgFactory<"Role">, "valueRequired", true>, "required", undefined>'.
+[2025-10-14T01:04:46.659Z] 21       role: a.ref('Role').required().default('STUDENT'),
+[2025-10-14T01:04:46.659Z]                                         ~~~~~~~
+[2025-10-14T01:04:46.659Z] amplify/data/resource.ts:76:49 - error TS2339: Property 'default' does not exist on type 'RefType<SetTypeSubArg<RefTypeArgFactory<"ProblemStatus">, "valueRequired", true>, "required", undefined>'.
+[2025-10-14T01:04:46.659Z] 76       status: a.ref('ProblemStatus').required().default('NEED_HELP'),
+[2025-10-14T01:04:46.659Z]                                                    ~~~~~~~
+[2025-10-14T01:04:46.659Z] amplify/data/resource.ts:91:10 - error TS2339: Property 'partitionKey' does not exist on type 'ModelIndexType<any, string, readonly any[]>'.
+[2025-10-14T01:04:46.659Z] 91         .partitionKey('chapterId')
+[2025-10-14T01:04:46.659Z]             ~~~~~~~~~~~~
+[2025-10-14T01:04:46.659Z] amplify/data/resource.ts:95:10 - error TS2339: Property 'partitionKey' does not exist on type 'ModelIndexType<any, string, readonly any[]>'.
+[2025-10-14T01:04:46.659Z] 95         .partitionKey('authorId')
+[2025-10-14T01:04:46.659Z]             ~~~~~~~~~~~~
+[2025-10-14T01:04:46.659Z] amplify/data/resource.ts:99:10 - error TS2339: Property 'partitionKey' does not exist on type 'ModelIndexType<any, string, readonly any[]>'.
+[2025-10-14T01:04:46.659Z] 99         .partitionKey('status')
+[2025-10-14T01:04:46.659Z]             ~~~~~~~~~~~~
+[2025-10-14T01:04:46.659Z] amplify/data/resource.ts:105:19 - error TS2345: Argument of type '"authorId"' is not assignable to parameter of type '"userPools" | "oidc" | undefined'.
+[2025-10-14T01:04:46.659Z] 105       allow.owner('authorId').to(['create', 'update', 'delete']),
+[2025-10-14T01:04:46.659Z]                       ~~~~~~~~~~
+[2025-10-14T01:04:46.659Z] amplify/data/resource.ts:106:37 - error TS2554: Expected 0-1 arguments, but got 2.
+[2025-10-14T01:04:46.659Z] 106       allow.authenticated('groups', ['TEACHER']).to(['update']), // Teachers can feature
+[2025-10-14T01:04:46.659Z]                                         ~~~~~~~~~~~
+[2025-10-14T01:04:46.659Z] amplify/data/resource.ts:124:19 - error TS2345: Argument of type '"authorId"' is not assignable to parameter of type '"userPools" | "oidc" | undefined'.
+[2025-10-14T01:04:46.659Z] 124       allow.owner('authorId').to(['create', 'update', 'delete']),
+[2025-10-14T01:04:46.659Z]                       ~~~~~~~~~~
+[2025-10-14T01:04:46.659Z] amplify/functions/getFeaturedProblems/handler.ts:40:17 - error TS2345: Argument of type 'Nullable<number>' is not assignable to parameter of type 'number | undefined'.
+[2025-10-14T01:04:46.659Z]   Type 'null' is not assignable to type 'number | undefined'.
+[2025-10-14T01:04:46.659Z] 40       .slice(0, limit);
+[2025-10-14T01:04:46.659Z]                    ~~~~~
+[2025-10-14T01:04:46.659Z] amplify/functions/searchFormulas/handler.ts:47:29 - error TS18047: 'tag' is possibly 'null'.
+[2025-10-14T01:04:46.659Z] 47         f.tags?.some(tag => tag.toLowerCase().includes(lowerKeyword))
+[2025-10-14T01:04:46.659Z]                                ~~~
+[2025-10-14T01:04:46.659Z] amplify/functions/searchFormulas/handler.ts:54:55 - error TS2345: Argument of type 'Nullable<number>' is not assignable to parameter of type 'number | undefined'.
+[2025-10-14T01:04:46.659Z]   Type 'null' is not assignable to type 'number | undefined'.
+[2025-10-14T01:04:46.659Z] 54     const limitedFormulas = filteredFormulas.slice(0, limit);
+[2025-10-14T01:04:46.659Z]                                                          ~~~~~
+[2025-10-14T01:04:46.662Z] 6:04:46 PM [Sandbox] Watching for file changes...
+[2025-10-14T01:04:49.607Z]   Amplify Sandbox
+[2025-10-14T01:04:49.607Z]   Identifier: 	shannonliu
+[2025-10-14T01:04:49.607Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T01:04:49.607Z]   Region: 	us-east-1
+[2025-10-14T01:04:49.607Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T01:04:49.607Z]   Amplify Sandbox
+[2025-10-14T01:04:49.607Z]   Identifier: 	shannonliu
+[2025-10-14T01:04:49.607Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T01:04:49.609Z]   Region: 	us-east-1
+[2025-10-14T01:04:49.609Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T01:04:49.609Z] 6:04:49 PM [Sandbox] Triggered due to a file create event: amplify/backend.ts
+[2025-10-14T01:04:49.609Z] 6:04:49 PM [Sandbox] Triggered due to a file delete event: amplify/backend.ts.tmp.67375.1760403889599
+[2025-10-14T01:04:49.819Z] 6:04:49 PM Synthesizing backend...
+[2025-10-14T01:04:50.111Z] 6:04:50 PM ✔ Backend synthesized in 0.29 seconds
+[2025-10-14T01:04:50.111Z] 6:04:50 PM Running type checks...
+[2025-10-14T01:04:54.530Z] 6:04:54 PM ✔ Type checks completed in 4.41 seconds
+[2025-10-14T01:04:54.536Z] 6:04:54 PM [ERROR] [SyntaxError] TypeScript validation check failed.
+[2025-10-14T01:04:54.536Z] Resolution: Fix the syntax and type errors in your backend definition.
+[2025-10-14T01:04:54.536Z] Details: amplify/data/resource.ts:21:38 - error TS2339: Property 'default' does not exist on type 'RefType<SetTypeSubArg<RefTypeArgFactory<"Role">, "valueRequired", true>, "required", undefined>'.
+[2025-10-14T01:04:54.536Z] 21       role: a.ref('Role').required().default('STUDENT'),
+[2025-10-14T01:04:54.536Z]                                         ~~~~~~~
+[2025-10-14T01:04:54.536Z] amplify/data/resource.ts:76:49 - error TS2339: Property 'default' does not exist on type 'RefType<SetTypeSubArg<RefTypeArgFactory<"ProblemStatus">, "valueRequired", true>, "required", undefined>'.
+[2025-10-14T01:04:54.536Z] 76       status: a.ref('ProblemStatus').required().default('NEED_HELP'),
+[2025-10-14T01:04:54.536Z]                                                    ~~~~~~~
+[2025-10-14T01:04:54.536Z] amplify/data/resource.ts:91:10 - error TS2339: Property 'partitionKey' does not exist on type 'ModelIndexType<any, string, readonly any[]>'.
+[2025-10-14T01:04:54.536Z] 91         .partitionKey('chapterId')
+[2025-10-14T01:04:54.536Z]             ~~~~~~~~~~~~
+[2025-10-14T01:04:54.536Z] amplify/data/resource.ts:95:10 - error TS2339: Property 'partitionKey' does not exist on type 'ModelIndexType<any, string, readonly any[]>'.
+[2025-10-14T01:04:54.536Z] 95         .partitionKey('authorId')
+[2025-10-14T01:04:54.536Z]             ~~~~~~~~~~~~
+[2025-10-14T01:04:54.536Z] amplify/data/resource.ts:99:10 - error TS2339: Property 'partitionKey' does not exist on type 'ModelIndexType<any, string, readonly any[]>'.
+[2025-10-14T01:04:54.536Z] 99         .partitionKey('status')
+[2025-10-14T01:04:54.536Z]             ~~~~~~~~~~~~
+[2025-10-14T01:04:54.536Z] amplify/data/resource.ts:105:19 - error TS2345: Argument of type '"authorId"' is not assignable to parameter of type '"userPools" | "oidc" | undefined'.
+[2025-10-14T01:04:54.536Z] 105       allow.owner('authorId').to(['create', 'update', 'delete']),
+[2025-10-14T01:04:54.536Z]                       ~~~~~~~~~~
+[2025-10-14T01:04:54.536Z] amplify/data/resource.ts:106:37 - error TS2554: Expected 0-1 arguments, but got 2.
+[2025-10-14T01:04:54.536Z] 106       allow.authenticated('groups', ['TEACHER']).to(['update']), // Teachers can feature
+[2025-10-14T01:04:54.536Z]                                         ~~~~~~~~~~~
+[2025-10-14T01:04:54.536Z] amplify/data/resource.ts:124:19 - error TS2345: Argument of type '"authorId"' is not assignable to parameter of type '"userPools" | "oidc" | undefined'.
+[2025-10-14T01:04:54.536Z] 124       allow.owner('authorId').to(['create', 'update', 'delete']),
+[2025-10-14T01:04:54.536Z]                       ~~~~~~~~~~
+[2025-10-14T01:04:54.536Z] amplify/functions/getFeaturedProblems/handler.ts:40:17 - error TS2345: Argument of type 'Nullable<number>' is not assignable to parameter of type 'number | undefined'.
+[2025-10-14T01:04:54.536Z]   Type 'null' is not assignable to type 'number | undefined'.
+[2025-10-14T01:04:54.536Z] 40       .slice(0, limit);
+[2025-10-14T01:04:54.536Z]                    ~~~~~
+[2025-10-14T01:04:54.536Z] amplify/functions/searchFormulas/handler.ts:47:29 - error TS18047: 'tag' is possibly 'null'.
+[2025-10-14T01:04:54.536Z] 47         f.tags?.some(tag => tag.toLowerCase().includes(lowerKeyword))
+[2025-10-14T01:04:54.536Z]                                ~~~
+[2025-10-14T01:04:54.536Z] amplify/functions/searchFormulas/handler.ts:54:55 - error TS2345: Argument of type 'Nullable<number>' is not assignable to parameter of type 'number | undefined'.
+[2025-10-14T01:04:54.536Z]   Type 'null' is not assignable to type 'number | undefined'.
+[2025-10-14T01:04:54.536Z] 54     const limitedFormulas = filteredFormulas.slice(0, limit);
+[2025-10-14T01:04:54.536Z]                                                          ~~~~~
+[2025-10-14T01:04:54.538Z] 6:04:54 PM [Sandbox] Watching for file changes...
+[2025-10-14T02:04:46.850Z]   Amplify Sandbox
+[2025-10-14T02:04:46.859Z]   Identifier: 	shannonliu
+[2025-10-14T02:04:46.859Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T02:04:46.859Z]   Region: 	us-east-1
+[2025-10-14T02:04:46.860Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T02:04:46.860Z]   Amplify Sandbox
+[2025-10-14T02:04:46.860Z]   Identifier: 	shannonliu
+[2025-10-14T02:04:46.860Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T02:04:46.860Z]   Region: 	us-east-1
+[2025-10-14T02:04:46.860Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T02:04:46.872Z] 7:04:46 PM [Sandbox] Triggered due to a file create event: amplify/data/resource.ts
+[2025-10-14T02:04:46.872Z] 7:04:46 PM [Sandbox] Triggered due to a file delete event: amplify/data/resource.ts.tmp.84614.1760407486577
+[2025-10-14T02:04:47.682Z] 7:04:47 PM Synthesizing backend...
+[2025-10-14T02:04:49.316Z] 7:04:49 PM ✔ Backend synthesized in 1.65 seconds
+[2025-10-14T02:04:49.316Z] 7:04:49 PM Running type checks...
+[2025-10-14T02:04:50.970Z] 7:04:50 PM [Sandbox] Triggered due to a file create event: amplify/data/resource.ts.tmp.84614.1760407490961
+[2025-10-14T02:04:50.970Z] 7:04:50 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T02:04:51.037Z] 7:04:51 PM [Sandbox] Triggered due to a file create event: amplify/data/resource.ts
+[2025-10-14T02:04:51.038Z] 7:04:51 PM [Sandbox] Triggered due to a file delete event: amplify/data/resource.ts.tmp.84614.1760407490961
+[2025-10-14T02:04:51.038Z] 7:04:51 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T02:04:57.049Z] 7:04:57 PM [Sandbox] Triggered due to a file create event: amplify/data/resource.ts.tmp.84614.1760407497035
+[2025-10-14T02:04:57.049Z] 7:04:57 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T02:04:57.114Z] 7:04:57 PM [Sandbox] Triggered due to a file create event: amplify/data/resource.ts
+[2025-10-14T02:04:57.114Z] 7:04:57 PM [Sandbox] Triggered due to a file delete event: amplify/data/resource.ts.tmp.84614.1760407497035
+[2025-10-14T02:04:57.114Z] 7:04:57 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T02:05:03.889Z] 7:05:03 PM [Sandbox] Triggered due to a file create event: amplify/data/resource.ts
+[2025-10-14T02:05:03.889Z] 7:05:03 PM [Sandbox] Triggered due to a file delete event: amplify/data/resource.ts.tmp.84614.1760407503866
+[2025-10-14T02:05:03.895Z] 7:05:03 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T02:05:07.087Z] 7:05:07 PM ✔ Type checks completed in 17.76 seconds
+[2025-10-14T02:05:07.099Z] 7:05:07 PM [ERROR] [SyntaxError] TypeScript validation check failed.
+[2025-10-14T02:05:07.099Z] Resolution: Fix the syntax and type errors in your backend definition.
+[2025-10-14T02:05:07.099Z] Details: amplify/data/resource.ts:90:36 - error TS2322: Type '"createdAt"' is not assignable to type '"authorId" | "title" | "body" | "status" | "difficulty" | "aiVerificationNote" | "featuredAt"'.
+[2025-10-14T02:05:07.099Z] 90       index('chapterId').sortKeys(['createdAt']).queryField('listByChapter'),
+[2025-10-14T02:05:07.099Z]                                       ~~~~~~~~~~~
+[2025-10-14T02:05:07.099Z] amplify/data/resource.ts:91:35 - error TS2322: Type '"createdAt"' is not assignable to type '"title" | "chapterId" | "body" | "status" | "difficulty" | "aiVerificationNote" | "featuredAt"'.
+[2025-10-14T02:05:07.099Z] 91       index('authorId').sortKeys(['createdAt']).queryField('listByAuthor'),
+[2025-10-14T02:05:07.099Z]                                      ~~~~~~~~~~~
+[2025-10-14T02:05:07.099Z] amplify/data/resource.ts:92:33 - error TS2322: Type '"createdAt"' is not assignable to type '"authorId" | "title" | "chapterId" | "body" | "difficulty" | "aiVerificationNote" | "featuredAt"'.
+[2025-10-14T02:05:07.099Z] 92       index('status').sortKeys(['createdAt']).queryField('listByStatus'),
+[2025-10-14T02:05:07.099Z]                                    ~~~~~~~~~~~
+[2025-10-14T02:05:07.099Z] amplify/data/resource.ts:96:19 - error TS2345: Argument of type '"authorId"' is not assignable to parameter of type '"userPools" | "oidc" | undefined'.
+[2025-10-14T02:05:07.099Z] 96       allow.owner('authorId').to(['create', 'update', 'delete']),
+[2025-10-14T02:05:07.099Z]                      ~~~~~~~~~~
+[2025-10-14T02:05:07.099Z] amplify/data/resource.ts:97:37 - error TS2554: Expected 0-1 arguments, but got 2.
+[2025-10-14T02:05:07.099Z] 97       allow.authenticated('groups', ['TEACHER']).to(['update']), // Teachers can feature
+[2025-10-14T02:05:07.099Z]                                        ~~~~~~~~~~~
+[2025-10-14T02:05:07.099Z] amplify/data/resource.ts:115:19 - error TS2345: Argument of type '"authorId"' is not assignable to parameter of type '"userPools" | "oidc" | undefined'.
+[2025-10-14T02:05:07.099Z] 115       allow.owner('authorId').to(['create', 'update', 'delete']),
+[2025-10-14T02:05:07.099Z]                       ~~~~~~~~~~
+[2025-10-14T02:05:07.099Z] amplify/functions/getFeaturedProblems/handler.ts:40:17 - error TS2345: Argument of type 'Nullable<number>' is not assignable to parameter of type 'number | undefined'.
+[2025-10-14T02:05:07.099Z]   Type 'null' is not assignable to type 'number | undefined'.
+[2025-10-14T02:05:07.099Z] 40       .slice(0, limit);
+[2025-10-14T02:05:07.099Z]                    ~~~~~
+[2025-10-14T02:05:07.099Z] amplify/functions/searchFormulas/handler.ts:47:29 - error TS18047: 'tag' is possibly 'null'.
+[2025-10-14T02:05:07.099Z] 47         f.tags?.some(tag => tag.toLowerCase().includes(lowerKeyword))
+[2025-10-14T02:05:07.099Z]                                ~~~
+[2025-10-14T02:05:07.099Z] amplify/functions/searchFormulas/handler.ts:54:55 - error TS2345: Argument of type 'Nullable<number>' is not assignable to parameter of type 'number | undefined'.
+[2025-10-14T02:05:07.099Z]   Type 'null' is not assignable to type 'number | undefined'.
+[2025-10-14T02:05:07.099Z] 54     const limitedFormulas = filteredFormulas.slice(0, limit);
+[2025-10-14T02:05:07.099Z]                                                          ~~~~~
+[2025-10-14T02:05:07.111Z]   Amplify Sandbox
+[2025-10-14T02:05:07.111Z]   Identifier: 	shannonliu
+[2025-10-14T02:05:07.111Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T02:05:07.111Z]   Region: 	us-east-1
+[2025-10-14T02:05:07.111Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T02:05:07.118Z] 7:05:07 PM [Sandbox] Detected file changes while previous deployment was in progress. Invoking 'sandbox' again
+[2025-10-14T02:05:07.647Z] 7:05:07 PM Synthesizing backend...
+[2025-10-14T02:05:08.077Z] 7:05:08 PM ✔ Backend synthesized in 0.42 seconds
+[2025-10-14T02:05:08.077Z] 7:05:08 PM Running type checks...
+[2025-10-14T02:05:08.233Z] 7:05:08 PM [Sandbox] Triggered due to a file create event: amplify/data/resource.ts.tmp.84614.1760407508232
+[2025-10-14T02:05:08.300Z] 7:05:08 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T02:05:08.374Z] 7:05:08 PM [Sandbox] Triggered due to a file create event: amplify/data/resource.ts
+[2025-10-14T02:05:08.374Z] 7:05:08 PM [Sandbox] Triggered due to a file delete event: amplify/data/resource.ts.tmp.84614.1760407508232
+[2025-10-14T02:05:08.375Z] 7:05:08 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T02:05:13.620Z] 7:05:13 PM [Sandbox] Triggered due to a file delete event: amplify/data/resource.ts.tmp.84614.1760407513593
+[2025-10-14T02:05:13.620Z] 7:05:13 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T02:05:13.666Z] 7:05:13 PM [Sandbox] Triggered due to a file create event: amplify/data/resource.ts
+[2025-10-14T02:05:13.666Z] 7:05:13 PM [Sandbox] Triggered due to a file delete event: amplify/data/resource.ts.tmp.84614.1760407513593
+[2025-10-14T02:05:13.666Z] 7:05:13 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T02:05:21.570Z] 7:05:21 PM ✔ Type checks completed in 13.48 seconds
+[2025-10-14T02:05:21.575Z] 7:05:21 PM [ERROR] [SyntaxError] TypeScript validation check failed.
+[2025-10-14T02:05:21.575Z] Resolution: Fix the syntax and type errors in your backend definition.
+[2025-10-14T02:05:21.575Z] Details: amplify/data/resource.ts:90:36 - error TS2322: Type '"createdAt"' is not assignable to type '"authorId" | "title" | "body" | "status" | "difficulty" | "aiVerificationNote" | "featuredAt"'.
+[2025-10-14T02:05:21.575Z] 90       index('chapterId').sortKeys(['createdAt']).queryField('listByChapter'),
+[2025-10-14T02:05:21.575Z]                                       ~~~~~~~~~~~
+[2025-10-14T02:05:21.575Z] amplify/data/resource.ts:91:35 - error TS2322: Type '"createdAt"' is not assignable to type '"title" | "chapterId" | "body" | "status" | "difficulty" | "aiVerificationNote" | "featuredAt"'.
+[2025-10-14T02:05:21.575Z] 91       index('authorId').sortKeys(['createdAt']).queryField('listByAuthor'),
+[2025-10-14T02:05:21.575Z]                                      ~~~~~~~~~~~
+[2025-10-14T02:05:21.575Z] amplify/data/resource.ts:92:33 - error TS2322: Type '"createdAt"' is not assignable to type '"authorId" | "title" | "chapterId" | "body" | "difficulty" | "aiVerificationNote" | "featuredAt"'.
+[2025-10-14T02:05:21.575Z] 92       index('status').sortKeys(['createdAt']).queryField('listByStatus'),
+[2025-10-14T02:05:21.575Z]                                    ~~~~~~~~~~~
+[2025-10-14T02:05:21.575Z] amplify/functions/getFeaturedProblems/handler.ts:40:17 - error TS2345: Argument of type 'Nullable<number>' is not assignable to parameter of type 'number | undefined'.
+[2025-10-14T02:05:21.575Z]   Type 'null' is not assignable to type 'number | undefined'.
+[2025-10-14T02:05:21.575Z] 40       .slice(0, limit);
+[2025-10-14T02:05:21.575Z]                    ~~~~~
+[2025-10-14T02:05:21.575Z] amplify/functions/searchFormulas/handler.ts:47:29 - error TS18047: 'tag' is possibly 'null'.
+[2025-10-14T02:05:21.575Z] 47         f.tags?.some(tag => tag.toLowerCase().includes(lowerKeyword))
+[2025-10-14T02:05:21.575Z]                                ~~~
+[2025-10-14T02:05:21.575Z] amplify/functions/searchFormulas/handler.ts:54:55 - error TS2345: Argument of type 'Nullable<number>' is not assignable to parameter of type 'number | undefined'.
+[2025-10-14T02:05:21.575Z]   Type 'null' is not assignable to type 'number | undefined'.
+[2025-10-14T02:05:21.575Z] 54     const limitedFormulas = filteredFormulas.slice(0, limit);
+[2025-10-14T02:05:21.575Z]                                                          ~~~~~
+[2025-10-14T02:05:21.611Z]   Amplify Sandbox
+[2025-10-14T02:05:21.611Z]   Identifier: 	shannonliu
+[2025-10-14T02:05:21.611Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T02:05:21.611Z]   Region: 	us-east-1
+[2025-10-14T02:05:21.612Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T02:05:21.619Z] 7:05:21 PM [Sandbox] Detected file changes while previous deployment was in progress. Invoking 'sandbox' again
+[2025-10-14T02:05:22.126Z] 7:05:22 PM Synthesizing backend...
+[2025-10-14T02:05:22.581Z] 7:05:22 PM [Sandbox] Triggered due to a file delete event: amplify/functions/getFeaturedProblems/handler.ts.tmp.84614.1760407522569
+[2025-10-14T02:05:22.581Z] 7:05:22 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T02:05:22.775Z] 7:05:22 PM [Sandbox] Triggered due to a file create event: amplify/functions/getFeaturedProblems/handler.ts
+[2025-10-14T02:05:22.775Z] 7:05:22 PM [Sandbox] Triggered due to a file delete event: amplify/functions/getFeaturedProblems/handler.ts.tmp.84614.1760407522569
+[2025-10-14T02:05:22.775Z] 7:05:22 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T02:05:22.775Z] 7:05:22 PM ✔ Backend synthesized in 0.64 seconds
+[2025-10-14T02:05:22.775Z] 7:05:22 PM Running type checks...
+[2025-10-14T02:05:26.930Z] 7:05:26 PM [Sandbox] Triggered due to a file create event: amplify/functions/getFeaturedProblems/handler.ts
+[2025-10-14T02:05:26.932Z] 7:05:26 PM [Sandbox] Triggered due to a file delete event: amplify/functions/getFeaturedProblems/handler.ts.tmp.84614.1760407526902
+[2025-10-14T02:05:26.932Z] 7:05:26 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T02:05:31.697Z] 7:05:31 PM ✔ Type checks completed in 8.92 seconds
+[2025-10-14T02:05:31.699Z] 7:05:31 PM [ERROR] [SyntaxError] TypeScript validation check failed.
+[2025-10-14T02:05:31.699Z] Resolution: Fix the syntax and type errors in your backend definition.
+[2025-10-14T02:05:31.699Z] Details: amplify/functions/searchFormulas/handler.ts:47:29 - error TS18047: 'tag' is possibly 'null'.
+[2025-10-14T02:05:31.699Z] 47         f.tags?.some(tag => tag.toLowerCase().includes(lowerKeyword))
+[2025-10-14T02:05:31.699Z]                                ~~~
+[2025-10-14T02:05:31.699Z] amplify/functions/searchFormulas/handler.ts:54:55 - error TS2345: Argument of type 'Nullable<number>' is not assignable to parameter of type 'number | undefined'.
+[2025-10-14T02:05:31.699Z]   Type 'null' is not assignable to type 'number | undefined'.
+[2025-10-14T02:05:31.699Z] 54     const limitedFormulas = filteredFormulas.slice(0, limit);
+[2025-10-14T02:05:31.699Z]                                                          ~~~~~
+[2025-10-14T02:05:31.704Z]   Amplify Sandbox
+[2025-10-14T02:05:31.704Z]   Identifier: 	shannonliu
+[2025-10-14T02:05:31.704Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T02:05:31.704Z]   Region: 	us-east-1
+[2025-10-14T02:05:31.704Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T02:05:31.706Z] 7:05:31 PM [Sandbox] Detected file changes while previous deployment was in progress. Invoking 'sandbox' again
+[2025-10-14T02:05:32.191Z] 7:05:32 PM Synthesizing backend...
+[2025-10-14T02:05:32.510Z] 7:05:32 PM ✔ Backend synthesized in 0.31 seconds
+[2025-10-14T02:05:32.510Z] 7:05:32 PM Running type checks...
+[2025-10-14T02:05:37.097Z] 7:05:37 PM [Sandbox] Triggered due to a file create event: amplify/functions/searchFormulas/handler.ts
+[2025-10-14T02:05:37.097Z] 7:05:37 PM [Sandbox] Triggered due to a file delete event: amplify/functions/searchFormulas/handler.ts.tmp.84614.1760407537087
+[2025-10-14T02:05:37.097Z] 7:05:37 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T02:05:38.444Z] 7:05:38 PM ✔ Type checks completed in 5.93 seconds
+[2025-10-14T02:05:38.447Z] 7:05:38 PM [ERROR] [SyntaxError] TypeScript validation check failed.
+[2025-10-14T02:05:38.447Z] Resolution: Fix the syntax and type errors in your backend definition.
+[2025-10-14T02:05:38.447Z] Details: amplify/functions/searchFormulas/handler.ts:47:29 - error TS18047: 'tag' is possibly 'null'.
+[2025-10-14T02:05:38.447Z] 47         f.tags?.some(tag => tag.toLowerCase().includes(lowerKeyword))
+[2025-10-14T02:05:38.447Z]                                ~~~
+[2025-10-14T02:05:38.447Z] amplify/functions/searchFormulas/handler.ts:54:55 - error TS2345: Argument of type 'Nullable<number>' is not assignable to parameter of type 'number | undefined'.
+[2025-10-14T02:05:38.447Z]   Type 'null' is not assignable to type 'number | undefined'.
+[2025-10-14T02:05:38.447Z] 54     const limitedFormulas = filteredFormulas.slice(0, limit);
+[2025-10-14T02:05:38.447Z]                                                          ~~~~~
+[2025-10-14T02:05:38.454Z]   Amplify Sandbox
+[2025-10-14T02:05:38.455Z]   Identifier: 	shannonliu
+[2025-10-14T02:05:38.455Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T02:05:38.455Z]   Region: 	us-east-1
+[2025-10-14T02:05:38.455Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T02:05:38.457Z] 7:05:38 PM [Sandbox] Detected file changes while previous deployment was in progress. Invoking 'sandbox' again
+[2025-10-14T02:05:38.685Z] 7:05:38 PM Synthesizing backend...
+[2025-10-14T02:05:39.285Z] 7:05:39 PM ✔ Backend synthesized in 0.6 seconds
+[2025-10-14T02:05:39.285Z] 7:05:39 PM Running type checks...
+[2025-10-14T02:05:41.902Z] 7:05:41 PM [Sandbox] Triggered due to a file delete event: amplify/functions/searchFormulas/handler.ts.tmp.84614.1760407541884
+[2025-10-14T02:05:41.902Z] 7:05:41 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T02:05:41.957Z] 7:05:41 PM [Sandbox] Triggered due to a file create event: amplify/functions/searchFormulas/handler.ts
+[2025-10-14T02:05:41.957Z] 7:05:41 PM [Sandbox] Triggered due to a file delete event: amplify/functions/searchFormulas/handler.ts.tmp.84614.1760407541884
+[2025-10-14T02:05:41.957Z] 7:05:41 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T02:05:46.475Z] 7:05:46 PM [Sandbox] Triggered due to a file create event: amplify/functions/searchFormulas/handler.ts
+[2025-10-14T02:05:46.476Z] 7:05:46 PM [Sandbox] Triggered due to a file delete event: amplify/functions/searchFormulas/handler.ts.tmp.84614.1760407546462
+[2025-10-14T02:05:46.476Z] 7:05:46 PM [Sandbox] Previous deployment is still in progress. Will queue for another deployment after this one finishes
+[2025-10-14T02:05:46.806Z] 7:05:46 PM ✔ Type checks completed in 7.52 seconds
+[2025-10-14T02:05:46.808Z] 7:05:46 PM [ERROR] [SyntaxError] TypeScript validation check failed.
+[2025-10-14T02:05:46.808Z] Resolution: Fix the syntax and type errors in your backend definition.
+[2025-10-14T02:05:46.808Z] Details: amplify/functions/searchFormulas/handler.ts:48:29 - error TS18047: 'tag' is possibly 'null'.
+[2025-10-14T02:05:46.808Z] 48         f.tags?.some(tag => tag.toLowerCase().includes(lowerKeyword))
+[2025-10-14T02:05:46.808Z]                                ~~~
+[2025-10-14T02:05:46.811Z]   Amplify Sandbox
+[2025-10-14T02:05:46.812Z]   Identifier: 	shannonliu
+[2025-10-14T02:05:46.812Z]   Stack: 	amplify-physicsaid-shannonliu-sandbox-334f93d233
+[2025-10-14T02:05:46.812Z]   Region: 	us-east-1
+[2025-10-14T02:05:46.812Z]   To specify a different sandbox identifier, use --identifier
+[2025-10-14T02:05:46.814Z] 7:05:46 PM [Sandbox] Detected file changes while previous deployment was in progress. Invoking 'sandbox' again
+[2025-10-14T02:05:47.024Z] 7:05:47 PM Synthesizing backend...
+[2025-10-14T02:05:47.277Z] 7:05:47 PM ✔ Backend synthesized in 0.25 seconds
+[2025-10-14T02:05:47.278Z] 7:05:47 PM Running type checks...
+[2025-10-14T02:05:55.702Z] 7:05:55 PM ✔ Type checks completed in 8.42 seconds
+[2025-10-14T02:05:55.735Z] 7:05:55 PM [ERROR] [BackendBuildError] Unable to deploy due to CDK Assembly Error
+[2025-10-14T02:05:55.735Z]   ∟ Caused by: [AssemblyError] Assembly builder failed
+[2025-10-14T02:05:55.735Z]     ∟ Caused by: [InvalidSchemaError] Unable to find associated relationship definition in Chapter for Chapter.relatedChapter: Chapter @belongsTo(references: ['relatedChapterId'])
+[2025-10-14T02:05:55.735Z]       ∟ Caused by: [Error] Unable to find associated relationship definition in Chapter for Chapter.relatedChapter: Chapter @belongsTo(references: ['relatedChapterId'])
+[2025-10-14T02:05:55.735Z]     Resolution: Check your data schema definition for syntax and type errors.
+[2025-10-14T02:05:55.735Z] Resolution: Check the Caused by error and fix any issues in your backend code
+[2025-10-14T02:05:55.735Z] 7:05:55 PM [Sandbox] Watching for file changes...

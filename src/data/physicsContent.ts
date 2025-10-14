@@ -8,6 +8,7 @@ export interface Chapter {
   summary: string;
   keyFormulas: Formula[];
   concepts: Concept[];
+  openStaxUrl?: string;
 }
 
 export interface Formula {
@@ -39,6 +40,7 @@ export const chapters: Chapter[] = [
     title: "Temperature and Heat",
     topics: ["Temperature Scales", "Thermal Expansion", "Heat Transfer", "Specific Heat", "Phase Changes"],
     summary: "Temperature is a measure of the average kinetic energy of particles in a substance. Heat is the transfer of thermal energy between objects at different temperatures. This chapter covers temperature scales, thermal expansion of materials, methods of heat transfer (conduction, convection, radiation), and phase changes.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-2/pages/1-introduction",
     keyFormulas: [
       {
         name: "Celsius to Fahrenheit",
@@ -106,6 +108,7 @@ export const chapters: Chapter[] = [
     title: "Kinetic Theory of Gases",
     topics: ["Molecular Model", "Pressure and Temperature", "RMS Speed", "Mean Free Path", "Heat Capacity"],
     summary: "The kinetic theory explains gas behavior by treating gases as collections of molecules in constant random motion. Pressure results from molecular collisions with container walls, and temperature is related to average molecular kinetic energy.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-2/pages/2-introduction",
     keyFormulas: [
       {
         name: "Ideal Gas Law",
@@ -160,6 +163,7 @@ export const chapters: Chapter[] = [
     title: "First Law of Thermodynamics",
     topics: ["Internal Energy", "Work and Heat", "Thermodynamic Processes", "Heat Capacity", "Adiabatic Processes"],
     summary: "The First Law states that energy is conserved: the change in internal energy equals heat added minus work done. This chapter covers various thermodynamic processes and how energy transforms between heat, work, and internal energy.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-2/pages/3-introduction",
     keyFormulas: [
       {
         name: "First Law",
@@ -229,6 +233,7 @@ export const chapters: Chapter[] = [
     title: "Second Law of Thermodynamics",
     topics: ["Heat Engines", "Entropy", "Carnot Cycle", "Refrigerators", "Efficiency"],
     summary: "The Second Law introduces the concept of entropy and explains why certain processes are irreversible. It sets fundamental limits on heat engine efficiency and defines the direction of spontaneous processes.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-2/pages/4-introduction",
     keyFormulas: [
       {
         name: "Heat Engine Efficiency",
@@ -290,6 +295,211 @@ export const chapters: Chapter[] = [
         title: "Why We Can't Have 100% Efficiency",
         explanation: "A heat engine must reject some heat to a cold reservoir (Q_c > 0) because temperature difference is required for heat flow. Perfect efficiency would require T_c = 0 K (impossible).",
       },
+    ],
+  },
+  // Additional chapters for Volume 1 (5-16)
+  {
+    id: 5,
+    title: "Electric Charges and Fields",
+    topics: ["Coulomb's Law", "Electric Fields", "Gauss's Law", "Electric Potential"],
+    summary: "Introduction to electrostatics, including electric charge, electric fields, and electric potential.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-2/pages/5-introduction",
+    keyFormulas: [
+      {
+        name: "Coulomb's Law",
+        formula: "F = k(q₁q₂)/r²",
+        description: "Force between two point charges",
+      },
+    ],
+    concepts: [
+      { term: "Electric Field", definition: "Force per unit charge" }
+    ],
+  },
+  {
+    id: 6,
+    title: "Electric Potential and Capacitance",
+    topics: ["Electric Potential Energy", "Capacitors", "Dielectrics"],
+    summary: "Electric potential, capacitance, and energy storage in electric fields.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-2/pages/6-introduction",
+    keyFormulas: [
+      {
+        name: "Capacitance",
+        formula: "C = Q/V",
+        description: "Capacitance definition",
+      },
+    ],
+    concepts: [
+      { term: "Capacitor", definition: "Device that stores electric charge" }
+    ],
+  },
+  {
+    id: 7,
+    title: "Current and Resistance",
+    topics: ["Electric Current", "Ohm's Law", "Resistance", "Power"],
+    summary: "Electric current, resistance, and power in electric circuits.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-2/pages/7-introduction",
+    keyFormulas: [
+      {
+        name: "Ohm's Law",
+        formula: "V = IR",
+        description: "Relationship between voltage, current, and resistance",
+      },
+    ],
+    concepts: [
+      { term: "Current", definition: "Rate of charge flow" }
+    ],
+  },
+  {
+    id: 8,
+    title: "DC Circuits",
+    topics: ["Series and Parallel", "Kirchhoff's Rules", "RC Circuits"],
+    summary: "Analysis of direct current circuits using Kirchhoff's laws.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-2/pages/8-introduction",
+    keyFormulas: [
+      {
+        name: "Series Resistance",
+        formula: "R_total = R₁ + R₂ + ...",
+        description: "Total resistance in series",
+      },
+    ],
+    concepts: [
+      { term: "Kirchhoff's Laws", definition: "Conservation of charge and energy in circuits" }
+    ],
+  },
+  {
+    id: 9,
+    title: "Magnetic Forces and Fields",
+    topics: ["Magnetic Force", "Lorentz Force", "Magnetic Fields"],
+    summary: "Magnetic forces on moving charges and currents.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-2/pages/9-introduction",
+    keyFormulas: [
+      {
+        name: "Lorentz Force",
+        formula: "F = qvB sin θ",
+        description: "Force on moving charge in magnetic field",
+      },
+    ],
+    concepts: [
+      { term: "Magnetic Field", definition: "Force field created by moving charges" }
+    ],
+  },
+  {
+    id: 10,
+    title: "Sources of Magnetic Fields",
+    topics: ["Biot-Savart Law", "Ampere's Law", "Solenoids"],
+    summary: "Sources of magnetic fields including wires and solenoids.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-2/pages/10-introduction",
+    keyFormulas: [
+      {
+        name: "Ampere's Law",
+        formula: "∮B·dl = μ₀I",
+        description: "Magnetic field from current",
+      },
+    ],
+    concepts: [
+      { term: "Solenoid", definition: "Coil that produces uniform magnetic field" }
+    ],
+  },
+  {
+    id: 11,
+    title: "Electromagnetic Induction",
+    topics: ["Faraday's Law", "Lenz's Law", "Inductance"],
+    summary: "Induced EMF and electromagnetic induction.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-2/pages/11-introduction",
+    keyFormulas: [
+      {
+        name: "Faraday's Law",
+        formula: "ε = -dΦ/dt",
+        description: "Induced EMF from changing flux",
+      },
+    ],
+    concepts: [
+      { term: "Induction", definition: "Generation of EMF by changing magnetic flux" }
+    ],
+  },
+  {
+    id: 12,
+    title: "Inductance",
+    topics: ["Self-Inductance", "RL Circuits", "LC Circuits"],
+    summary: "Inductance in circuits and energy storage in magnetic fields.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-2/pages/12-introduction",
+    keyFormulas: [
+      {
+        name: "Self-Inductance",
+        formula: "ε = -L(dI/dt)",
+        description: "Induced EMF in inductor",
+      },
+    ],
+    concepts: [
+      { term: "Inductor", definition: "Component that stores energy in magnetic field" }
+    ],
+  },
+  {
+    id: 13,
+    title: "Alternating Current Circuits",
+    topics: ["AC Voltage", "RLC Circuits", "Resonance", "Impedance"],
+    summary: "Analysis of alternating current circuits.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-2/pages/13-introduction",
+    keyFormulas: [
+      {
+        name: "Impedance",
+        formula: "Z = √(R² + (X_L - X_C)²)",
+        description: "Total opposition to AC current",
+      },
+    ],
+    concepts: [
+      { term: "Impedance", definition: "AC resistance including reactance" }
+    ],
+  },
+  {
+    id: 14,
+    title: "Electromagnetic Waves",
+    topics: ["Maxwell's Equations", "EM Spectrum", "Wave Propagation"],
+    summary: "Electromagnetic waves and Maxwell's equations.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-2/pages/14-introduction",
+    keyFormulas: [
+      {
+        name: "Wave Speed",
+        formula: "c = 1/√(ε₀μ₀)",
+        description: "Speed of light in vacuum",
+      },
+    ],
+    concepts: [
+      { term: "EM Wave", definition: "Propagating disturbance in electric and magnetic fields" }
+    ],
+  },
+  {
+    id: 15,
+    title: "Geometric Optics",
+    topics: ["Reflection", "Refraction", "Mirrors", "Lenses"],
+    summary: "Ray optics including mirrors and lenses.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-3/pages/1-introduction",
+    keyFormulas: [
+      {
+        name: "Snell's Law",
+        formula: "n₁ sin θ₁ = n₂ sin θ₂",
+        description: "Refraction at interface",
+      },
+    ],
+    concepts: [
+      { term: "Refraction", definition: "Bending of light at interface between media" }
+    ],
+  },
+  {
+    id: 16,
+    title: "Wave Optics",
+    topics: ["Interference", "Diffraction", "Young's Experiment", "Polarization"],
+    summary: "Wave properties of light including interference and diffraction.",
+    openStaxUrl: "https://openstax.org/books/university-physics-volume-3/pages/2-introduction",
+    keyFormulas: [
+      {
+        name: "Double-Slit Interference",
+        formula: "d sin θ = mλ",
+        description: "Constructive interference condition",
+      },
+    ],
+    concepts: [
+      { term: "Interference", definition: "Superposition of waves creating patterns" }
     ],
   },
 ];

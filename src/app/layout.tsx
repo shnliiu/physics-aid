@@ -26,10 +26,11 @@ import CssBaseline from "@mui/material/CssBaseline";
 import theme from "@/theme";
 import LayoutProvider from "@/providers/LayoutProvider";
 import AmplifyProvider from "@/providers/AmplifyProvider";
+import { ToastProvider } from "@/components/Toast";
 
 export const metadata = {
-  title: "Physics Aid - AI Physics Tutor",
-  description: "AI-powered physics tutor for heat and thermodynamics",
+  title: "Physics 4C TA - Collaborative Physics Learning",
+  description: "Collaborative physics learning platform with AI verification",
 };
 
 export default function RootLayout(props: { children: React.ReactNode }) {
@@ -41,7 +42,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
         />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ThemeProvider theme={theme}>
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
@@ -49,6 +50,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
 
             <AmplifyProvider>
               <LayoutProvider>{props.children}</LayoutProvider>
+              <ToastProvider />
             </AmplifyProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
