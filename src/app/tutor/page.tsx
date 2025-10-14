@@ -60,6 +60,68 @@ const volumeStructure = [
   }
 ];
 
+// Helper function to render formulas with proper subscripts and superscripts
+function FormulaText({ formula }: { formula: string }) {
+  const renderFormula = (text: string) => {
+    const parts = [];
+    let currentText = '';
+    let i = 0;
+
+    while (i < text.length) {
+      // Check for subscript pattern: _X or _{...}
+      if (text[i] === '_') {
+        if (currentText) {
+          parts.push(<span key={parts.length}>{currentText}</span>);
+          currentText = '';
+        }
+        if (text[i + 1] === '{') {
+          const endBrace = text.indexOf('}', i + 2);
+          if (endBrace !== -1) {
+            const subscript = text.substring(i + 2, endBrace);
+            parts.push(<sub key={parts.length}>{subscript}</sub>);
+            i = endBrace + 1;
+            continue;
+          }
+        } else if (i + 1 < text.length) {
+          parts.push(<sub key={parts.length}>{text[i + 1]}</sub>);
+          i += 2;
+          continue;
+        }
+      }
+      // Check for superscript pattern: ^X or ^{...}
+      else if (text[i] === '^') {
+        if (currentText) {
+          parts.push(<span key={parts.length}>{currentText}</span>);
+          currentText = '';
+        }
+        if (text[i + 1] === '{') {
+          const endBrace = text.indexOf('}', i + 2);
+          if (endBrace !== -1) {
+            const superscript = text.substring(i + 2, endBrace);
+            parts.push(<sup key={parts.length}>{superscript}</sup>);
+            i = endBrace + 1;
+            continue;
+          }
+        } else if (i + 1 < text.length) {
+          parts.push(<sup key={parts.length}>{text[i + 1]}</sup>);
+          i += 2;
+          continue;
+        }
+      }
+      currentText += text[i];
+      i++;
+    }
+
+    if (currentText) {
+      parts.push(<span key={parts.length}>{currentText}</span>);
+    }
+
+    return parts;
+  };
+
+  return <span style={{ fontSize: '1.1em' }}>{renderFormula(formula)}</span>;
+}
+
 export default function PhysicsStudyHub() {
   const router = useRouter();
   const [activeTab, setActiveTab] = React.useState(0);
@@ -1588,7 +1650,7 @@ export default function PhysicsStudyHub() {
                             color: "white"
                           }}
                         >
-                          {formula.formula}
+                          <FormulaText formula={formula.formula} />
                         </Paper>
                         <Typography variant="body2" sx={{ color: "white" }}>
                           {formula.description}
@@ -1959,7 +2021,7 @@ export default function PhysicsStudyHub() {
                         }
                       }}
                     >
-                      {formula.formula}
+                      <FormulaText formula={formula.formula} />
                     </Paper>
                     <Typography variant="body2" sx={{ mb: 2, color: "white" }}>
                       {formula.description}

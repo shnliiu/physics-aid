@@ -42,79 +42,6 @@ export default function AuthPage() {
     password: false,
   });
   const [passwordStrength, setPasswordStrength] = React.useState(0);
-  const canvasRef = React.useRef<HTMLCanvasElement>(null);
-  const [mousePos, setMousePos] = React.useState({ x: 0, y: 0 });
-
-  // Background particle animation (simplified version)
-  React.useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
-
-    class Particle {
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      radius: number;
-
-      constructor() {
-        this.x = Math.random() * canvas!.width;
-        this.y = Math.random() * canvas!.height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.radius = Math.random() * 2 + 1;
-      }
-
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x < 0 || this.x > canvas!.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas!.height) this.vy *= -1;
-      }
-
-      draw(ctx: CanvasRenderingContext2D) {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(66, 165, 245, 0.5)";
-        ctx.fill();
-      }
-    }
-
-    const particles: Particle[] = [];
-    for (let i = 0; i < 50; i++) {
-      particles.push(new Particle());
-    }
-
-    let animationId: number;
-    const animate = () => {
-      ctx.fillStyle = "rgba(10, 15, 30, 0.05)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      particles.forEach((particle) => {
-        particle.update();
-        particle.draw(ctx);
-      });
-
-      animationId = requestAnimationFrame(animate);
-    };
-    animate();
-
-    return () => {
-      window.removeEventListener("resize", resizeCanvas);
-      cancelAnimationFrame(animationId);
-    };
-  }, []);
 
   // Password strength calculation
   React.useEffect(() => {
@@ -177,36 +104,21 @@ export default function AuthPage() {
         width: "100vw",
         height: "100vh",
         overflow: "hidden",
-        bgcolor: "#0a0f1e",
+        bgcolor: "#0a0e27",
+        background: `
+          radial-gradient(ellipse 800px 400px at 20% 40%, rgba(100, 180, 255, 0.3) 0%, transparent 50%),
+          radial-gradient(ellipse 900px 450px at 80% 30%, rgba(100, 200, 255, 0.25) 0%, transparent 50%),
+          radial-gradient(ellipse 700px 500px at 50% 60%, rgba(255, 120, 60, 0.35) 0%, transparent 50%),
+          radial-gradient(ellipse 800px 400px at 70% 70%, rgba(255, 140, 80, 0.3) 0%, transparent 50%),
+          radial-gradient(ellipse 600px 350px at 30% 80%, rgba(255, 100, 50, 0.25) 0%, transparent 50%),
+          radial-gradient(ellipse at center, #1a1f3a 0%, #0a0e27 100%)
+        `,
+        backgroundAttachment: "fixed",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
       }}
-      onMouseMove={(e) => setMousePos({ x: e.clientX, y: e.clientY })}
     >
-      {/* Background canvas */}
-      <canvas
-        ref={canvasRef}
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-        }}
-      />
-
-      {/* Gradient overlay */}
-      <Box
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          background: "radial-gradient(circle at 50% 50%, rgba(25, 118, 210, 0.1) 0%, rgba(10, 15, 30, 0.9) 100%)",
-        }}
-      />
 
       {/* Auth Card */}
       <Fade in timeout={800}>
