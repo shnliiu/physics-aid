@@ -42,8 +42,7 @@ const schema = a.schema({
       problems: a.hasMany('ProblemPost', 'chapterId'),
       wikiPage: a.hasOne('WikiPage', 'chapterId'),
     })
-    .authorization((allow) => [allow.authenticated().to(['read'])])
-    .identifier(['volume', 'number']),
+    .authorization((allow) => [allow.authenticated().to(['read'])]),
 
   // ============ FORMULA MODEL ============
   Formula: a
@@ -59,8 +58,7 @@ const schema = a.schema({
       sourceUrl: a.string(),
     })
     .authorization((allow) => [
-      allow.authenticated().to(['read']),
-      allow.authenticated().to(['create', 'update']),
+      allow.authenticated().to(['read', 'create', 'update']),
     ]),
 
   // ============ PROBLEM POST MODEL ============
@@ -91,9 +89,8 @@ const schema = a.schema({
       index('status'),
     ])
     .authorization((allow) => [
-      allow.authenticated().to(['read']),
+      allow.authenticated().to(['read', 'update']), // Teachers can feature
       allow.owner().to(['create', 'update', 'delete']),
-      allow.authenticated().to(['update']), // Teachers can feature
     ]),
 
   // ============ COMMENT MODEL ============
@@ -123,8 +120,7 @@ const schema = a.schema({
       edits: a.hasMany('WikiEdit', 'pageId'),
     })
     .authorization((allow) => [
-      allow.authenticated().to(['read']),
-      allow.authenticated().to(['create', 'update']),
+      allow.authenticated().to(['read', 'create', 'update']),
     ]),
 
   // ============ WIKI EDIT (VERSION HISTORY) ============

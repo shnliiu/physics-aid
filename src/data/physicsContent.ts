@@ -44,12 +44,12 @@ export const chapters: Chapter[] = [
     keyFormulas: [
       {
         name: "Celsius to Fahrenheit",
-        formula: "T_F = (9/5)T_C + 32",
+        formula: "T_{F} = (9/5)T_{C} + 32",
         description: "Convert temperature from Celsius to Fahrenheit",
       },
       {
         name: "Celsius to Kelvin",
-        formula: "T_K = T_C + 273.15",
+        formula: "T_{K} = T_{C} + 273.15",
         description: "Convert temperature from Celsius to Kelvin",
       },
       {
@@ -76,7 +76,7 @@ export const chapters: Chapter[] = [
       },
       {
         name: "Heat Conduction",
-        formula: "Q/t = kA(T_h - T_c)/L",
+        formula: "Q/t = kA(T_{h} - T_{c})/L",
         description: "Rate of heat transfer through a material",
         variables: [
           { symbol: "Q/t", description: "Heat transfer rate", unit: "W" },
@@ -124,7 +124,7 @@ export const chapters: Chapter[] = [
       },
       {
         name: "RMS Speed",
-        formula: "v_rms = √(3RT/M) = √(3kT/m)",
+        formula: "v_{rms} = √(3RT/M) = √(3kT/m)",
         description: "Root-mean-square speed of gas molecules",
         variables: [
           { symbol: "M", description: "Molar mass", unit: "kg/mol" },
@@ -134,12 +134,12 @@ export const chapters: Chapter[] = [
       },
       {
         name: "Average Kinetic Energy",
-        formula: "KE_avg = (3/2)kT",
+        formula: "KE_{avg} = (3/2)kT",
         description: "Average kinetic energy per molecule",
       },
       {
         name: "Pressure from Kinetic Theory",
-        formula: "P = (1/3)ρv²_rms",
+        formula: "P = (1/3)ρv²_{rms}",
         description: "Pressure related to molecular motion",
         variables: [
           { symbol: "ρ", description: "Density", unit: "kg/m³" },
@@ -195,12 +195,12 @@ export const chapters: Chapter[] = [
       },
       {
         name: "Heat Capacity at Constant Volume",
-        formula: "C_V = (f/2)nR",
+        formula: "C_{V} = (f/2)nR",
         description: "Heat capacity when volume is constant",
       },
       {
         name: "Heat Capacity at Constant Pressure",
-        formula: "C_P = C_V + nR",
+        formula: "C_{P} = C_{V} + nR",
         description: "Heat capacity when pressure is constant",
       },
       {
@@ -208,7 +208,7 @@ export const chapters: Chapter[] = [
         formula: "PV^γ = constant",
         description: "Process with no heat transfer (Q=0)",
         variables: [
-          { symbol: "γ", description: "Heat capacity ratio C_P/C_V", unit: "dimensionless" },
+          { symbol: "γ", description: "Heat capacity ratio C_{P}/C_{V}", unit: "dimensionless" },
         ],
       },
     ],
@@ -223,7 +223,7 @@ export const chapters: Chapter[] = [
         explanation: "Isothermal (constant T): ΔU=0, Q=W. Isobaric (constant P): W=PΔV. Isochoric (constant V): W=0, Q=ΔU. Adiabatic (Q=0): ΔU=-W.",
       },
       {
-        title: "Why C_P > C_V",
+        title: "Why C_{P} > C_{V}",
         explanation: "At constant pressure, some energy goes into expansion work, so more heat is needed to raise temperature by 1K compared to constant volume.",
       },
     ],
@@ -237,35 +237,35 @@ export const chapters: Chapter[] = [
     keyFormulas: [
       {
         name: "Heat Engine Efficiency",
-        formula: "η = W/Q_h = 1 - Q_c/Q_h",
+        formula: "η = W/Q_{h} = 1 - Q_{c}/Q_{h}",
         description: "Efficiency of heat engine",
         variables: [
           { symbol: "W", description: "Work output", unit: "J" },
-          { symbol: "Q_h", description: "Heat absorbed from hot reservoir", unit: "J" },
-          { symbol: "Q_c", description: "Heat rejected to cold reservoir", unit: "J" },
+          { symbol: "Q_{h}", description: "Heat absorbed from hot reservoir", unit: "J" },
+          { symbol: "Q_{c}", description: "Heat rejected to cold reservoir", unit: "J" },
         ],
       },
       {
         name: "Carnot Efficiency",
-        formula: "η_C = 1 - T_c/T_h",
+        formula: "η_{C} = 1 - T_{c}/T_{h}",
         description: "Maximum theoretical efficiency (Carnot engine)",
         variables: [
-          { symbol: "T_c", description: "Cold reservoir temperature", unit: "K" },
-          { symbol: "T_h", description: "Hot reservoir temperature", unit: "K" },
+          { symbol: "T_{c}", description: "Cold reservoir temperature", unit: "K" },
+          { symbol: "T_{h}", description: "Hot reservoir temperature", unit: "K" },
         ],
       },
       {
         name: "Coefficient of Performance (Refrigerator)",
-        formula: "COP_ref = Q_c/W = Q_c/(Q_h - Q_c)",
+        formula: "COP_{ref} = Q_{c}/W = Q_{c}/(Q_{h} - Q_{c})",
         description: "Efficiency measure for refrigerators",
       },
       {
         name: "Entropy Change",
-        formula: "ΔS = Q_rev/T",
+        formula: "ΔS = Q_{rev}/T",
         description: "Entropy change for reversible process",
         variables: [
           { symbol: "ΔS", description: "Change in entropy", unit: "J/K" },
-          { symbol: "Q_rev", description: "Heat in reversible process", unit: "J" },
+          { symbol: "Q_{rev}", description: "Heat in reversible process", unit: "J" },
         ],
       },
       {
@@ -293,7 +293,7 @@ export const chapters: Chapter[] = [
       },
       {
         title: "Why We Can't Have 100% Efficiency",
-        explanation: "A heat engine must reject some heat to a cold reservoir (Q_c > 0) because temperature difference is required for heat flow. Perfect efficiency would require T_c = 0 K (impossible).",
+        explanation: "A heat engine must reject some heat to a cold reservoir (Q_{c} > 0) because temperature difference is required for heat flow. Perfect efficiency would require T_{c} = 0 K (impossible).",
       },
     ],
   },
@@ -358,7 +358,7 @@ export const chapters: Chapter[] = [
     keyFormulas: [
       {
         name: "Series Resistance",
-        formula: "R_total = R₁ + R₂ + ...",
+        formula: "R_{total} = R₁ + R₂ + ...",
         description: "Total resistance in series",
       },
     ],
@@ -443,7 +443,7 @@ export const chapters: Chapter[] = [
     keyFormulas: [
       {
         name: "Impedance",
-        formula: "Z = √(R² + (X_L - X_C)²)",
+        formula: "Z = √(R² + (X_{L} - X_{C})²)",
         description: "Total opposition to AC current",
       },
     ],
@@ -511,7 +511,7 @@ export const practiceProblems: PracticeProblem[] = [
     difficulty: "Easy",
     topic: "Temperature",
     question: "Convert 100°F to Celsius.",
-    solution: "Use the formula: T_C = (5/9)(T_F - 32)\nT_C = (5/9)(100 - 32) = (5/9)(68) = 37.8°C",
+    solution: "Use the formula: T_{C} = (5/9)(T_{F} - 32)\nT_{C} = (5/9)(100 - 32) = (5/9)(68) = 37.8°C",
     answer: "37.8°C",
     hints: ["Remember to subtract 32 first", "Multiply by 5/9, not 9/5"],
   },
@@ -528,7 +528,7 @@ export const practiceProblems: PracticeProblem[] = [
     id: 3,
     difficulty: "Easy",
     topic: "Heat Transfer",
-    question: "How much heat is needed to raise the temperature of 2.0 kg of water from 20°C to 100°C? (c_water = 4186 J/(kg·K))",
+    question: "How much heat is needed to raise the temperature of 2.0 kg of water from 20°C to 100°C? (c_{water} = 4186 J/(kg·K))",
     solution: "Q = mcΔT\nQ = (2.0 kg)(4186 J/(kg·K))(80 K)\nQ = 669,760 J ≈ 670 kJ",
     answer: "670 kJ",
     hints: ["ΔT = 80 K", "Remember units: 1 K change = 1°C change"],
@@ -540,7 +540,7 @@ export const practiceProblems: PracticeProblem[] = [
     difficulty: "Medium",
     topic: "Heat Conduction",
     question: "A copper rod (k = 400 W/(m·K)) with cross-section 0.01 m² and length 0.5 m connects a 100°C reservoir to a 0°C reservoir. What is the rate of heat flow?",
-    solution: "Use Q/t = kA(T_h - T_c)/L\nQ/t = (400 W/(m·K))(0.01 m²)(100 K)/(0.5 m)\nQ/t = 800 W",
+    solution: "Use Q/t = kA(T_{h} - T_{c})/L\nQ/t = (400 W/(m·K))(0.01 m²)(100 K)/(0.5 m)\nQ/t = 800 W",
     answer: "800 W",
     hints: ["Steady-state heat conduction", "Temperature difference is 100 K"],
   },
@@ -558,7 +558,7 @@ export const practiceProblems: PracticeProblem[] = [
     difficulty: "Medium",
     topic: "Carnot Engine",
     question: "A Carnot engine operates between 500 K and 300 K. What is its efficiency?",
-    solution: "η_C = 1 - T_c/T_h\nη_C = 1 - 300 K/500 K = 1 - 0.6 = 0.4 = 40%",
+    solution: "η_{C} = 1 - T_{c}/T_{h}\nη_{C} = 1 - 300 K/500 K = 1 - 0.6 = 0.4 = 40%",
     answer: "40%",
     hints: ["Must use absolute temperature (Kelvin)", "Carnot efficiency is maximum possible"],
   },
@@ -577,8 +577,8 @@ export const practiceProblems: PracticeProblem[] = [
     id: 8,
     difficulty: "Hard",
     topic: "Entropy",
-    question: "Calculate the entropy change when 1.0 kg of ice at 0°C melts to water at 0°C. (L_f = 334 kJ/kg)",
-    solution: "For phase change at constant T: ΔS = Q/T\nQ = mL_f = (1.0 kg)(334,000 J/kg) = 334,000 J\nT = 273.15 K\nΔS = 334,000 J / 273.15 K = 1223 J/K ≈ 1.22 kJ/K",
+    question: "Calculate the entropy change when 1.0 kg of ice at 0°C melts to water at 0°C. (L_{f} = 334 kJ/kg)",
+    solution: "For phase change at constant T: ΔS = Q/T\nQ = mL_{f} = (1.0 kg)(334,000 J/kg) = 334,000 J\nT = 273.15 K\nΔS = 334,000 J / 273.15 K = 1223 J/K ≈ 1.22 kJ/K",
     answer: "1.22 kJ/K",
     hints: ["Temperature is constant during phase change", "Use T in Kelvin"],
   },
@@ -586,10 +586,10 @@ export const practiceProblems: PracticeProblem[] = [
     id: 9,
     difficulty: "Hard",
     topic: "Heat Engine",
-    question: "A heat engine absorbs 1000 J from a hot reservoir, does 400 J of work, and rejects Q_c to a cold reservoir. If the hot reservoir is at 600 K, what is the minimum temperature of the cold reservoir?",
-    solution: "Q_c = Q_h - W = 1000 J - 400 J = 600 J\nActual efficiency: η = W/Q_h = 400/1000 = 0.4\nFor Carnot (max efficiency): η_C = 1 - T_c/T_h\n0.4 = 1 - T_c/600 K\nT_c = 600 K × (1 - 0.4) = 360 K\nSince actual engine has same efficiency as Carnot, T_c = 360 K is minimum.",
+    question: "A heat engine absorbs 1000 J from a hot reservoir, does 400 J of work, and rejects Q_{c} to a cold reservoir. If the hot reservoir is at 600 K, what is the minimum temperature of the cold reservoir?",
+    solution: "Q_{c} = Q_{h} - W = 1000 J - 400 J = 600 J\nActual efficiency: η = W/Q_{h} = 400/1000 = 0.4\nFor Carnot (max efficiency): η_{C} = 1 - T_{c}/T_{h}\n0.4 = 1 - T_{c}/600 K\nT_{c} = 600 K × (1 - 0.4) = 360 K\nSince actual engine has same efficiency as Carnot, T_{c} = 360 K is minimum.",
     answer: "360 K (87°C)",
-    hints: ["Use energy conservation to find Q_c", "Minimum T_c occurs for Carnot efficiency"],
+    hints: ["Use energy conservation to find Q_{c}", "Minimum T_{c} occurs for Carnot efficiency"],
   },
 ];
 
@@ -610,7 +610,7 @@ export const flashcards = [
     id: 3,
     topic: "Second Law",
     front: "Why can't a heat engine be 100% efficient?",
-    back: "The Second Law requires heat engines to reject some heat (Q_c > 0) to a cold reservoir. Perfect efficiency would require T_c = 0 K, which is impossible.",
+    back: "The Second Law requires heat engines to reject some heat (Q_{c} > 0) to a cold reservoir. Perfect efficiency would require T_{c} = 0 K, which is impossible.",
   },
   {
     id: 4,
@@ -657,7 +657,7 @@ export const volume1Chapters: Chapter[] = [
     keyFormulas: [
       {
         name: "Vector Magnitude",
-        formula: "|v| = √(v_x² + v_y² + v_z²)",
+        formula: "|v| = √(v_{x}² + v_{y}² + v_{z}²)",
         description: "Magnitude of a vector from its components",
       },
       {
@@ -687,7 +687,7 @@ export const volume1Chapters: Chapter[] = [
     keyFormulas: [
       {
         name: "Average Velocity",
-        formula: "v_avg = Δx/Δt",
+        formula: "v_{avg} = Δx/Δt",
         description: "Average velocity over a time interval",
       },
       {
@@ -732,7 +732,7 @@ export const volume1Chapters: Chapter[] = [
       },
       {
         name: "Centripetal Acceleration",
-        formula: "a_c = v²/r",
+        formula: "a_{c} = v²/r",
         description: "Acceleration toward center in circular motion",
       },
     ],
@@ -762,12 +762,12 @@ export const volume1Chapters: Chapter[] = [
       },
       {
         name: "Kinetic Friction",
-        formula: "f_k = μ_k N",
+        formula: "f_{k} = μ_{k} N",
         description: "Friction force when object is moving",
       },
       {
         name: "Static Friction",
-        formula: "f_s ≤ μ_s N",
+        formula: "f_{s} ≤ μ_{s} N",
         description: "Maximum static friction before motion",
       },
     ],
@@ -792,7 +792,7 @@ export const volume1Chapters: Chapter[] = [
       },
       {
         name: "Drag Force",
-        formula: "F_D = (1/2)CρAv²",
+        formula: "F_{D} = (1/2)CρAv²",
         description: "Air resistance force",
       },
     ],
@@ -822,7 +822,7 @@ export const volume1Chapters: Chapter[] = [
       },
       {
         name: "Work-Energy Theorem",
-        formula: "W_net = ΔKE",
+        formula: "W_{net} = ΔKE",
         description: "Net work equals change in kinetic energy",
       },
       {
@@ -847,12 +847,12 @@ export const volume1Chapters: Chapter[] = [
     keyFormulas: [
       {
         name: "Gravitational Potential Energy",
-        formula: "U_g = mgh",
+        formula: "U_{g} = mgh",
         description: "Potential energy near Earth's surface",
       },
       {
         name: "Elastic Potential Energy",
-        formula: "U_s = (1/2)kx²",
+        formula: "U_{s} = (1/2)kx²",
         description: "Energy stored in a spring",
       },
       {
@@ -922,7 +922,7 @@ export const volume1Chapters: Chapter[] = [
       },
       {
         name: "Rotational Kinetic Energy",
-        formula: "KE_rot = (1/2)Iω²",
+        formula: "KE_{rot} = (1/2)Iω²",
         description: "Energy of rotation",
       },
     ],
@@ -947,7 +947,7 @@ export const volume1Chapters: Chapter[] = [
       },
       {
         name: "Conservation of Angular Momentum",
-        formula: "L_i = L_f",
+        formula: "L_{i} = L_{f}",
         description: "Angular momentum conserved when no external torque",
       },
     ],
@@ -1032,7 +1032,7 @@ export const volume1Chapters: Chapter[] = [
       },
       {
         name: "Buoyant Force",
-        formula: "F_B = ρ_fluid V_displaced g",
+        formula: "F_{B} = ρ_{fluid} V_{displaced} g",
         description: "Upward force on submerged object",
       },
       {

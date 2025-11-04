@@ -1863,7 +1863,7 @@ export default function PhysicsStudyHub() {
                       }}
                     />
                     <Typography variant="body1" sx={{ mb: 2, color: "white" }}>
-                      {problem.question}
+                      <FormulaText formula={problem.question} />
                     </Typography>
                     {showSolution === problem.id ? (
                       <Fade in>
@@ -1880,8 +1880,12 @@ export default function PhysicsStudyHub() {
                             }}
                           >
                             <Typography variant="subtitle2" sx={{ fontWeight: 600, mb: 1, color: "white" }}>Solution:</Typography>
-                            <Typography variant="body2" sx={{ whiteSpace: "pre-line", color: "white" }}>{problem.solution}</Typography>
-                            <Typography variant="subtitle2" sx={{ fontWeight: 600, mt: 2, color: "white" }}>Answer: {problem.answer}</Typography>
+                            <Typography variant="body2" sx={{ whiteSpace: "pre-line", color: "white" }}>
+                              <FormulaText formula={problem.solution} />
+                            </Typography>
+                            <Typography variant="subtitle2" sx={{ fontWeight: 600, mt: 2, color: "white" }}>
+                              Answer: <FormulaText formula={problem.answer} />
+                            </Typography>
                           </Paper>
                           <Button
                             variant="outlined"

@@ -60,7 +60,7 @@ export default function LandingPage() {
             sx={{
               fontWeight: 900,
               fontSize: { xs: "3rem", md: "6rem" },
-              color: "white",
+              color: "#F5F2E8",
               mb: 2,
               letterSpacing: "-0.03em",
             }}
@@ -70,7 +70,7 @@ export default function LandingPage() {
           <Typography
             variant="h5"
             sx={{
-              color: "white",
+              color: "#F0EBDD",
               fontWeight: 400,
               mb: 4,
             }}
@@ -94,7 +94,7 @@ export default function LandingPage() {
             backdropFilter: "blur(20px)",
             border: "1px solid rgba(255, 255, 255, 0.3)",
             boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3)",
-            color: "#E0F2FF",
+            color: "#F5F2E8",
             textTransform: "none",
             transition: "all 0.3s ease",
             "&:hover": {
@@ -117,7 +117,7 @@ export default function LandingPage() {
             justifyContent: "center",
           }}
         >
-          {["2000+ Students", "100% Free", "AI-Powered"].map((stat) => (
+          {["100% Free", "AI-Powered"].map((stat) => (
             <Box
               key={stat}
               sx={{
@@ -139,7 +139,7 @@ export default function LandingPage() {
               <Typography
                 variant="body2"
                 sx={{
-                  color: "#E0F2FF",
+                  color: "#F0EBDD",
                   fontWeight: 600,
                   fontSize: "1.05rem",
                 }}
