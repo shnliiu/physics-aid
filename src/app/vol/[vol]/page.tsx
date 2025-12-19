@@ -13,23 +13,31 @@ interface Chapter {
   description?: string;
 }
 
-export default function VolumePage({ params }: { params: { vol: string } }) {
+export default function VolumePage({ params }: { params: Promise<{ vol: string }> }) {
   const router = useRouter();
   const [chapters, setChapters] = useState<Chapter[]>([]);
   const [loading, setLoading] = useState(true);
+  const [unwrappedParams, setUnwrappedParams] = useState<{ vol: string } | null>(null);
 
   useEffect(() => {
-    fetchChapters();
-  }, [params.vol]);
+    params.then(p => setUnwrappedParams(p));
+  }, [params]);
+
+  useEffect(() => {
+    if (unwrappedParams) {
+      fetchChapters();
+    }
+  }, [unwrappedParams]);
 
   const fetchChapters = async () => {
+    if (!unwrappedParams) return;
     try {
       const result = await client.models.Chapter.list({
-        filter: { volume: { eq: params.vol } }
+        filter: { volume: { eq: unwrappedParams.vol } }
       });
 
       if (result.data) {
-        const sortedChapters = result.data.sort((a, b) => a.number - b.number);
+        const sortedChapters = result.data.sort((a: any, b: any) => a.number - b.number);
         setChapters(sortedChapters as Chapter[]);
       }
     } catch (error) {
@@ -51,15 +59,15 @@ export default function VolumePage({ params }: { params: { vol: string } }) {
       </header>
 
       {/* Volume Tabs */}
-      <VolumeTabs currentVolume={params.vol} />
+      {unwrappedParams && <VolumeTabs currentVolume={unwrappedParams.vol} />}
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-6">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-            {params.vol === 'VOL1' && 'Volume 1: Mechanics'}
-            {params.vol === 'VOL2' && 'Volume 2: Thermodynamics'}
-            {params.vol === 'VOL3' && 'Volume 3: Modern Physics'}
+            {unwrappedParams?.vol === 'VOL1' && 'Volume 1: Mechanics'}
+            {unwrappedParams?.vol === 'VOL2' && 'Volume 2: Thermodynamics'}
+            {unwrappedParams?.vol === 'VOL3' && 'Volume 3: Modern Physics'}
           </h2>
           <p className="text-gray-600 dark:text-gray-300 mt-2">
             Select a chapter to view formulas, problems, and collaborative notes
@@ -84,7 +92,7 @@ export default function VolumePage({ params }: { params: { vol: string } }) {
             {chapters.map((chapter) => (
               <div
                 key={chapter.id}
-                onClick={() => router.push(`/vol/${params.vol}/ch/${chapter.number}`)}
+                onClick={() => router.push(`/vol/${unwrappedParams?.vol}/ch/${chapter.number}`)}
                 className="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg
                          transition-shadow cursor-pointer p-6"
               >

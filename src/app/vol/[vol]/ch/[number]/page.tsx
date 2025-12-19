@@ -11,11 +11,7 @@ import 'katex/dist/katex.min.css';
 
 type TabType = 'formulas' | 'problems' | 'chat';
 
-export default function ChapterPage({
-  params,
-}: {
-  params: { vol: string; number: string };
-}) {
+export default function ChapterPage({ params }: { params: Promise<{ vol: string; number: string }> }) {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState<TabType>('formulas');
   const [chapter, setChapter] = useState<any>(null);
@@ -23,23 +19,29 @@ export default function ChapterPage({
   const [problems, setProblems] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [relatedChapter, setRelatedChapter] = useState<any>(null);
-  const [currentUser, setCurrentUser] = useState<any>({ userId: 'mock-user' });
-
-  const chapterNumber = parseInt(params.number);
+  const [unwrappedParams, setUnwrappedParams] = useState<{ vol: string; number: string } | null>(null);
 
   useEffect(() => {
-    // checkUser();
-    fetchChapterData();
-  }, [params.vol, params.number]);
+    params.then(p => {
+      setUnwrappedParams(p);
+    });
+  }, [params]);
+
+  useEffect(() => {
+    if (unwrappedParams) {
+      fetchChapterData();
+    }
+  }, [unwrappedParams]);
 
   const fetchChapterData = async () => {
+    if (!unwrappedParams) return;
     try {
       // Mock data
       const chap = {
         id: '1',
-        title: `Mock Chapter ${chapterNumber}`,
-        number: chapterNumber,
-        volume: params.vol,
+        title: `Mock Chapter ${unwrappedParams.number}`,
+        number: parseInt(unwrappedParams.number),
+        volume: unwrappedParams.vol,
         description: 'This is a mock chapter description.'
       };
       setChapter(chap);
@@ -51,6 +53,13 @@ export default function ChapterPage({
       setProblems([
         { id: '1', title: 'Mock Problem', body: 'A mock problem body.', status: 'OPEN', difficulty: 3 }
       ]);
+
+      // Set related chapter if applicable (e.g., for Vol 3 Ch 3-4)
+      if (unwrappedParams.vol === 'VOL3' && (unwrappedParams.number === '3' || unwrappedParams.number === '4')) {
+        setRelatedChapter({ vol: 'VOL1', ch: '16', title: 'Waves' });
+      } else {
+        setRelatedChapter(null);
+      }
 
     } catch (error) {
       console.error('Error fetching chapter data:', error);
@@ -74,7 +83,7 @@ export default function ChapterPage({
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-8 text-center">
             <p className="text-gray-500">Chapter not found</p>
             <button
-              onClick={() => router.push(`/vol/${params.vol}`)}
+              onClick={() => router.push(`/vol/${unwrappedParams?.vol}`)}
               className="mt-4 text-blue-600 hover:underline"
             >
               ← Back to chapters
@@ -97,14 +106,14 @@ export default function ChapterPage({
       </header>
 
       {/* Volume Tabs */}
-      <VolumeTabs currentVolume={params.vol} />
+      {unwrappedParams && <VolumeTabs currentVolume={unwrappedParams.vol} />}
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Chapter Header */}
         <div className="mb-6">
           <button
-            onClick={() => router.push(`/vol/${params.vol}`)}
+            onClick={() => router.push(`/vol/${unwrappedParams?.vol}`)}
             className="text-blue-600 dark:text-blue-400 hover:underline mb-2"
           >
             ← Back to chapters

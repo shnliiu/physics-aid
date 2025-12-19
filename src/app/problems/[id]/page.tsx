@@ -8,27 +8,39 @@ import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
 import 'katex/dist/katex.min.css';
 
-export default function ProblemDetailPage({ params }: { params: { id: string } }) {
+// Next.js 15: params is a Promise
+export default function ProblemDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();
   const [problem, setProblem] = useState<any>(null);
   const [comments, setComments] = useState<any[]>([]);
   const [newComment, setNewComment] = useState('');
   const [loading, setLoading] = useState(true);
   const [verifying, setVerifying] = useState(false);
+  const [unwrappedParams, setUnwrappedParams] = useState<{ id: string } | null>(null);
 
   useEffect(() => {
-    fetchProblem();
-  }, [params.id]);
+    params.then(p => {
+      setUnwrappedParams(p);
+    });
+  }, [params]);
+
+  useEffect(() => {
+    if (unwrappedParams) {
+      // Create a specific fetch function wrapper or call existing one if modified
+      fetchProblem();
+    }
+  }, [unwrappedParams]);
 
   const fetchProblem = async () => {
+    if (!unwrappedParams) return;
     try {
-      const problemResult = await client.models.ProblemPost.get({ id: params.id });
+      const problemResult = await client.models.ProblemPost.get({ id: unwrappedParams.id });
       if (problemResult.data) {
         setProblem(problemResult.data);
 
         // Fetch comments
         const commentsResult = await client.models.Comment.list({
-          filter: { postId: { eq: params.id } }
+          filter: { postId: { eq: unwrappedParams.id } }
         });
         setComments(commentsResult.data || []);
       }
@@ -75,7 +87,7 @@ export default function ProblemDetailPage({ params }: { params: { id: string } }
       }
 
       await client.models.Comment.create({
-        postId: params.id,
+        postId: unwrappedParams!.id,
         authorId: userResult.data[0].id,
         body: newComment,
       });
@@ -135,13 +147,12 @@ export default function ProblemDetailPage({ params }: { params: { id: string } }
           {/* Status badges */}
           <div className="flex items-center gap-2 mb-4">
             <span
-              className={`px-3 py-1 text-sm rounded ${
-                problem.status === 'SOLVED'
-                  ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200'
-                  : problem.status === 'IN_PROGRESS'
+              className={`px-3 py-1 text-sm rounded ${problem.status === 'SOLVED'
+                ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200'
+                : problem.status === 'IN_PROGRESS'
                   ? 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200'
                   : 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200'
-              }`}
+                }`}
             >
               {problem.status}
             </span>
