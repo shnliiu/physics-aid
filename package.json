@@ -8,17 +8,16 @@
     "start": "next start",
     "lint": "next lint",
     "scrape": "tsx scripts/scrape-openstax.ts",
-    "scrape:dry": "tsx scripts/scrape-openstax.ts --dry-run",
-    "seed": "tsx scripts/seed-demo-data.ts"
+    "scrape:dry": "tsx scripts/scrape-openstax.ts --dry-run"
   },
   "dependencies": {
-    "@aws-amplify/ui-react": "^6.13.0",
     "@emotion/cache": "^11.11.0",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@fullcalendar/core": "^6.1.15",
     "@fullcalendar/daygrid": "^6.1.15",
     "@fullcalendar/react": "^6.1.15",
+    "@google/generative-ai": "^0.24.1",
     "@mui/icons-material": "^7.0.2",
     "@mui/lab": "^7.0.0-beta.11",
     "@mui/material": "^7.0.2",
@@ -27,9 +26,11 @@
     "@mui/x-data-grid-generator": "^8.0.0",
     "@mui/x-date-pickers": "^8.0.0",
     "@mui/x-tree-view": "^8.0.0",
+    "@prisma/client": "^7.2.0",
+    "@supabase/ssr": "^0.8.0",
+    "@supabase/supabase-js": "^2.89.0",
     "@types/fabric": "^5.3.10",
     "apexcharts": "^4.0.0",
-    "aws-amplify": "^6.15.5",
     "boxicons": "^2.1.4",
     "cheerio": "^1.1.2",
     "dayjs": "^1.11.11",
@@ -56,16 +57,13 @@
     "swiper": "^11.1.4"
   },
   "devDependencies": {
-    "@aws-amplify/backend": "^1.16.1",
-    "@aws-amplify/backend-cli": "^1.8.0",
     "@types/node": "^22.8.6",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "aws-cdk-lib": "^2.204.0",
-    "constructs": "^10.4.2",
     "esbuild": "^0.25.9",
     "eslint": "^9.14.0",
     "eslint-config-next": "^15.0.2",
+    "prisma": "^7.2.0",
     "tsx": "^4.20.4",
     "typescript": "^5.9.2"
   }

@@ -15,6 +15,7 @@ import {
   Checkbox,
   FormControlLabel,
   LinearProgress,
+  Alert,
 } from "@mui/material";
 import { useRouter } from "next/navigation";
 import EmailIcon from "@mui/icons-material/Email";
@@ -26,11 +27,16 @@ import GoogleIcon from "@mui/icons-material/Google";
 import AppleIcon from "@mui/icons-material/Apple";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
+import { createClient } from "@/lib/supabase/client";
+
 export default function AuthPage() {
   const router = useRouter();
   const [isLogin, setIsLogin] = React.useState(true);
   const [showPassword, setShowPassword] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
+  const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = React.useState<string | null>(null);
+
   const [formData, setFormData] = React.useState({
     name: "",
     email: "",
@@ -42,6 +48,9 @@ export default function AuthPage() {
     password: false,
   });
   const [passwordStrength, setPasswordStrength] = React.useState(0);
+
+  // Initialize Supabase client
+  const supabase = createClient();
 
   // Password strength calculation
   React.useEffect(() => {
@@ -57,6 +66,7 @@ export default function AuthPage() {
   const handleInputChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [field]: e.target.value });
     setErrors({ ...errors, [field]: false });
+    setErrorMessage(null); // Clear global errors on input
   };
 
   const validateForm = () => {
@@ -74,27 +84,72 @@ export default function AuthPage() {
     if (!validateForm()) return;
 
     setLoading(true);
+    setErrorMessage(null);
+    setSuccessMessage(null);
 
-    // Simulate authentication delay
-    setTimeout(() => {
+    try {
+      if (isLogin) {
+        // Sign In
+        const { error } = await supabase.auth.signInWithPassword({
+          email: formData.email,
+          password: formData.password,
+        });
+
+        if (error) {
+          throw error;
+        }
+
+        // Redirect on success
+        router.push("/admin"); // Or wherever the dashboard is
+        router.refresh();
+      } else {
+        // Sign Up
+        const { error } = await supabase.auth.signUp({
+          email: formData.email,
+          password: formData.password,
+          options: {
+            data: {
+              full_name: formData.name,
+            },
+          },
+        });
+
+        if (error) {
+          throw error;
+        }
+
+        setSuccessMessage("Account created! Please check your email to verify your account.");
+      }
+    } catch (error: any) {
+      setErrorMessage(error.message || "An error occurred during authentication.");
+    } finally {
       setLoading(false);
-      // Navigate to tutor page (mock success)
-      router.push("/tutor");
-    }, 2000);
+    }
   };
 
-  const handleSocialLogin = (provider: string) => {
-    console.log(`Login with ${provider}`);
-    // Mock social login - just redirect
-    setTimeout(() => {
-      router.push("/tutor");
-    }, 1500);
+  const handleSocialLogin = async (provider: 'google' | 'github' | 'apple') => {
+    try {
+      setLoading(true);
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider,
+        options: {
+          redirectTo: `${window.location.origin}/auth/callback`,
+        },
+      });
+
+      if (error) throw error;
+    } catch (error: any) {
+      setErrorMessage(error.message || `Failed to sign in with ${provider}`);
+      setLoading(false);
+    }
   };
 
   const toggleMode = () => {
     setIsLogin(!isLogin);
     setErrors({ name: false, email: false, password: false });
     setFormData({ name: "", email: "", password: "" });
+    setErrorMessage(null);
+    setSuccessMessage(null);
   };
 
   return (
@@ -160,6 +215,18 @@ export default function AuthPage() {
               </Typography>
             </Box>
           </Slide>
+
+          {/* Feedback Messages */}
+          {errorMessage && (
+            <Alert severity="error" sx={{ mb: 2, background: "rgba(211, 47, 47, 0.1)", color: "#ffcdd2" }}>
+              {errorMessage}
+            </Alert>
+          )}
+          {successMessage && (
+            <Alert severity="success" sx={{ mb: 2, background: "rgba(56, 142, 60, 0.1)", color: "#c8e6c9" }}>
+              {successMessage}
+            </Alert>
+          )}
 
           {/* Form */}
           <Box component="form" onSubmit={handleSubmit} sx={{ mb: 3 }}>
@@ -301,8 +368,8 @@ export default function AuthPage() {
                           passwordStrength < 50
                             ? "#f44336"
                             : passwordStrength < 75
-                            ? "#ff9800"
-                            : "#4caf50",
+                              ? "#ff9800"
+                              : "#4caf50",
                       },
                     }}
                   />
@@ -371,15 +438,14 @@ export default function AuthPage() {
           {/* Social Login */}
           <Box sx={{ display: "flex", gap: 2, mb: 3 }}>
             {[
-              { icon: <GoogleIcon />, name: "Google" },
-              { icon: <AppleIcon />, name: "Apple" },
-              { icon: <GitHubIcon />, name: "GitHub" },
+              { icon: <GoogleIcon />, name: "Google", provider: 'google' },
+              { icon: <GitHubIcon />, name: "GitHub", provider: 'github' },
             ].map((social) => (
               <Button
                 key={social.name}
                 fullWidth
                 variant="outlined"
-                onClick={() => handleSocialLogin(social.name)}
+                onClick={() => handleSocialLogin(social.provider as 'google' | 'github')}
                 sx={{
                   py: 1,
                   borderColor: "rgba(66, 165, 245, 0.3)",

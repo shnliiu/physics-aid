@@ -2,14 +2,11 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuthenticator } from '@aws-amplify/ui-react';
-import { client } from '@/lib/amplify-client';
 import { Header } from '@/components/Header';
 import toast from 'react-hot-toast';
 
 export default function NewProblemPage() {
   const router = useRouter();
-  const { user } = useAuthenticator((context) => [context.user]);
 
   const [formData, setFormData] = useState({
     title: '',
@@ -24,42 +21,13 @@ export default function NewProblemPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!user) {
-      alert('You must be logged in to post a problem');
-      return;
-    }
-
     setLoading(true);
 
     try {
-      // Get user's ID from User model
-      const userResult = await client.models.User.list({
-        filter: { email: { eq: user.signInDetails?.loginId } }
-      });
+      // Mock submission
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
-      if (!userResult.data || userResult.data.length === 0) {
-        throw new Error('User profile not found');
-      }
-
-      const userId = userResult.data[0].id;
-
-      // Create the problem post
-      const tagsArray = formData.tags
-        .split(',')
-        .map(t => t.trim())
-        .filter(t => t.length > 0);
-
-      await client.models.ProblemPost.create({
-        title: formData.title,
-        body: formData.body,
-        chapterId: formData.chapterId || 'GENERAL',
-        status: formData.status,
-        difficulty: formData.difficulty,
-        tags: tagsArray,
-        authorId: userId,
-      });
-
-      toast.success('Problem posted successfully!');
+      toast.success('Problem posted (Mock)!');
       router.push('/');
     } catch (error: any) {
       console.error('Error creating problem:', error);
