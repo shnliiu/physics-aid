@@ -40,19 +40,10 @@ git push -u origin main
 
 ### Step 3: Configure Environment (Optional)
 
-Since the Physics Study Hub doesn't use AWS Amplify features (no auth/AI), you can optionally remove the Amplify integration or keep it for future features.
 
-**To deploy WITHOUT Amplify features:**
+**To deploy:**
 - No additional configuration needed
 - The app will work perfectly with just the static physics content
-
-**To deploy WITH Amplify features (for future AI integration):**
-1. In Vercel project settings, go to "Environment Variables"
-2. Add the following from your local `amplify_outputs.json`:
-   - `NEXT_PUBLIC_AWS_REGION`
-   - `NEXT_PUBLIC_USER_POOL_ID`
-   - `NEXT_PUBLIC_USER_POOL_CLIENT_ID`
-   - (Add other needed Amplify config as environment variables)
 
 ### Your Live URL
 
@@ -150,10 +141,7 @@ For a classroom of 50-100 students:
 - Verify the URL is correct (add `/tutor` path)
 - Check browser console for errors
 
-**Want to add authentication later:**
-- You'll need to configure AWS Amplify in Vercel environment variables
-- Uncomment the authentication code in the tutor page
-- Redeploy
+
 
 ---
 

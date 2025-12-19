@@ -1,83 +1,40 @@
-'use client';
+import { createClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { useAuthenticator } from '@aws-amplify/ui-react';
-import { client } from '@/lib/amplify-client';
+export default async function AdminPage() {
+  const supabase = await createClient();
 
-export default function AdminPage() {
-  const router = useRouter();
-  const { user } = useAuthenticator((context) => [context.user]);
-  const [problems, setProblems] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [isTeacher, setIsTeacher] = useState(false);
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
-  useEffect(() => {
-    checkTeacherRole();
-    fetchAllProblems();
-  }, []);
+  if (!user) {
+    return redirect('/auth');
+  }
 
-  const checkTeacherRole = async () => {
-    try {
-      // Fetch current user's profile
-      const result = await client.models.User.list({
-        filter: { email: { eq: user?.signInDetails?.loginId } }
-      });
+  // TODO: Implement actual Role-Based Access Control (RBAC) here
+  // For now, we are just securing that a user exists.
+  // In the future, check `user.user_metadata.role` or a `roles` table.
+  // const isTeacher = user.user_metadata.role === 'teacher';
 
-      if (result.data && result.data.length > 0) {
-        const userProfile = result.data[0];
-        setIsTeacher(userProfile.role === 'TEACHER');
-      }
-    } catch (error) {
-      console.error('Error checking role:', error);
-    }
-  };
-
-  const fetchAllProblems = async () => {
-    try {
-      const result = await client.models.ProblemPost.list();
-      setProblems(result.data || []);
-    } catch (error) {
-      console.error('Error fetching problems:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleFeatureProblem = async (problemId: string, currentFeatured: boolean) => {
-    try {
-      await client.models.ProblemPost.update({
-        id: problemId,
-        featured: !currentFeatured,
-        featuredAt: !currentFeatured ? new Date().toISOString() : null as any,
-      });
-
-      // Refresh problems
-      fetchAllProblems();
-    } catch (error) {
-      console.error('Error featuring problem:', error);
-      alert('Failed to feature problem');
-    }
-  };
-
+  /*
   if (!isTeacher) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-8 text-center">
-          <h2 className="text-2xl font-bold text-red-600 mb-4">Access Denied</h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
-            You need teacher privileges to access this page.
-          </p>
-          <button
-            onClick={() => router.push('/')}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-          >
-            Go Home
-          </button>
-        </div>
-      </div>
-    );
+       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+         <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-8 text-center">
+           <h2 className="text-2xl font-bold text-red-600 mb-4">Access Denied</h2>
+           <p className="text-gray-600 dark:text-gray-300 mb-4">
+             You need teacher privileges to access this page.
+           </p>
+         </div>
+       </div>
+    )
   }
+  */
+
+  // Fetch real problems from Supabase (placeholder until table exists)
+  // const { data: problems } = await supabase.from('problems').select('*');
+  const problems: any[] = []; // Temporary empty array until db is populated
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -88,12 +45,15 @@ export default function AdminPage() {
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
               Teacher Admin Panel
             </h1>
-            <button
-              onClick={() => router.push('/')}
-              className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
-            >
-              ← Back to Home
-            </button>
+            <div className="flex items-center gap-4">
+              <span className="text-sm text-gray-500">{user.email}</span>
+              <form action="/auth/signout" method="post">
+                {/* Sign out should be handled by an API route or Client Component */}
+                <a href="/" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+                  ← Back to Home
+                </a>
+              </form>
+            </div>
           </div>
         </div>
       </header>
@@ -106,7 +66,7 @@ export default function AdminPage() {
               Featured Problems Management
             </h2>
             <button
-              onClick={() => router.push('/problems/new')}
+              //   onClick={() => router.push('/problems/new')}
               className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
             >
               + Upload New Problem
@@ -117,10 +77,12 @@ export default function AdminPage() {
             Feature problems to highlight them on the homepage. Featured problems appear at the top for all students.
           </p>
 
-          {loading ? (
-            <div className="text-center py-8 text-gray-500">Loading problems...</div>
-          ) : (
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow">
+            {problems.length === 0 ? (
+              <div className="p-8 text-center text-gray-500">
+                No problems found in the database.
+              </div>
+            ) : (
               <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                 <thead className="bg-gray-50 dark:bg-gray-900">
                   <tr>
@@ -156,13 +118,12 @@ export default function AdminPage() {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span
-                          className={`px-2 py-1 text-xs rounded ${
-                            problem.status === 'SOLVED'
-                              ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200'
-                              : problem.status === 'IN_PROGRESS'
+                          className={`px-2 py-1 text-xs rounded ${problem.status === 'SOLVED'
+                            ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200'
+                            : problem.status === 'IN_PROGRESS'
                               ? 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200'
                               : 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200'
-                          }`}
+                            }`}
                         >
                           {problem.status}
                         </span>
@@ -186,29 +147,18 @@ export default function AdminPage() {
                         )}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm">
-                        <button
-                          onClick={() => handleFeatureProblem(problem.id, problem.featured)}
-                          className={`px-3 py-1 rounded mr-2 ${
-                            problem.featured
-                              ? 'bg-red-100 text-red-700 hover:bg-red-200'
-                              : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
-                          }`}
-                        >
-                          {problem.featured ? 'Unfeature' : 'Feature'}
-                        </button>
-                        <button
-                          onClick={() => router.push(`/problems/${problem.id}`)}
-                          className="text-blue-600 dark:text-blue-400 hover:underline"
-                        >
-                          View
-                        </button>
+                        {/* 
+                         Buttons would need to become Client Components or Server Actions 
+                         since we are now in a Server Component 
+                         */}
+                        <span className="text-gray-400 italic">Actions disabled (Server Component)</span>
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
-            </div>
-          )}
+            )}
+          </div>
         </section>
 
         {/* Quick Stats */}

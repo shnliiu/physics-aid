@@ -7,3 +7,4 @@ amplifyconfiguration*
 
 logs/
 resources/
+/generated/prisma
