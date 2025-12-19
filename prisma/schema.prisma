@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client"
+  output          = "../node_modules/.prisma/client"
+  previewFeatures = ["multiSchema"]
+}
+
+datasource db {
+  provider = "postgresql"
+  schemas  = ["public", "auth"]
+}
+
+
+enum Role {
+  STUDENT
+  TEACHER
+  ADMIN
+  
+  @@schema("public")
+}
+
+model User {
+  id        String   @id @db.Uuid // Matches Supabase Auth ID
+  email     String   @unique
+  fullName  String?
+  avatarUrl String?
+  role      Role     @default(STUDENT)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Example relation: Users might have Problems they created or bookmarked
+  // problems Problem[] 
+  
+  @@schema("public")
+}

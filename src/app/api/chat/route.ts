@@ -258,8 +258,7 @@ I apologize, but I'm having trouble connecting to the AI service right now. Whil
 📚 **Alternative Resources:**
 1. **Formulas Tab**: Browse physics equations organized by chapter
 2. **Problems Tab**: Post your question and get help from classmates
-3. **Chapter Wiki**: Check collaborative notes and explanations
-4. **OpenStax Textbooks**: Access the free textbooks directly at openstax.org
+3. **OpenStax Textbooks**: Access the free textbooks directly at openstax.org
 
 **Your Question:**
 "${prompt}"

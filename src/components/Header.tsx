@@ -1,7 +1,6 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useAuthenticator } from '@aws-amplify/ui-react';
 
 interface HeaderProps {
   title?: string;
@@ -10,7 +9,6 @@ interface HeaderProps {
 
 export function Header({ title = 'Physics 4C TA', showNav = true }: HeaderProps) {
   const router = useRouter();
-  const { user, signOut } = useAuthenticator((context) => [context.user]);
 
   return (
     <header className="sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-md border-b border-gray-200 dark:border-gray-700">
@@ -33,7 +31,7 @@ export function Header({ title = 'Physics 4C TA', showNav = true }: HeaderProps)
           </div>
 
           {/* Navigation */}
-          {showNav && user && (
+          {showNav && (
             <nav className="hidden md:flex items-center gap-2">
               <button
                 onClick={() => router.push('/problems/new')}
@@ -56,23 +54,11 @@ export function Header({ title = 'Physics 4C TA', showNav = true }: HeaderProps)
               >
                 Admin
               </button>
-              <div className="ml-4 flex items-center gap-3 pl-4 border-l border-gray-200 dark:border-gray-700">
-                <div className="text-sm text-gray-600 dark:text-gray-400">
-                  {user.signInDetails?.loginId || 'User'}
-                </div>
-                <button
-                  onClick={() => signOut()}
-                  className="text-sm text-red-600 hover:text-red-700 dark:text-red-400
-                           hover:underline"
-                >
-                  Sign Out
-                </button>
-              </div>
             </nav>
           )}
 
           {/* Mobile menu button */}
-          {showNav && user && (
+          {showNav && (
             <button className="md:hidden p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100
                              dark:hover:bg-gray-700 rounded-lg">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
