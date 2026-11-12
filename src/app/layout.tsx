@@ -14,8 +14,7 @@ import "../../styles/chat.css";
 import "../../styles/horizontal-navbar.css";
 import "../../styles/globals.css";
 
-// globals dark Mode CSS
-import "../../styles/dark.css";
+// dark.css removed - causes grey text override
 // globals RTL Mode CSS
 import "../../styles/rtl.css";
 
