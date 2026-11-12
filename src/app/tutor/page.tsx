@@ -769,7 +769,7 @@ export default function PhysicsStudyHub() {
               }}
               sx={{
                 "& .MuiOutlinedInput-root": {
-                  color: "#E0F2FF !important",
+                  color: "#ffffff !important",
                   background: "rgba(255, 255, 255, 0.1)",
                   backdropFilter: "blur(10px)",
                   "& fieldset": { borderColor: "rgba(255, 255, 255, 0.3)" },
@@ -789,7 +789,7 @@ export default function PhysicsStudyHub() {
                     onClick={() => toggleVolume(volume.id)}
                     sx={{
                       minWidth: "auto",
-                      color: "#E0F2FF !important",
+                      color: "#ffffff !important",
                       background: "rgba(255, 255, 255, 0.15)",
                       backdropFilter: "blur(10px)",
                       border: "1px solid rgba(255, 255, 255, 0.2)",
@@ -813,7 +813,7 @@ export default function PhysicsStudyHub() {
                     }}
                     sx={{
                       justifyContent: "flex-start",
-                      color: "#E0F2FF !important",
+                      color: "#ffffff !important",
                       background: "rgba(255, 255, 255, 0.15)",
                       backdropFilter: "blur(10px)",
                       border: "1px solid rgba(255, 255, 255, 0.2)",
@@ -852,7 +852,7 @@ export default function PhysicsStudyHub() {
                             }}
                             sx={{
                               justifyContent: "flex-start",
-                              color: "#E0F2FF !important",
+                              color: "#ffffff !important",
                               background: selectedChapter === chapterNum && selectedVolume === volume.id
                                 ? "rgba(255, 255, 255, 0.3)"
                                 : "rgba(255, 255, 255, 0.05)",
@@ -911,7 +911,7 @@ export default function PhysicsStudyHub() {
               onClick={handleSignOut}
               sx={{
                 borderColor: "rgba(255, 255, 255, 0.5)",
-                color: "#E0F2FF !important",
+                color: "#ffffff !important",
                 background: "rgba(255, 255, 255, 0.1)",
                 backdropFilter: "blur(10px)",
                 transition: "all 0.3s ease",
@@ -935,7 +935,11 @@ export default function PhysicsStudyHub() {
         overflowY: "auto",
         p: 4,
         position: "relative",
-        zIndex: 1
+        zIndex: 1,
+        transition: "margin-left 0.5s ease",
+        marginLeft: sidebarOpen ? 0 : "auto",
+        maxWidth: sidebarOpen ? "calc(100% - 320px)" : "900px",
+        mx: sidebarOpen ? 0 : "auto"
       }}>
         {/* Header */}
         {!sidebarOpen && (
@@ -947,7 +951,7 @@ export default function PhysicsStudyHub() {
               left: 16,
               background: "rgba(255, 255, 255, 0.2)",
               backdropFilter: "blur(10px)",
-              color: "#E0F2FF !important",
+              color: "#ffffff !important",
               border: "1px solid rgba(255, 255, 255, 0.3)",
               zIndex: 1000,
               "&:hover": {
@@ -966,7 +970,7 @@ export default function PhysicsStudyHub() {
               sx={{
                 fontWeight: 700,
                 mb: 1,
-                color: "#E0F2FF !important",
+                color: "#ffffff !important",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -976,7 +980,7 @@ export default function PhysicsStudyHub() {
               <SchoolIcon fontSize="large" />
               Physics Study Hub
             </Typography>
-            <Typography variant="h6" sx={{ mb: 2, fontWeight: 300, color: "white" }}>
+            <Typography variant="h6" sx={{ mb: 2, fontWeight: 300, color: "#ffffff" }}>
               Heat & Thermodynamics Study Resources
             </Typography>
             <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap", justifyContent: "center" }}>
@@ -988,7 +992,7 @@ export default function PhysicsStudyHub() {
                   sx={{
                     background: "rgba(255, 255, 255, 0.2)",
                     backdropFilter: "blur(10px)",
-                    color: "#E0F2FF !important",
+                    color: "#ffffff !important",
                     border: "1px solid rgba(255, 255, 255, 0.3)",
                     fontWeight: 500,
                     transition: "all 0.3s ease",
@@ -1029,11 +1033,11 @@ export default function PhysicsStudyHub() {
               centered
               sx={{
                 "& .MuiTab-root": {
-                  color: "#E0F2FF !important",
+                  color: "#ffffff !important",
                   fontWeight: 600,
                   transition: "all 0.3s ease",
                   "&:hover": {
-                    color: "#E0F2FF !important",
+                    color: "#ffffff !important",
                     background: "rgba(255,255,255,0.1)"
                   },
                   "&.Mui-selected": {
@@ -1060,7 +1064,7 @@ export default function PhysicsStudyHub() {
       {/* Volume 1 Tab (All chapters) */}
       {activeTab === 0 && selectedChapter === null && (
         <Box>
-          <Typography variant="h4" sx={{ color: "#E0F2FF !important", mb: 3, fontWeight: 700 }}>
+          <Typography variant="h4" sx={{ color: "#ffffff !important", mb: 3, fontWeight: 700 }}>
             {volumeStructure[0].title} - Chapters 1-{volume1Chapters.length}
           </Typography>
           <Grid container spacing={3}>
@@ -1102,7 +1106,7 @@ export default function PhysicsStudyHub() {
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            color: "#E0F2FF !important",
+                            color: "#ffffff !important",
                             fontWeight: 700,
                             fontSize: "1.25rem",
                             boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)"
@@ -1115,7 +1119,7 @@ export default function PhysicsStudyHub() {
                             variant="h6"
                             sx={{
                               fontWeight: 600,
-                              color: "#E0F2FF !important",
+                              color: "#ffffff !important",
                               lineHeight: 1.3,
                               textShadow: "0 1px 2px rgba(0,0,0,0.1)"
                             }}
@@ -1140,7 +1144,7 @@ export default function PhysicsStudyHub() {
                               background: "rgba(255, 255, 255, 0.2)",
                               backdropFilter: "blur(10px)",
                               border: "1px solid rgba(255, 255, 255, 0.3)",
-                              color: "#E0F2FF !important",
+                              color: "#ffffff !important",
                               fontSize: "0.8rem",
                               fontWeight: 500,
                               transition: "all 0.2s ease",
@@ -1163,7 +1167,7 @@ export default function PhysicsStudyHub() {
                             textTransform: "none",
                             background: "rgba(255, 255, 255, 0.3)",
                             backdropFilter: "blur(10px)",
-                            color: "#E0F2FF !important",
+                            color: "#ffffff !important",
                             border: "1px solid rgba(255, 255, 255, 0.4)",
                             transition: "all 0.3s ease",
                             "&:hover": {
@@ -1188,7 +1192,7 @@ export default function PhysicsStudyHub() {
                               textTransform: "none",
                               background: "rgba(100, 200, 255, 0.3)",
                               backdropFilter: "blur(10px)",
-                              color: "#E0F2FF !important",
+                              color: "#ffffff !important",
                               border: "1px solid rgba(100, 200, 255, 0.4)",
                               transition: "all 0.3s ease",
                               minWidth: "auto",
@@ -1215,7 +1219,7 @@ export default function PhysicsStudyHub() {
       {/* Volume 2 Tab (Chapters 1-4 only) */}
       {activeTab === 1 && selectedChapter === null && (
         <Box>
-          <Typography variant="h4" sx={{ color: "#E0F2FF !important", mb: 3, fontWeight: 700 }}>
+          <Typography variant="h4" sx={{ color: "#ffffff !important", mb: 3, fontWeight: 700 }}>
             {volumeStructure[1].title} - Chapters 1-{chapters.length}
           </Typography>
           <Grid container spacing={3}>
@@ -1257,7 +1261,7 @@ export default function PhysicsStudyHub() {
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            color: "#E0F2FF !important",
+                            color: "#ffffff !important",
                             fontWeight: 700,
                             fontSize: "1.25rem",
                             boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)"
@@ -1269,7 +1273,7 @@ export default function PhysicsStudyHub() {
                           variant="h6"
                           sx={{
                             fontWeight: 600,
-                            color: "#E0F2FF !important",
+                            color: "#ffffff !important",
                             lineHeight: 1.3,
                             textShadow: "0 1px 2px rgba(0,0,0,0.1)"
                           }}
@@ -1293,7 +1297,7 @@ export default function PhysicsStudyHub() {
                               background: "rgba(255, 255, 255, 0.2)",
                               backdropFilter: "blur(10px)",
                               border: "1px solid rgba(255, 255, 255, 0.3)",
-                              color: "#E0F2FF !important",
+                              color: "#ffffff !important",
                               fontSize: "0.8rem",
                               fontWeight: 500,
                               transition: "all 0.2s ease",
@@ -1316,7 +1320,7 @@ export default function PhysicsStudyHub() {
                             textTransform: "none",
                             background: "rgba(255, 255, 255, 0.3)",
                             backdropFilter: "blur(10px)",
-                            color: "#E0F2FF !important",
+                            color: "#ffffff !important",
                             border: "1px solid rgba(255, 255, 255, 0.4)",
                             transition: "all 0.3s ease",
                             "&:hover": {
@@ -1341,7 +1345,7 @@ export default function PhysicsStudyHub() {
                               textTransform: "none",
                               background: "rgba(100, 200, 255, 0.3)",
                               backdropFilter: "blur(10px)",
-                              color: "#E0F2FF !important",
+                              color: "#ffffff !important",
                               border: "1px solid rgba(100, 200, 255, 0.4)",
                               transition: "all 0.3s ease",
                               minWidth: "auto",
@@ -1368,7 +1372,7 @@ export default function PhysicsStudyHub() {
       {/* Volume 3 Tab (Chapters 1-4 only, with cross-reference to Vol 1 Ch 16) */}
       {activeTab === 2 && selectedChapter === null && (
         <Box>
-          <Typography variant="h4" sx={{ color: "#E0F2FF !important", mb: 3, fontWeight: 700 }}>
+          <Typography variant="h4" sx={{ color: "#ffffff !important", mb: 3, fontWeight: 700 }}>
             {volumeStructure[2].title} - Chapters 1-{volume3Chapters.length}
           </Typography>
           <Grid container spacing={3}>
@@ -1410,7 +1414,7 @@ export default function PhysicsStudyHub() {
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            color: "#E0F2FF !important",
+                            color: "#ffffff !important",
                             fontWeight: 700,
                             fontSize: "1.25rem",
                             boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)"
@@ -1423,7 +1427,7 @@ export default function PhysicsStudyHub() {
                             variant="h6"
                             sx={{
                               fontWeight: 600,
-                              color: "#E0F2FF !important",
+                              color: "#ffffff !important",
                               lineHeight: 1.3,
                               textShadow: "0 1px 2px rgba(0,0,0,0.1)"
                             }}
@@ -1448,7 +1452,7 @@ export default function PhysicsStudyHub() {
                               background: "rgba(255, 255, 255, 0.2)",
                               backdropFilter: "blur(10px)",
                               border: "1px solid rgba(255, 255, 255, 0.3)",
-                              color: "#E0F2FF !important",
+                              color: "#ffffff !important",
                               fontSize: "0.8rem",
                               fontWeight: 500,
                               transition: "all 0.2s ease",
@@ -1471,7 +1475,7 @@ export default function PhysicsStudyHub() {
                             textTransform: "none",
                             background: "rgba(255, 255, 255, 0.3)",
                             backdropFilter: "blur(10px)",
-                            color: "#E0F2FF !important",
+                            color: "#ffffff !important",
                             border: "1px solid rgba(255, 255, 255, 0.4)",
                             transition: "all 0.3s ease",
                             "&:hover": {
@@ -1496,7 +1500,7 @@ export default function PhysicsStudyHub() {
                               textTransform: "none",
                               background: "rgba(100, 200, 255, 0.3)",
                               backdropFilter: "blur(10px)",
-                              color: "#E0F2FF !important",
+                              color: "#ffffff !important",
                               border: "1px solid rgba(100, 200, 255, 0.4)",
                               transition: "all 0.3s ease",
                               minWidth: "auto",
@@ -1536,7 +1540,7 @@ export default function PhysicsStudyHub() {
                 background: "rgba(255, 255, 255, 0.15)",
                 backdropFilter: "blur(10px)",
                 border: "1px solid rgba(255, 255, 255, 0.3)",
-                color: "#E0F2FF !important",
+                color: "#ffffff !important",
                 "&:hover": {
                   background: "rgba(255, 255, 255, 0.25)",
                   border: "1px solid rgba(255, 255, 255, 0.5)"
@@ -1574,7 +1578,7 @@ export default function PhysicsStudyHub() {
                         textTransform: "none",
                         background: "rgba(100, 200, 255, 0.3)",
                         backdropFilter: "blur(10px)",
-                        color: "#E0F2FF !important",
+                        color: "#ffffff !important",
                         border: "1px solid rgba(100, 200, 255, 0.4)",
                         borderRadius: 2,
                         transition: "all 0.3s ease",
@@ -1610,7 +1614,7 @@ export default function PhysicsStudyHub() {
                         background: "rgba(255, 255, 255, 0.2)",
                         backdropFilter: "blur(10px)",
                         border: "1px solid rgba(255, 255, 255, 0.3)",
-                        color: "#E0F2FF !important",
+                        color: "#ffffff !important",
                         fontWeight: 500
                       }}
                     />
@@ -1703,7 +1707,7 @@ export default function PhysicsStudyHub() {
                       sx={{
                         background: "rgba(255, 255, 255, 0.3)",
                         backdropFilter: "blur(10px)",
-                        color: "#E0F2FF !important",
+                        color: "#ffffff !important",
                         border: "1px solid rgba(255, 255, 255, 0.4)",
                         "&:hover": {
                           background: "rgba(255, 255, 255, 0.4)"
@@ -1717,7 +1721,7 @@ export default function PhysicsStudyHub() {
                       size="small"
                       sx={{
                         borderColor: "rgba(255, 255, 255, 0.5)",
-                        color: "#E0F2FF !important",
+                        color: "#ffffff !important",
                         "&:hover": {
                           borderColor: "white",
                           background: "rgba(255, 255, 255, 0.1)"
@@ -1752,7 +1756,7 @@ export default function PhysicsStudyHub() {
                       size="small"
                       sx={{
                         background: "rgba(255, 255, 255, 0.2)",
-                        color: "#E0F2FF !important",
+                        color: "#ffffff !important",
                         border: "1px solid rgba(255, 255, 255, 0.3)"
                       }}
                     />
@@ -1784,7 +1788,7 @@ export default function PhysicsStudyHub() {
                       size="small"
                       sx={{
                         background: "rgba(255, 255, 255, 0.2)",
-                        color: "#E0F2FF !important",
+                        color: "#ffffff !important",
                         border: "1px solid rgba(255, 255, 255, 0.3)"
                       }}
                     />
@@ -1839,7 +1843,7 @@ export default function PhysicsStudyHub() {
                             : "rgba(244, 67, 54, 0.3)",
                           backdropFilter: "blur(10px)",
                           border: "1px solid rgba(255, 255, 255, 0.3)",
-                          color: "#E0F2FF !important",
+                          color: "#ffffff !important",
                           transition: "all 0.3s ease",
                           "&:hover": {
                             transform: "scale(1.1)"
@@ -1855,7 +1859,7 @@ export default function PhysicsStudyHub() {
                         background: "rgba(255, 255, 255, 0.2)",
                         backdropFilter: "blur(10px)",
                         border: "1px solid rgba(255, 255, 255, 0.3)",
-                        color: "#E0F2FF !important",
+                        color: "#ffffff !important",
                         transition: "all 0.2s ease",
                         "&:hover": {
                           background: "rgba(255, 255, 255, 0.3)"
@@ -1893,7 +1897,7 @@ export default function PhysicsStudyHub() {
                             onClick={() => setShowSolution(null)}
                             sx={{
                               borderColor: "rgba(255, 255, 255, 0.5)",
-                              color: "#E0F2FF !important",
+                              color: "#ffffff !important",
                               transition: "all 0.3s ease",
                               "&:hover": {
                                 borderColor: "white",
@@ -1914,7 +1918,7 @@ export default function PhysicsStudyHub() {
                         sx={{
                           background: "rgba(255, 255, 255, 0.3)",
                           backdropFilter: "blur(10px)",
-                          color: "#E0F2FF !important",
+                          color: "#ffffff !important",
                           border: "1px solid rgba(255, 255, 255, 0.4)",
                           transition: "all 0.3s ease",
                           "&:hover": {
@@ -2017,7 +2021,7 @@ export default function PhysicsStudyHub() {
                         fontSize: "1.2rem",
                         textAlign: "center",
                         borderRadius: 2,
-                        color: "#E0F2FF !important",
+                        color: "#ffffff !important",
                         transition: "all 0.3s ease",
                         "&:hover": {
                           background: "rgba(255, 255, 255, 0.3)",
@@ -2049,10 +2053,10 @@ export default function PhysicsStudyHub() {
                             display="block"
                             sx={{
                               ml: 1,
-                              color: "#E0F2FF !important",
+                              color: "#ffffff !important",
                               transition: "all 0.2s ease",
                               "&:hover": {
-                                color: "#E0F2FF !important",
+                                color: "#ffffff !important",
                                 transform: "translateX(4px)"
                               }
                             }}
@@ -2169,7 +2173,7 @@ export default function PhysicsStudyHub() {
                     disabled={flashcards.length === 0}
                     sx={{
                       borderColor: "rgba(255, 255, 255, 0.5)",
-                      color: "#E0F2FF !important",
+                      color: "#ffffff !important",
                       transition: "all 0.3s ease",
                       "&:hover": {
                         borderColor: "white",
@@ -2186,7 +2190,7 @@ export default function PhysicsStudyHub() {
                     sx={{
                       background: "rgba(255, 255, 255, 0.3)",
                       backdropFilter: "blur(10px)",
-                      color: "#E0F2FF !important",
+                      color: "#ffffff !important",
                       border: "1px solid rgba(255, 255, 255, 0.4)",
                       transition: "all 0.3s ease",
                       "&:hover": {
@@ -2206,7 +2210,7 @@ export default function PhysicsStudyHub() {
                     disabled={flashcards.length === 0}
                     sx={{
                       borderColor: "rgba(255, 255, 255, 0.5)",
-                      color: "#E0F2FF !important",
+                      color: "#ffffff !important",
                       transition: "all 0.3s ease",
                       "&:hover": {
                         borderColor: "white",
@@ -2326,12 +2330,12 @@ export default function PhysicsStudyHub() {
                                 background: "rgba(255, 152, 0, 0.3)",
                                 backdropFilter: "blur(10px)",
                                 border: "1px solid rgba(255, 152, 0, 0.5)",
-                                color: "#E0F2FF !important",
+                                color: "#ffffff !important",
                                 fontSize: "0.7rem",
                                 height: "auto",
                                 py: 0.5,
                                 "& .MuiChip-icon": {
-                                  color: "#E0F2FF !important",
+                                  color: "#ffffff !important",
                                   marginLeft: "4px"
                                 }
                               }}
@@ -2353,7 +2357,7 @@ export default function PhysicsStudyHub() {
                                 : msg.warning
                                 ? "1px solid rgba(255, 152, 0, 0.4)"
                                 : "1px solid rgba(255, 255, 255, 0.3)",
-                              color: "#E0F2FF !important",
+                              color: "#ffffff !important",
                               borderRadius: 3,
                               transition: "all 0.3s ease",
                               "&:hover": {
@@ -2395,7 +2399,7 @@ export default function PhysicsStudyHub() {
                                 background: "rgba(76, 175, 80, 0.3)",
                                 backdropFilter: "blur(10px)",
                                 border: "1px solid rgba(76, 175, 80, 0.5)",
-                                color: "#E0F2FF !important",
+                                color: "#ffffff !important",
                                 fontSize: "0.7rem",
                                 height: "auto",
                                 py: 0.3
@@ -2548,7 +2552,7 @@ export default function PhysicsStudyHub() {
                   <Box sx={{ mb: 2 }}>
                     <Box sx={{ display: "flex", alignItems: "center", gap: 0.5, mb: 1 }}>
                       <LightbulbIcon sx={{ fontSize: "1rem", color: "white" }} />
-                      <Typography variant="caption" sx={{ color: "#E0F2FF !important", fontWeight: 600 }}>
+                      <Typography variant="caption" sx={{ color: "#ffffff !important", fontWeight: 600 }}>
                         Suggested Questions:
                       </Typography>
                     </Box>
@@ -2564,7 +2568,7 @@ export default function PhysicsStudyHub() {
                               background: "rgba(100, 180, 255, 0.25)",
                               backdropFilter: "blur(10px)",
                               border: "1px solid rgba(100, 180, 255, 0.4)",
-                              color: "#E0F2FF !important",
+                              color: "#ffffff !important",
                               fontSize: "0.85rem",
                               py: 2.5,
                               px: 1,
@@ -2601,7 +2605,7 @@ export default function PhysicsStudyHub() {
                   disabled={isLoading}
                   sx={{
                     "& .MuiOutlinedInput-root": {
-                      color: "#E0F2FF !important",
+                      color: "#ffffff !important",
                       background: "rgba(255, 255, 255, 0.1)",
                       backdropFilter: "blur(10px)",
                       "& fieldset": { borderColor: "rgba(255, 255, 255, 0.3)" },
@@ -2609,7 +2613,7 @@ export default function PhysicsStudyHub() {
                       "&.Mui-focused fieldset": { borderColor: "white" },
                     },
                     "& .MuiInputBase-input::placeholder": {
-                      color: "#E0F2FF !important",
+                      color: "#ffffff !important",
                       opacity: 1
                     }
                   }}
@@ -2621,7 +2625,7 @@ export default function PhysicsStudyHub() {
                     px: 4,
                     background: "rgba(255, 255, 255, 0.3)",
                     backdropFilter: "blur(10px)",
-                    color: "#E0F2FF !important",
+                    color: "#ffffff !important",
                     border: "1px solid rgba(255, 255, 255, 0.4)",
                     transition: "all 0.3s ease",
                     "&:hover": {
