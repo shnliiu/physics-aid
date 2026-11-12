@@ -153,7 +153,7 @@ export default function AuthPage() {
               >
                 {isLogin ? "Welcome Back" : "Create Account"}
               </Typography>
-              <Typography variant="body2" sx={{ color: "#90caf9" }}>
+              <Typography variant="body2" sx={{ color: "#ffffff" }}>
                 {isLogin
                   ? "Sign in to continue your learning journey"
                   : "Join thousands of students mastering physics"}
@@ -188,7 +188,7 @@ export default function AuthPage() {
                       },
                     },
                     "& .MuiInputLabel-root": {
-                      color: "#90caf9",
+                      color: "#ffffff",
                     },
                   }}
                   InputProps={{
@@ -226,7 +226,7 @@ export default function AuthPage() {
                   },
                 },
                 "& .MuiInputLabel-root": {
-                  color: "#90caf9",
+                  color: "#ffffff",
                 },
               }}
               InputProps={{
@@ -262,7 +262,7 @@ export default function AuthPage() {
                   },
                 },
                 "& .MuiInputLabel-root": {
-                  color: "#90caf9",
+                  color: "#ffffff",
                 },
               }}
               InputProps={{
@@ -306,7 +306,7 @@ export default function AuthPage() {
                       },
                     }}
                   />
-                  <Typography variant="caption" sx={{ color: "#90caf9", mt: 0.5, display: "block" }}>
+                  <Typography variant="caption" sx={{ color: "#ffffff", mt: 0.5, display: "block" }}>
                     Password strength:{" "}
                     {passwordStrength < 50 ? "Weak" : passwordStrength < 75 ? "Medium" : "Strong"}
                   </Typography>
@@ -318,7 +318,7 @@ export default function AuthPage() {
               <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 3 }}>
                 <FormControlLabel
                   control={<Checkbox sx={{ color: "#42a5f5" }} />}
-                  label={<Typography variant="body2" sx={{ color: "#90caf9" }}>Remember me</Typography>}
+                  label={<Typography variant="body2" sx={{ color: "#ffffff" }}>Remember me</Typography>}
                 />
                 <Button
                   variant="text"
@@ -363,7 +363,7 @@ export default function AuthPage() {
 
           {/* Divider */}
           <Divider sx={{ mb: 3, borderColor: "rgba(66, 165, 245, 0.2)" }}>
-            <Typography variant="body2" sx={{ color: "#90caf9", px: 2 }}>
+            <Typography variant="body2" sx={{ color: "#ffffff", px: 2 }}>
               Or continue with
             </Typography>
           </Divider>
@@ -399,7 +399,7 @@ export default function AuthPage() {
 
           {/* Toggle Login/Signup */}
           <Box sx={{ textAlign: "center" }}>
-            <Typography variant="body2" sx={{ color: "#90caf9" }}>
+            <Typography variant="body2" sx={{ color: "#ffffff" }}>
               {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
               <Button
                 variant="text"

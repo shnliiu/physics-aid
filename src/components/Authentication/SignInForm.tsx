@@ -170,7 +170,7 @@ const SignInForm: React.FC = () => {
                       width={25}
                       height={25}
                     />
-                    <Typography sx={{ fontWeight: 500, color: "#757575" }}>
+                    <Typography sx={{ fontWeight: 500, color: "#ffffff" }}>
                       Sign in with Google
                     </Typography>
                   </Button>
@@ -181,7 +181,7 @@ const SignInForm: React.FC = () => {
                   <Typography 
                     variant="body2" 
                     sx={{ 
-                      color: "text.secondary",
+                      color: "#ffffff",
                       fontSize: "14px",
                       mb: 2
                     }}
@@ -330,7 +330,7 @@ const SignInForm: React.FC = () => {
                         // Disabled state styles
                         "&.Mui-disabled": {
                           backgroundColor: "#000", // Light gray background
-                          color: "#9e9e9e !important", // Darker gray text
+                          color: "#ffffff !important",
                           cursor: "not-allowed",
                         },
                       }}
