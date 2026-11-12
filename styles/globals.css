@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
   --fontFamily: "Inter", sans-serif;
-  --blackColor: #3A4252;
+  --blackColor: #ffffff;
   --whiteColor: #ffffff;
-  --bodyColor: #64748B;
+  --bodyColor: #ffffff;
   --borderColor: #ECEEF2;
   --transition: .5s;
   --fontSize: 14px;
