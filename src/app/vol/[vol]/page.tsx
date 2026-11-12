@@ -1,16 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { use } from 'react';
 import { useRouter } from 'next/navigation';
-import { VolumeTabs } from '@/components/VolumeTabs';
 
 export default function VolumePage({ params }: { params: Promise<{ vol: string }> }) {
+  const { vol } = use(params);
   const router = useRouter();
-  const [vol, setVol] = useState<string>('');
-
-  useEffect(() => {
-    params.then(({ vol }) => setVol(vol));
-  }, [params]);
 
   const mockChapters = [
     { number: 1, title: 'Temperature and Heat' },
@@ -53,16 +48,6 @@ export default function VolumePage({ params }: { params: Promise<{ vol: string }
               </p>
             </div>
           ))}
-        </div>
-        
-        <div className="mt-8 bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-            Database Migration Notice
-          </h2>
-          <p className="text-gray-600 dark:text-gray-300">
-            Chapter data is being migrated from AWS Amplify to Supabase. 
-            Full functionality will be restored once the migration is complete.
-          </p>
         </div>
       </main>
     </div>
