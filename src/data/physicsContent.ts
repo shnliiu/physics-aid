@@ -312,7 +312,7 @@ export const chapters: Chapter[] = [
       },
     ],
     concepts: [
-      { term: "Electric Field", definition: "Force per unit charge" }
+      { title: "Electric Field", explanation: "Force per unit charge" }
     ],
   },
   {
@@ -329,7 +329,7 @@ export const chapters: Chapter[] = [
       },
     ],
     concepts: [
-      { term: "Capacitor", definition: "Device that stores electric charge" }
+      { title: "Capacitor", explanation: "Device that stores electric charge" }
     ],
   },
   {
@@ -346,7 +346,7 @@ export const chapters: Chapter[] = [
       },
     ],
     concepts: [
-      { term: "Current", definition: "Rate of charge flow" }
+      { title: "Current", explanation: "Rate of charge flow" }
     ],
   },
   {
@@ -363,7 +363,7 @@ export const chapters: Chapter[] = [
       },
     ],
     concepts: [
-      { term: "Kirchhoff's Laws", definition: "Conservation of charge and energy in circuits" }
+      { title: "Kirchhoff's Laws", explanation: "Conservation of charge and energy in circuits" }
     ],
   },
   {
@@ -380,7 +380,7 @@ export const chapters: Chapter[] = [
       },
     ],
     concepts: [
-      { term: "Magnetic Field", definition: "Force field created by moving charges" }
+      { title: "Magnetic Field", explanation: "Force field created by moving charges" }
     ],
   },
   {
@@ -397,7 +397,7 @@ export const chapters: Chapter[] = [
       },
     ],
     concepts: [
-      { term: "Solenoid", definition: "Coil that produces uniform magnetic field" }
+      { title: "Solenoid", explanation: "Coil that produces uniform magnetic field" }
     ],
   },
   {
@@ -414,7 +414,7 @@ export const chapters: Chapter[] = [
       },
     ],
     concepts: [
-      { term: "Induction", definition: "Generation of EMF by changing magnetic flux" }
+      { title: "Induction", explanation: "Generation of EMF by changing magnetic flux" }
     ],
   },
   {
@@ -431,7 +431,7 @@ export const chapters: Chapter[] = [
       },
     ],
     concepts: [
-      { term: "Inductor", definition: "Component that stores energy in magnetic field" }
+      { title: "Inductor", explanation: "Component that stores energy in magnetic field" }
     ],
   },
   {
@@ -448,7 +448,7 @@ export const chapters: Chapter[] = [
       },
     ],
     concepts: [
-      { term: "Impedance", definition: "AC resistance including reactance" }
+      { title: "Impedance", explanation: "AC resistance including reactance" }
     ],
   },
   {
@@ -465,7 +465,7 @@ export const chapters: Chapter[] = [
       },
     ],
     concepts: [
-      { term: "EM Wave", definition: "Propagating disturbance in electric and magnetic fields" }
+      { title: "EM Wave", explanation: "Propagating disturbance in electric and magnetic fields" }
     ],
   },
   {
@@ -482,7 +482,7 @@ export const chapters: Chapter[] = [
       },
     ],
     concepts: [
-      { term: "Refraction", definition: "Bending of light at interface between media" }
+      { title: "Refraction", explanation: "Bending of light at interface between media" }
     ],
   },
   {
@@ -499,7 +499,7 @@ export const chapters: Chapter[] = [
       },
     ],
     concepts: [
-      { term: "Interference", definition: "Superposition of waves creating patterns" }
+      { title: "Interference", explanation: "Superposition of waves creating patterns" }
     ],
   },
 ];

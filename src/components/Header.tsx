@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useAuthenticator } from '@aws-amplify/ui-react';
+import { useSupabase } from '@/providers/SupabaseProvider';
 
 interface HeaderProps {
   title?: string;
@@ -10,7 +10,7 @@ interface HeaderProps {
 
 export function Header({ title = 'Physics 4C TA', showNav = true }: HeaderProps) {
   const router = useRouter();
-  const { user, signOut } = useAuthenticator((context) => [context.user]);
+  const { user, signOut } = useSupabase();
 
   return (
     <header className="sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-md border-b border-gray-200 dark:border-gray-700">
@@ -58,7 +58,7 @@ export function Header({ title = 'Physics 4C TA', showNav = true }: HeaderProps)
               </button>
               <div className="ml-4 flex items-center gap-3 pl-4 border-l border-gray-200 dark:border-gray-700">
                 <div className="text-sm text-gray-600 dark:text-gray-400">
-                  {user.signInDetails?.loginId || 'User'}
+                  {user.email || 'User'}
                 </div>
                 <button
                   onClick={() => signOut()}

@@ -411,7 +411,7 @@ export default function PhysicsStudyHub() {
         ],
 
         // Chapter 2: Kinetic Theory of Gases
-        'kinetic': [
+        'kinetic-theory': [
           "Explain kinetic theory of gases",
           "How does temperature relate to kinetic energy?",
           "Derive the ideal gas law from kinetic theory",
@@ -428,7 +428,7 @@ export default function PhysicsStudyHub() {
           "Explain gas processes (isothermal, adiabatic)",
           "Calculate pressure and temperature in gases"
         ],
-        'pressure': [
+        'gas-pressure': [
           "Explain pressure in gases",
           "What is the PV diagram?",
           "How does pressure relate to temperature?"
@@ -449,7 +449,7 @@ export default function PhysicsStudyHub() {
           "How does internal energy change?",
           "Explain internal energy in gases"
         ],
-        'work': [
+        'thermodynamic-work': [
           "How is work related to heat?",
           "Calculate work done by a gas",
           "What is work in thermodynamic processes?"
@@ -1667,8 +1667,8 @@ export default function PhysicsStudyHub() {
                   {chapter.concepts.map((concept, idx) => (
                     <ListItem key={idx}>
                       <ListItemText
-                        primary={concept.term}
-                        secondary={concept.definition}
+                        primary={concept.title}
+                        secondary={concept.explanation}
                         primaryTypographyProps={{ fontWeight: 600, color: "white" }}
                         secondaryTypographyProps={{ color: "white" }}
                       />

@@ -25,7 +25,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "@/theme";
 import LayoutProvider from "@/providers/LayoutProvider";
-import AmplifyProvider from "@/providers/AmplifyProvider";
+import { SupabaseProvider } from "@/providers/SupabaseProvider";
 import { ToastProvider } from "@/components/Toast";
 
 export const metadata = {
@@ -48,10 +48,10 @@ export default function RootLayout(props: { children: React.ReactNode }) {
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
 
-            <AmplifyProvider>
+            <SupabaseProvider>
               <LayoutProvider>{props.children}</LayoutProvider>
               <ToastProvider />
-            </AmplifyProvider>
+            </SupabaseProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
