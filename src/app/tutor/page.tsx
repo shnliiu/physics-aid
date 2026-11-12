@@ -931,7 +931,7 @@ export default function PhysicsStudyHub() {
       {/* Main Content Area */}
       <Box sx={{
         flex: 1,
-        maxWidth: sidebarOpen ? "100%" : "1000px",
+        maxWidth: sidebarOpen ? "100%" : "1400px",
         height: "100vh",
         overflowY: "auto",
         p: 4,
