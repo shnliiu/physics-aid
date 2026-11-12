@@ -718,11 +718,11 @@ export default function PhysicsStudyHub() {
       `,
       backgroundAttachment: "fixed",
       display: "flex",
+      justifyContent: sidebarOpen ? "flex-start" : "center",
       position: "relative",
-      overflow: "hidden"
     }}>
       {/* Left Sidebar - Glassmorphism */}
-      <Slide in={sidebarOpen} direction="right" timeout={500}>
+      {sidebarOpen && (
         <Box
           sx={{
             width: 320,
@@ -926,20 +926,17 @@ export default function PhysicsStudyHub() {
             </Button>
           </Box>
         </Box>
-      </Slide>
+      )}
 
       {/* Main Content Area */}
       <Box sx={{
         flex: 1,
+        maxWidth: sidebarOpen ? "100%" : "1000px",
         height: "100vh",
         overflowY: "auto",
         p: 4,
         position: "relative",
         zIndex: 1,
-        transition: "margin-left 0.5s ease",
-        marginLeft: sidebarOpen ? 0 : "auto",
-        maxWidth: sidebarOpen ? "calc(100% - 320px)" : "900px",
-        mx: sidebarOpen ? 0 : "auto"
       }}>
         {/* Header */}
         {!sidebarOpen && (
